@@ -1,13 +1,23 @@
 #include "physic.h"
 
-double sphere_submerged_volume(Sphere* sphere, Vector v1, Vector v2, Point ori)
+double sphere_submerged_volume(Sphere* sphere, Vector v1, Vector v2, Point eau)
 {
-    double hbas = sphere->getAnim().getPos().y - sphere->getRadius();
-    double hc = 2 * sphere->getRadius();
-    if(hbas > hc)
-        hc = ori.y - hbas;
-    std::cout << "Y : " << sphere->getAnim().getPos().y << " - HC : " << hc << std::endl;
-    double vc = (PI * hc * (3 * sphere->getRadius() - hc)) / 3;
+    double ball_y = sphere->getAnim().getPos().y;
+    double ball_r = sphere->getRadius();
 
+    double hbas = ball_y - ball_r;
+    //double hc = 2 * ball_r;
+    double hc = eau.y - hbas;
+
+    if(ball_y + ball_r <= eau.y)
+        hc = 2 * ball_r;
+    else if(ball_y - ball_r > eau.y)
+        hc = 0;
+    //if(hbas > hc)
+        //hc = eau.y - hbas;
+
+    std::cout << "Y : " << ball_y << " - HC : " << hc << std::endl;
+
+    double vc = (PI * hc * hc * (3 * ball_r - hc)) / 3;
     return vc;
 }

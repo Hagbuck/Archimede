@@ -3267,7 +3267,7 @@
 1466429544 c:\users\anthony.vuillemin\git\archimede\include\geometry.h
 	<iostream>
 
-1529590965 source:c:\users\anthony.vuillemin\git\archimede\src\first_prog.cpp
+1529595881 source:c:\users\anthony.vuillemin\git\archimede\src\first_prog.cpp
 	<iostream>
 	<cmath>
 	<SDL2/SDL.h>
@@ -3612,11 +3612,11 @@
 	<stdint.h>
 	<inttypes.h>
 
-1497624653 c:\users\anthony.vuillemin\git\archimede\include\forms.h
+1529594730 c:\users\anthony.vuillemin\git\archimede\include\forms.h
 	"geometry.h"
 	"animation.h"
 
-1529588267 source:c:\users\anthony.vuillemin\git\archimede\src\forms.cpp
+1529594725 source:c:\users\anthony.vuillemin\git\archimede\src\forms.cpp
 	<cmath>
 	<SDL2/SDL_opengl.h>
 	<GL/GLU.h>
@@ -3626,10 +3626,16 @@
 	<cmath>
 	"geometry.h"
 
-1529590571 source:c:\users\anthony.vuillemin\git\archimede\src\physic.cpp
+1529595974 source:c:\users\anthony.vuillemin\git\archimede\src\physic.cpp
 	"physic.h"
 
-1529590136 c:\users\anthony.vuillemin\git\archimede\include\physic.h
+1529595701 c:\users\anthony.vuillemin\git\archimede\include\physic.h
 	<iostream>
+	"forms.h"
+
+1529594742 source:c:\users\anthony.vuillemin\git\archimede\src\sphere.cpp
+	"sphere.h"
+
+1529594734 c:\users\anthony.vuillemin\git\archimede\include\sphere.h
 	"forms.h"
 

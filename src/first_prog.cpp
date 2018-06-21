@@ -250,7 +250,8 @@ int main(int argc, char* args[])
         Cube_face *fond = NULL;
         Vector v1 = Vector(1,0,0);
         Vector v2 = Vector(0,0,1);
-        fond = new Cube_face(v1, v2, Point(0, 0.2, 0));
+        Point ori_fond = Point(0, 0, 0);
+        fond = new Cube_face(v1, v2, ori_fond);
         forms_list[number_of_forms] = fond;
         number_of_forms++;
 
@@ -261,7 +262,7 @@ int main(int argc, char* args[])
         number_of_forms++;
 
         Sphere *sp = NULL;
-        sp = new Sphere(0.2);
+        sp = new Sphere(0.4);
         Point ori_sp = Point(0,1.5,0);
         sp->setAnim(Animation(0,0,0,0, ori_sp));
         sp->render();
@@ -319,7 +320,7 @@ int main(int argc, char* args[])
             if (elapsed_time > ANIM_DELAY)
             {
                 Animation a = sp->getAnim();
-                if(a.getPos().y >= 0.2)
+                if(a.getPos().y >= ori_fond.y)
                 {
                     a.setPos(Point(0, a.getPos().y-0.01, 0));
                     sp->setAnim(a);
