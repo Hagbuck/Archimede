@@ -44,6 +44,7 @@ void Sphere::render()
 
     gluQuadricDrawStyle(quad, GLU_LINE);
 
+    glMatrixMode(GL_MODELVIEW);
     glPushMatrix();
 
     Point pos = anim.getPos();

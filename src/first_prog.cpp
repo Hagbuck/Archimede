@@ -247,21 +247,31 @@ int main(int argc, char* args[])
         }
         // Create here specific forms and add them to the list...
         // Don't forget to update the actual number_of_forms !
-        Cube_face *plan = NULL;
+        Cube_face *fond = NULL;
         Vector v1 = Vector(1,0,0);
         Vector v2 = Vector(0,0,1);
-        plan = new Cube_face(v1, v2, Point(0, 0, 0));
-        forms_list[number_of_forms] = plan;
+        fond = new Cube_face(v1, v2, Point(0, 0.2, 0));
+        forms_list[number_of_forms] = fond;
+        number_of_forms++;
+
+        Cube_face *eau = NULL;
+        Point eau_ori = Point(0, 0.7, 0);
+        eau = new Cube_face(v1, v2, eau_ori);
+        forms_list[number_of_forms] = eau;
         number_of_forms++;
 
         Sphere *sp = NULL;
         sp = new Sphere(0.2);
+        Point ori_sp = Point(0,1.5,0);
+        sp->setAnim(Animation(0,0,0,0, ori_sp));
+        sp->render();
         forms_list[number_of_forms] = sp;
         number_of_forms++;
 
         // Get first "current time"
         previous_time = SDL_GetTicks();
         // While application is running
+        Animation a;
         while(!quit)
         {
             // Handle events on queue
@@ -288,6 +298,12 @@ int main(int argc, char* args[])
                         quit = true;
                         break;
 
+                    case SDLK_SPACE:
+                        a = sp->getAnim();
+                        a.setPos(ori_sp);
+                        sp->setAnim(a);
+                        break;
+
                     default:
                         break;
                     }
@@ -303,10 +319,12 @@ int main(int argc, char* args[])
             if (elapsed_time > ANIM_DELAY)
             {
                 Animation a = sp->getAnim();
-                if(a.getPos().y >= -1.5)
-                    a.setPos(Point(0, -(current_time*0.0001), 0));
-                sp->setAnim(a);
-                cout << "Vol : " << sphere_submerged_volume(sp, v1, v2) << endl;
+                if(a.getPos().y >= 0.2)
+                {
+                    a.setPos(Point(0, a.getPos().y-0.01, 0));
+                    sp->setAnim(a);
+                    cout << "Vol : " << sphere_submerged_volume(sp, v1, v2, eau_ori) << endl;
+                }
                 //cout << "Sphere (" << sp->getAnim().getPos().x << ":" << sp->getAnim().getPos().y << ":" <<  sp->getAnim().getPos().z << ")" << endl;
                 previous_time = current_time;
                 update(forms_list, 1e-3 * elapsed_time); // International system units : seconds
