@@ -12,6 +12,8 @@
 
 #include "physic.h"
 
+#include "sphere.h"
+
 
 using namespace std;
 
@@ -250,13 +252,13 @@ int main(int argc, char* args[])
         Cube_face *fond = NULL;
         Vector v1 = Vector(1,0,0);
         Vector v2 = Vector(0,0,1);
-        Point ori_fond = Point(0, 0, 0);
+        Point ori_fond = Point(-.5, 0, -.5);
         fond = new Cube_face(v1, v2, ori_fond);
         forms_list[number_of_forms] = fond;
         number_of_forms++;
 
         Cube_face *eau = NULL;
-        Point eau_ori = Point(0, 0.7, 0);
+        Point eau_ori = Point(-.5, 0.7, -.5);
         eau = new Cube_face(v1, v2, eau_ori);
         forms_list[number_of_forms] = eau;
         number_of_forms++;
@@ -326,7 +328,6 @@ int main(int argc, char* args[])
                     sp->setAnim(a);
                     cout << "Vol : " << sphere_submerged_volume(sp, v1, v2, eau_ori) << endl;
                 }
-                //cout << "Sphere (" << sp->getAnim().getPos().x << ":" << sp->getAnim().getPos().y << ":" <<  sp->getAnim().getPos().z << ")" << endl;
                 previous_time = current_time;
                 update(forms_list, 1e-3 * elapsed_time); // International system units : seconds
             }

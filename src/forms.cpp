@@ -1,6 +1,3 @@
-#include <cmath>
-#include <SDL2/SDL_opengl.h>
-#include <GL/GLU.h>
 #include "forms.h"
 
 
@@ -21,42 +18,6 @@ void Form::render()
     glTranslated(org.x, org.y, org.z);
     glColor3f(col.r, col.g, col.b);
 }
-
-
-Sphere::Sphere(double r, Color cl)
-{
-    radius = r;
-    col = cl;
-}
-
-
-void Sphere::update(double delta_t)
-{
-    // Complete this part
-}
-
-
-void Sphere::render()
-{
-    GLUquadric *quad;
-
-    quad = gluNewQuadric();
-
-    gluQuadricDrawStyle(quad, GLU_LINE);
-
-    glMatrixMode(GL_MODELVIEW);
-    glPushMatrix();
-
-    Point pos = anim.getPos();
-    glTranslated(pos.x, pos.y, pos.z);
-
-    gluSphere(quad, radius, 40, 40);
-
-    glPopMatrix();
-
-    gluDeleteQuadric(quad);
-}
-
 
 Cube_face::Cube_face(Vector v1, Vector v2, Point org, double l, double w, Color cl)
 {

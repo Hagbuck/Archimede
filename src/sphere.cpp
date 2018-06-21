@@ -1,5 +1,5 @@
 #include "sphere.h"
-/*
+
 Sphere::Sphere(double r, Color cl)
 {
     radius = r;
@@ -13,7 +13,7 @@ void Sphere::update(double delta_t)
 }
 
 
-void Sphere::render()
+void Sphere::render(void)
 {
     GLUquadric *quad = NULL;
 
@@ -27,10 +27,14 @@ void Sphere::render()
     Point pos = anim.getPos();
     glTranslated(pos.x, pos.y, pos.z);
 
-    gluSphere(quad, radius, 40, 40);
+    gluSphere(quad, radius, SPHERE_SLICES, SPHERE_STACKS);
 
     glPopMatrix();
 
     gluDeleteQuadric(quad);
 }
-*/
+
+Point Sphere::getCenter(void)
+{
+    return anim.getPos();
+}
