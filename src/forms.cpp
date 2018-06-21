@@ -42,7 +42,16 @@ void Sphere::render()
 
     quad = gluNewQuadric();
 
-    // Complete this part
+    gluQuadricDrawStyle(quad, GLU_LINE);
+
+    glPushMatrix();
+
+    Point pos = anim.getPos();
+    glTranslated(pos.x, pos.y, pos.z);
+
+    gluSphere(quad, radius, 40, 40);
+
+    glPopMatrix();
 
     gluDeleteQuadric(quad);
 }
@@ -75,7 +84,7 @@ void Cube_face::render()
     p4.translate(width*vdir2);
 
     Form::render();
-    glBegin(GL_QUADS);
+    glBegin(GL_LINE_LOOP);
     {
         glColor3f(1,1,0);
         glVertex3d(p1.x, p1.y, p1.z);

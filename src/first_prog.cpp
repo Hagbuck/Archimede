@@ -10,6 +10,8 @@
 // Module for generating and rendering forms
 #include "forms.h"
 
+#include "physic.h"
+
 
 using namespace std;
 
@@ -245,9 +247,16 @@ int main(int argc, char* args[])
         }
         // Create here specific forms and add them to the list...
         // Don't forget to update the actual number_of_forms !
-        Cube_face *pfirst_face = NULL;
-        pfirst_face = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(-0.5, -0.5, -0.5));
-        forms_list[number_of_forms] = pfirst_face;
+        Cube_face *plan = NULL;
+        Vector v1 = Vector(1,0,0);
+        Vector v2 = Vector(0,0,1);
+        plan = new Cube_face(v1, v2, Point(0, 0, 0));
+        forms_list[number_of_forms] = plan;
+        number_of_forms++;
+
+        Sphere *sp = NULL;
+        sp = new Sphere(0.2);
+        forms_list[number_of_forms] = sp;
         number_of_forms++;
 
         // Get first "current time"
@@ -293,6 +302,12 @@ int main(int argc, char* args[])
             elapsed_time = current_time - previous_time;
             if (elapsed_time > ANIM_DELAY)
             {
+                Animation a = sp->getAnim();
+                if(a.getPos().y >= -1.5)
+                    a.setPos(Point(0, -(current_time*0.0001), 0));
+                sp->setAnim(a);
+                cout << "Vol : " << sphere_submerged_volume(sp, v1, v2) << endl;
+                //cout << "Sphere (" << sp->getAnim().getPos().x << ":" << sp->getAnim().getPos().y << ":" <<  sp->getAnim().getPos().z << ")" << endl;
                 previous_time = current_time;
                 update(forms_list, 1e-3 * elapsed_time); // International system units : seconds
             }
