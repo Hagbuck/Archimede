@@ -14,6 +14,8 @@
 
 #include "sphere.h"
 
+#include "water.h"
+
 
 using namespace std;
 
@@ -247,24 +249,13 @@ int main(int argc, char* args[])
         {
             forms_list[i] = NULL;
         }
-        // Create here specific forms and add them to the list...
-        // Don't forget to update the actual number_of_forms !
-        Cube_face *fond = NULL;
-        Vector v1 = Vector(1,0,0);
-        Vector v2 = Vector(0,0,1);
-        Point ori_fond = Point(-.5, 0, -.5);
-        fond = new Cube_face(v1, v2, ori_fond);
-        forms_list[number_of_forms] = fond;
+
+        Water* water = new Water();
+        forms_list[number_of_forms] = water;
         number_of_forms++;
 
-        Cube_face *eau = NULL;
-        Point eau_ori = Point(-.5, 0.7, -.5);
-        eau = new Cube_face(v1, v2, eau_ori);
-        forms_list[number_of_forms] = eau;
-        number_of_forms++;
-
-        Sphere *sp = NULL;
-        sp = new Sphere(0.4);
+        Sphere* sp = NULL;
+        sp = new Sphere(water, 0.4);
         Point ori_sp = Point(0,1.5,0);
         sp->setAnim(Animation(0,0,0,0, ori_sp));
         sp->render();
@@ -321,13 +312,6 @@ int main(int argc, char* args[])
             elapsed_time = current_time - previous_time;
             if (elapsed_time > ANIM_DELAY)
             {
-                Animation a = sp->getAnim();
-                if(a.getPos().y >= ori_fond.y)
-                {
-                    a.setPos(Point(0, a.getPos().y-0.01, 0));
-                    sp->setAnim(a);
-                    cout << "Vol : " << sphere_submerged_volume(sp, v1, v2, eau_ori) << endl;
-                }
                 previous_time = current_time;
                 update(forms_list, 1e-3 * elapsed_time); // International system units : seconds
             }
@@ -338,6 +322,7 @@ int main(int argc, char* args[])
             // Update window screen
             SDL_GL_SwapWindow(gWindow);
         }
+        delete sp;
     }
 
     // Free resources and close SDL

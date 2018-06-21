@@ -5,8 +5,8 @@
 
 #include <iostream>
 
-#include "sphere.h"
+#include "forms.h"
 
-double sphere_submerged_volume(Sphere* sphere, Vector v1, Vector v2, Point eau);
+double sphere_submerged_volume(Point sphere_center, double sphere_radius, Vector v1, Vector v2, Point eau);
 
 #endif // PHYSIC_H_INCLUDED

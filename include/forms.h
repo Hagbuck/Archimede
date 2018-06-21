@@ -53,6 +53,9 @@ public:
           Color cl = Color());
     void update(double delta_t);
     void render();
+
+    Vector getVdir1(void);
+    Vector getVdir2(void);
 };
 
 #endif // FORMS_H_INCLUDED

@@ -59,3 +59,13 @@ void Cube_face::render()
     }
     glEnd();
 }
+
+Vector Cube_face::getVdir1(void)
+{
+    return vdir1;
+}
+
+Vector Cube_face::getVdir2(void)
+{
+    return vdir2;
+}
