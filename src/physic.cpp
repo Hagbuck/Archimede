@@ -17,3 +17,9 @@ double sphere_submerged_volume(Point sphere_center, double sphere_radius, Vector
     double vc = (PI * hc * hc * (3 * sphere_radius - hc)) / 3;
     return vc;
 }
+
+double archimede(double submerged_volume)
+{
+    double archimede = WATER_DENSITY * submerged_volume * G;
+    return archimede;
+}

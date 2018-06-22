@@ -44,7 +44,7 @@ bool initGL();
 void update(Form* formlist[MAX_FORMS_NUMBER], double delta_t);
 
 // Renders scene to the screen
-const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos);
+const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, bool show_axes = true);
 
 // Frees media and shuts down SDL
 void close(SDL_Window** window);
@@ -158,7 +158,7 @@ void update(Form* formlist[MAX_FORMS_NUMBER], double delta_t)
     }
 }
 
-const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos)
+const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, bool show_axes)
 {
     // Clear color buffer and Z-Buffer
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -173,23 +173,26 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos)
     glRotated(-45, 0, 1, 0);
     glRotated(30, 1, 0, -1);
 
-    // X, Y and Z axis
-    glPushMatrix(); // Preserve the camera viewing point for further forms
-    // Render the coordinates system
-    glBegin(GL_LINES);
+    if(show_axes)
     {
-        glColor3f(1.0f, 0.0f, 0.0f);
-        glVertex3i(0, 0, 0);
-        glVertex3i(1, 0, 0);
-        glColor3f(0.0f, 1.0f, 0.0f);
-        glVertex3i(0, 0, 0);
-        glVertex3i(0, 1, 0);
-        glColor3f(0.0f, 0.0f, 1.0f);
-        glVertex3i(0, 0, 0);
-        glVertex3i(0, 0, 1);
+         // X, Y and Z axis
+        glPushMatrix(); // Preserve the camera viewing point for further forms
+        // Render the coordinates system
+        glBegin(GL_LINES);
+        {
+            glColor3f(1.0f, 0.0f, 0.0f);
+            glVertex3i(0, 0, 0);
+            glVertex3i(1, 0, 0);
+            glColor3f(0.0f, 1.0f, 0.0f);
+            glVertex3i(0, 0, 0);
+            glVertex3i(0, 1, 0);
+            glColor3f(0.0f, 0.0f, 1.0f);
+            glVertex3i(0, 0, 0);
+            glVertex3i(0, 0, 1);
+        }
+        glEnd();
+        glPopMatrix(); // Restore the camera viewing point for next object
     }
-    glEnd();
-    glPopMatrix(); // Restore the camera viewing point for next object
 
     // Render the list of forms
     unsigned short i = 0;
@@ -240,7 +243,7 @@ int main(int argc, char* args[])
         SDL_Event event;
 
         // Camera position
-        Point camera_position(0, 0.0, 5.0);
+        Point camera_position(0, 0, 3.5);
 
         // The forms to render
         Form* forms_list[MAX_FORMS_NUMBER];
@@ -255,17 +258,13 @@ int main(int argc, char* args[])
         number_of_forms++;
 
         Sphere* sp = NULL;
-        sp = new Sphere(water, 0.4);
-        Point ori_sp = Point(0,1.5,0);
-        sp->setAnim(Animation(0,0,0,0, ori_sp));
-        sp->render();
+        sp = new Sphere(water, 0.2, 0.035, Point(0,2,0));
         forms_list[number_of_forms] = sp;
         number_of_forms++;
 
         // Get first "current time"
         previous_time = SDL_GetTicks();
         // While application is running
-        Animation a;
         while(!quit)
         {
             // Handle events on queue
@@ -293,9 +292,8 @@ int main(int argc, char* args[])
                         break;
 
                     case SDLK_SPACE:
-                        a = sp->getAnim();
-                        a.setPos(ori_sp);
-                        sp->setAnim(a);
+                        // On reset la position de la sphère
+                        sp->resetPosition();
                         break;
 
                     default:
@@ -317,12 +315,12 @@ int main(int argc, char* args[])
             }
 
             // Render the scene
-            render(forms_list, camera_position);
+            render(forms_list, camera_position, false);
 
             // Update window screen
             SDL_GL_SwapWindow(gWindow);
         }
-        delete sp;
+        //delete sp;
     }
 
     // Free resources and close SDL

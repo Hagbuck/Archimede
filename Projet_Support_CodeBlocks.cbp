@@ -46,10 +46,16 @@
 		<Unit filename="include/animation.h" />
 		<Unit filename="include/forms.h" />
 		<Unit filename="include/geometry.h" />
+		<Unit filename="include/physic.h" />
+		<Unit filename="include/sphere.h" />
+		<Unit filename="include/water.h" />
 		<Unit filename="src/animation.cpp" />
 		<Unit filename="src/first_prog.cpp" />
 		<Unit filename="src/forms.cpp" />
 		<Unit filename="src/geometry.cpp" />
+		<Unit filename="src/physic.cpp" />
+		<Unit filename="src/sphere.cpp" />
+		<Unit filename="src/water.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

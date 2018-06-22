@@ -10,25 +10,29 @@
 #include "water.h"
 #include "physic.h"
 
-#define SPHERE_SLICES 40
-#define SPHERE_STACKS 40
+#define SPHERE_SLICES 10
+#define SPHERE_STACKS 10
 
 class Sphere : public Form
 {
 private:
     Water* water;
     double radius;
-    Vector archimede;
-    Vector apesanteur;
+    double poid;
+    Vector v_archimede;
+    Vector v_masse;
+    Point origin;
 public:
-    Sphere(Water* water_ptr, double r = 1.0, Color cl = Color());
+    Sphere(Water* water_ptr, double r = 1.0, double p = 1.0, Point ori = Point(0,1.5,0), Color cl = Color());
     const double getRadius(void) {return radius;}
     void setRadius(double r) {radius = r;}
     void update(double delta_t);
     void render(void);
 
     Point getCenter(void);
-    void setApesanteur(Vector apesanteur_vec);
+    void setMasse(Vector masse_vec);
+
+    void resetPosition(void);
 };
 
 #endif // SPHERE_H_INCLUDED
