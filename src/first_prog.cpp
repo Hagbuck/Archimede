@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
 #include <GL/GLU.h>
+#include <TrackBall.h>
 
 // Module for space geometry
 #include "geometry.h"
@@ -18,11 +19,11 @@ using namespace std;
 /* Constants and functions declarations                                    */
 /***************************************************************************/
 // Screen dimension constants
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 1280;//1920;
+const int SCREEN_HEIGHT = 720;//1080;
 
 // Max number of forms : static allocation
-const int MAX_FORMS_NUMBER = 10;
+const int MAX_FORMS_NUMBER = 100;
 
 // Animation actualization delay (in ms) => 100 updates per second
 const Uint32 ANIM_DELAY = 10;
@@ -42,6 +43,9 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos);
 
 // Frees media and shuts down SDL
 void close(SDL_Window** window);
+
+
+TrackBall * camera;
 
 
 /***************************************************************************/
@@ -138,6 +142,7 @@ bool initGL()
 
     glEnable(GL_DEPTH_TEST);
 
+
     return success;
 }
 
@@ -152,7 +157,7 @@ void update(Form* formlist[MAX_FORMS_NUMBER], double delta_t)
     }
 }
 
-const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos)
+const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, const Point &cible_pos)
 {
     // Clear color buffer and Z-Buffer
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -162,10 +167,13 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos)
     glLoadIdentity();
 
     // Set the camera position and parameters
-    gluLookAt(cam_pos.x,cam_pos.y,cam_pos.z, 0.0,0.0,0.0, 0.0,1.0,0.0);
+    camera->look();
+    //gluLookAt(cam_pos.x,cam_pos.y,cam_pos.z, cible_pos.x , cible_pos.y  , cible_pos.z , 0.0,1.0,0.0);
     // Isometric view
-    glRotated(-45, 0, 1, 0);
-    glRotated(30, 1, 0, -1);
+    //glRotated(0, 0, 1, 0);
+    //glRotated(30, 1, 0, -1);
+
+   // glScaled(0.5,0.5,0.5);
 
     // X, Y and Z axis
     glPushMatrix(); // Preserve the camera viewing point for further forms
@@ -189,11 +197,22 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos)
     unsigned short i = 0;
     while(formlist[i] != NULL)
     {
+        /*if(i>5)
+        {
+            glTranslated(2,0,0);
+        }
+        if(i>6)
+        {
+            glTranslated(0,2,0);
+        }*/
         glPushMatrix(); // Preserve the camera viewing point for further forms
         formlist[i]->render();
         glPopMatrix(); // Restore the camera viewing point for next object
         i++;
     }
+
+    camera->look();
+
 }
 
 void close(SDL_Window** window)
@@ -202,6 +221,7 @@ void close(SDL_Window** window)
     SDL_DestroyWindow(*window);
     *window = NULL;
 
+    delete camera;
     //Quit SDL subsystems
     SDL_Quit();
 }
@@ -219,6 +239,10 @@ int main(int argc, char* args[])
     SDL_GLContext gContext;
 
 
+
+
+
+
     // Start up SDL and create window
     if( !init(&gWindow, &gContext))
     {
@@ -234,7 +258,14 @@ int main(int argc, char* args[])
         SDL_Event event;
 
         // Camera position
-        Point camera_position(0, 0.0, 5.0);
+        Point camera_position(0, 0.0, 4);
+        Point cible_position(0, 0, 0);
+
+
+        camera = new TrackBall();
+        camera->setScrollSensivity(0.2);
+        camera->setMotionSensivity(0.5);
+
 
         // The forms to render
         Form* forms_list[MAX_FORMS_NUMBER];
@@ -243,11 +274,36 @@ int main(int argc, char* args[])
         {
             forms_list[i] = NULL;
         }
-        // Create here specific forms and add them to the list...
-        // Don't forget to update the actual number_of_forms !
+
+
         Cube_face *pfirst_face = NULL;
-        pfirst_face = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(-0.5, -0.5, -0.5));
+        Cube_face *psecond_face = NULL;
+        Cube_face *pthird_face = NULL;
+        Cube_face *pfourth_face = NULL;
+        Cube_face *pfifth_face = NULL;
+        Cube_face *psixth_face = NULL;
+
+
+
+        pfirst_face = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(-0.5,-0.5,-0.5));
+        psecond_face = new Cube_face(Vector(1,0,0), Vector(0,0,1), Point(-0.5,-0.5,-0.5));
+        pthird_face = new Cube_face(Vector(0,1,0), Vector(0,0,1), Point(-0.5,-0.5,-0.5));
+        pfourth_face = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(-0.5,-0.5,0.5));
+        pfifth_face = new Cube_face(Vector(1,0,0), Vector(0,0,1), Point(-0.5,0.5,-0.5));
+        psixth_face = new Cube_face(Vector(0,1,0), Vector(0,0,1), Point(0.5,-0.5,-0.5));
+
         forms_list[number_of_forms] = pfirst_face;
+        number_of_forms++;
+        forms_list[number_of_forms] = psecond_face;
+        number_of_forms++;
+
+        forms_list[number_of_forms] = pthird_face;
+        number_of_forms++;
+        forms_list[number_of_forms] = pfourth_face;
+        number_of_forms++;
+        forms_list[number_of_forms] = pfifth_face;
+        number_of_forms++;
+        forms_list[number_of_forms] = psixth_face;
         number_of_forms++;
 
         // Get first "current time"
@@ -267,18 +323,34 @@ int main(int argc, char* args[])
                 case SDL_QUIT:
                     quit = true;
                     break;
+
+                case SDL_MOUSEMOTION:
+                        camera->OnMouseMotion(event.motion);
+                        break;
+                case SDL_MOUSEBUTTONUP:
+                case SDL_MOUSEBUTTONDOWN:
+
+                    camera->OnMouseButton(event.button);
+                    break;
+
+                case SDL_MOUSEWHEEL:
+                    camera->OnMouseScroll(event.wheel);
+                break;
+
                 case SDL_KEYDOWN:
                     // Handle key pressed with current mouse position
                     SDL_GetMouseState( &x, &y );
 
                     switch(key_pressed)
                     {
-                    // Quit the program when 'q' or Escape keys are pressed
+
                     case SDLK_q:
                     case SDLK_ESCAPE:
                         quit = true;
                         break;
-
+                    case SDLK_x:
+                        camera->OnKeyboard(event.key);
+                        break;
                     default:
                         break;
                     }
@@ -298,9 +370,9 @@ int main(int argc, char* args[])
             }
 
             // Render the scene
-            render(forms_list, camera_position);
+            render(forms_list, camera_position,cible_position);
 
-            // Update window screen
+
             SDL_GL_SwapWindow(gWindow);
         }
     }
