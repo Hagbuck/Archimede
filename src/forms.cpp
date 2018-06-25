@@ -23,10 +23,11 @@ void Form::render()
 }
 
 
-Sphere::Sphere(double r, Color cl)
+Sphere::Sphere(double r, Color cl, Point * p)
 {
     radius = r;
     col = cl;
+    origin = p;
 }
 
 
@@ -42,7 +43,9 @@ void Sphere::render()
 
     quad = gluNewQuadric();
 
-    // Complete this part
+    gluQuadricDrawStyle(quad,GLU_LINE);
+
+    gluSphere(quad,radius,20,20);
 
     gluDeleteQuadric(quad);
 }

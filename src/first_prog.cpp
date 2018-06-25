@@ -4,6 +4,11 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
 #include <GL/GLU.h>
+#include <AntTweakBar.h>
+#include <stdio.h>
+#include <string>
+#include "main.h"
+#include "antIHM.h"
 
 // Module for space geometry
 #include "geometry.h"
@@ -11,22 +16,29 @@
 #include "forms.h"
 
 
-using namespace std;
-
-
 /***************************************************************************/
 /* Constants and functions declarations                                    */
 /***************************************************************************/
 // Screen dimension constants
+
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
+//IHM VARS
+double default_val_masse = 20;
+double default_val_speed = 20;
+double default_val_densite = 20;
+double default_val_rayon = 20;
+
+
 // Max number of forms : static allocation
 const int MAX_FORMS_NUMBER = 10;
-
+int max_forms_number = MAX_FORMS_NUMBER;
 // Animation actualization delay (in ms) => 100 updates per second
 const Uint32 ANIM_DELAY = 10;
 
+//Handle for the AntBar
+int handledAnt;
 
 // Starts up SDL, creates window, and initializes OpenGL
 bool init(SDL_Window** window, SDL_GLContext* context);
@@ -42,6 +54,9 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos);
 
 // Frees media and shuts down SDL
 void close(SDL_Window** window);
+
+// Init AntTweakBar
+void init_AntTweakBar();
 
 
 /***************************************************************************/
@@ -65,7 +80,7 @@ bool init(SDL_Window** window, SDL_GLContext* context)
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
         // Create window
-        *window = SDL_CreateWindow( "TP intro OpenGL / SDL 2", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN );
+        *window = SDL_CreateWindow( "TEST IHM", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN );
         if( *window == NULL )
         {
             cout << "Window could not be created! SDL Error: " << SDL_GetError() << endl;
@@ -167,6 +182,8 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos)
     glRotated(-45, 0, 1, 0);
     glRotated(30, 1, 0, -1);
 
+    glScaled(0.5,0.5,0.5);
+
     // X, Y and Z axis
     glPushMatrix(); // Preserve the camera viewing point for further forms
     // Render the coordinates system
@@ -189,11 +206,20 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos)
     unsigned short i = 0;
     while(formlist[i] != NULL)
     {
+        if(i>5)
+        {
+            glTranslated(2,0,0);
+        }
+        if(i>6)
+        {
+            glTranslated(0,2,0);
+        }
         glPushMatrix(); // Preserve the camera viewing point for further forms
         formlist[i]->render();
         glPopMatrix(); // Restore the camera viewing point for next object
         i++;
     }
+
 }
 
 void close(SDL_Window** window)
@@ -226,6 +252,17 @@ int main(int argc, char* args[])
     }
     else
     {
+        //INIT ANT WINDOWS
+        if(!TwInit(TW_OPENGL, NULL))
+        {
+            printf("[ERROR] - Impossible d'initialiser l'IHM Ant.");
+            return false;
+        }
+        //DISPLAY IHMS
+        TwWindowSize(SCREEN_WIDTH_MAIN,SCREEN_HEIGHT_MAIN);
+        antIHM::buildAntIHM();
+        antIHM::buildAntMaterial();
+
         // Main loop flag
         bool quit = false;
         Uint32 current_time, previous_time, elapsed_time;
@@ -246,8 +283,20 @@ int main(int argc, char* args[])
         // Create here specific forms and add them to the list...
         // Don't forget to update the actual number_of_forms !
         Cube_face *pfirst_face = NULL;
-        pfirst_face = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(-0.5, -0.5, -0.5));
+        pfirst_face = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0, 2, 4));
         forms_list[number_of_forms] = pfirst_face;
+        number_of_forms++;
+
+        Sphere *pSphere1 = NULL;
+        Point * psph1 = new Point(1,1,1);
+        pSphere1 = new Sphere(1,Color(204, 0, 0),psph1);
+        forms_list[number_of_forms] = pSphere1;
+        number_of_forms++;
+
+        Sphere *pSphere2 = NULL;
+        Point * psph2 = new Point(20,20,2);
+        pSphere1 = new Sphere(2,Color(179,12,3),psph2);
+        forms_list[number_of_forms] = pSphere2;
         number_of_forms++;
 
         // Get first "current time"
@@ -255,38 +304,48 @@ int main(int argc, char* args[])
         // While application is running
         while(!quit)
         {
+
             // Handle events on queue
-            while(SDL_PollEvent(&event) != 0)
+            while(SDL_PollEvent(&event) ) //!=0
             {
                 int x = 0, y = 0;
                 SDL_Keycode key_pressed = event.key.keysym.sym;
 
-                switch(event.type)
-                {
-                // User requests quit
-                case SDL_QUIT:
-                    quit = true;
-                    break;
-                case SDL_KEYDOWN:
-                    // Handle key pressed with current mouse position
-                    SDL_GetMouseState( &x, &y );
+                // send event to AntTweakBar
+                handledAnt = TwEventSDL(&event ,SDL_MAJOR_VERSION, SDL_MINOR_VERSION);
 
-                    switch(key_pressed)
+                if( ! handledAnt ) // !handledAnt // if event has not been handled by AntTweakBar, process it
+                {
+                    switch(event.type)
                     {
-                    // Quit the program when 'q' or Escape keys are pressed
-                    case SDLK_q:
-                    case SDLK_ESCAPE:
+                    // User requests quit
+                    case SDL_QUIT:
                         quit = true;
                         break;
+                    case SDL_KEYDOWN:
+                        // Handle key pressed with current mouse position
+                        SDL_GetMouseState( &x, &y );
 
+                        switch(key_pressed)
+                        {
+                        // Quit the program when 'q' or Escape keys are pressed
+                            case SDLK_q:
+                            case SDLK_ESCAPE:
+                                quit = true;
+                                break;
+
+                            default:
+                                break;
+                        }
+                        break;
                     default:
                         break;
                     }
-                    break;
-                default:
-                    break;
                 }
+
             }
+            //END EVENTS
+
 
             // Update the scene
             current_time = SDL_GetTicks(); // get the elapsed time from SDL initialization (ms)
@@ -300,13 +359,19 @@ int main(int argc, char* args[])
             // Render the scene
             render(forms_list, camera_position);
 
+            // /!\ DON'T MOVE IT
+            TwDraw();
+
             // Update window screen
             SDL_GL_SwapWindow(gWindow);
+
         }
+
     }
 
     // Free resources and close SDL
     close(&gWindow);
+    TwTerminate();
 
     return 0;
 }
