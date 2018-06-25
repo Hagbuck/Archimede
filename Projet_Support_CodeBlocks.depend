@@ -3258,6 +3258,7 @@
 	"geometry.h"
 	"animation.h"
 
+<<<<<<< HEAD
 1466443941 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\animation.cpp
 	"animation.h"
 
@@ -3312,11 +3313,24 @@
 	"geometry.h"
 
 1529931671 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\first_prog.cpp
+=======
+1529328631 source:c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\src\animation.cpp
+	"animation.h"
+
+1529328627 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\animation.h
+	"geometry.h"
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\geometry.h
+	<iostream>
+
+1529939162 source:c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\src\first_prog.cpp
+>>>>>>> camera
 	<iostream>
 	<cmath>
 	<SDL2/SDL.h>
 	<SDL2/SDL_opengl.h>
 	<GL/GLU.h>
+<<<<<<< HEAD
 	<AntTweakBar.h>
 	<stdio.h>
 	<string>
@@ -3326,6 +3340,13 @@
 	"forms.h"
 
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl.h
+=======
+	<TrackBall.h>
+	"geometry.h"
+	"forms.h"
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl.h
+>>>>>>> camera
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_assert.h"
@@ -3356,12 +3377,20 @@
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_main.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_main.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_stdinc.h
+=======
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_stdinc.h
+>>>>>>> camera
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -3390,20 +3419,46 @@
 	<stdlib.h>
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_assert.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\begin_code.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\close_code.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_assert.h
+>>>>>>> camera
 	"SDL_config.h"
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_atomic.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_atomic.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_platform.h"
 	"begin_code.h"
 	<mbarrier.h>
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_audio.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_audio.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -3413,24 +3468,40 @@
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_error.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_error.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_endian.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_endian.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_mutex.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_mutex.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_thread.h
+=======
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_thread.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_atomic.h"
@@ -3439,18 +3510,30 @@
 	<process.h>
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_rwops.h
+=======
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_rwops.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_clipboard.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_clipboard.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_cpuinfo.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_cpuinfo.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	<intrin.h>
 	<intrin.h>
@@ -3462,7 +3545,11 @@
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_events.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_events.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -3476,7 +3563,11 @@
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_video.h
+=======
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_video.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -3484,12 +3575,20 @@
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_pixels.h
+=======
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_pixels.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_rect.h
+=======
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_rect.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_pixels.h"
@@ -3497,7 +3596,11 @@
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_surface.h
+=======
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_surface.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -3506,11 +3609,19 @@
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_blendmode.h
 	"begin_code.h"
 	"close_code.h"
 
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_keyboard.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_keyboard.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keycode.h"
@@ -3518,6 +3629,7 @@
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
@@ -3526,19 +3638,37 @@
 	"SDL_stdinc.h"
 
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_mouse.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_mouse.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_joystick.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_joystick.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_gamecontroller.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_gamecontroller.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
@@ -3546,11 +3676,19 @@
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_gesture.h
+=======
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_gesture.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -3558,60 +3696,100 @@
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_touch.h
+=======
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_touch.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_filesystem.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_filesystem.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_haptic.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_haptic.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_hints.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_hints.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_loadso.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_loadso.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_log.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_log.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_messagebox.h
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_messagebox.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_power.h
+=======
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_power.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_render.h
+=======
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_render.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_rect.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_system.h
+=======
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_system.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_keyboard.h"
 	"SDL_render.h"
@@ -3619,17 +3797,26 @@
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_timer.h
+=======
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_timer.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_version.h
+=======
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_version.h
+>>>>>>> camera
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1363800546 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\anttweakbar.h
 	<stddef.h>
 	<string>
@@ -3649,4 +3836,46 @@
 	<string>
 	<iostream>
 	<string.h>
+=======
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_opengl.h
+	"SDL_config.h"
+	"gl_mangle.h"
+	<windows.h>
+	"SDL_opengl_glext.h"
+
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_opengl_glext.h
+	<windows.h>
+	<stddef.h>
+	<inttypes.h>
+	<inttypes.h>
+	<inttypes.h>
+	<stdint.h>
+	<stdint.h>
+	<inttypes.h>
+
+1529338676 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\forms.h
+	"geometry.h"
+	"animation.h"
+
+1529939239 source:c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\src\forms.cpp
+	<cmath>
+	<SDL2/SDL_opengl.h>
+	<GL/GLU.h>
+	"forms.h"
+	<cstdlib>
+
+1529328632 source:c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\src\geometry.cpp
+	<cmath>
+	"geometry.h"
+
+1529938171 source:c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\src\trackball.cpp
+	"TrackBall.h"
+	<SDL2/SDL.h>
+	<GL/GLU.h>
+	<SDL2/SDL_opengl.h>
+	<iostream>
+
+1529932995 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\trackball.h
+	<SDL2/SDL.h>
+>>>>>>> camera
 

@@ -2,7 +2,7 @@
 #include <SDL2/SDL_opengl.h>
 #include <GL/GLU.h>
 #include "forms.h"
-
+#include <cstdlib>
 
 using namespace std;
 
@@ -34,6 +34,13 @@ Sphere::Sphere(double r, Color cl, Point * p)
 void Sphere::update(double delta_t)
 {
     // Complete this part
+    /*Vector* test = new Vector(Point(1,1,1),Point(0,0,0));
+    anim.setTheta(anim.getTheta()+1);
+    anim.setPhi(anim.getPhi()+1);
+    anim.setSpeed(anim.getSpeed()+*test);
+    anim.setAccel(anim.getAccel()+*test);*/
+
+
 }
 
 
@@ -43,9 +50,16 @@ void Sphere::render()
 
     quad = gluNewQuadric();
 
+<<<<<<< HEAD
     gluQuadricDrawStyle(quad,GLU_LINE);
 
     gluSphere(quad,radius,20,20);
+=======
+    gluQuadricDrawStyle(quad,GLU_FILL);
+
+
+    gluSphere(quad,radius,40,40);
+>>>>>>> camera
 
     gluDeleteQuadric(quad);
 }
@@ -80,6 +94,17 @@ void Cube_face::render()
     Form::render();
     glBegin(GL_QUADS);
     {
+
+        //glColor3ub (rand()%255, rand()%255, rand()%255);
+        glColor3f(col.r,col.g,col.b);
+        glVertex3d(p1.x, p1.y, p1.z);
+        glVertex3d(p2.x, p2.y, p2.z);
+        glVertex3d(p3.x, p3.y, p3.z);
+        glVertex3d(p4.x, p4.y, p4.z);
+
+
+
+        /*
         glColor3f(1,1,0);
         glVertex3d(p1.x, p1.y, p1.z);
         glColor3f(0,1,1);
@@ -87,7 +112,7 @@ void Cube_face::render()
         glColor3f(1,0,1);
         glVertex3d(p3.x, p3.y, p3.z);
         glColor3f(0,1,0);
-        glVertex3d(p4.x, p4.y, p4.z);
+        glVertex3d(p4.x, p4.y, p4.z);*/
     }
     glEnd();
 }
