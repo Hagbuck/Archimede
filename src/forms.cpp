@@ -15,11 +15,11 @@ void Form::update(double delta_t)
 
 void Form::render()
 {
-    // Point of view for rendering
-    // Common for all Forms
+
     Point org = anim.getPos();
     glTranslated(org.x, org.y, org.z);
-    glColor3f(col.r, col.g, col.b);
+    //glColor3f(col.r, col.g, col.b);
+
 }
 
 
@@ -58,7 +58,7 @@ void Sphere::render()
 }
 
 
-Cube_face::Cube_face(Vector v1, Vector v2, Point org, double l, double w, Color cl)
+Cube_face::Cube_face(Vector v1, Vector v2, Point org, double l, double w, Color cl,GLuint textureToApply)
 {
     vdir1 = 1.0 / v1.norm() * v1;
     vdir2 = 1.0 / v2.norm() * v2;
@@ -66,6 +66,7 @@ Cube_face::Cube_face(Vector v1, Vector v2, Point org, double l, double w, Color 
     length = l;
     width = w;
     col = cl;
+    texture = textureToApply;
 }
 
 
@@ -85,27 +86,19 @@ void Cube_face::render()
     p4.translate(width*vdir2);
 
     Form::render();
+
+    glBindTexture(GL_TEXTURE_2D, this->texture);
     glBegin(GL_QUADS);
     {
-
-        //glColor3ub (rand()%255, rand()%255, rand()%255);
         glColor3f(col.r,col.g,col.b);
+        glTexCoord2d(0,1);
         glVertex3d(p1.x, p1.y, p1.z);
+        glTexCoord2d(0,0);
         glVertex3d(p2.x, p2.y, p2.z);
+        glTexCoord2d(1,0);
         glVertex3d(p3.x, p3.y, p3.z);
+        glTexCoord2d(1,1);
         glVertex3d(p4.x, p4.y, p4.z);
-
-
-
-        /*
-        glColor3f(1,1,0);
-        glVertex3d(p1.x, p1.y, p1.z);
-        glColor3f(0,1,1);
-        glVertex3d(p2.x, p2.y, p2.z);
-        glColor3f(1,0,1);
-        glVertex3d(p3.x, p3.y, p3.z);
-        glColor3f(0,1,0);
-        glVertex3d(p4.x, p4.y, p4.z);*/
     }
     glEnd();
 }

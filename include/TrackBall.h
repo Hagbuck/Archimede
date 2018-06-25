@@ -28,6 +28,7 @@ class TrackBall
 
         double _cibleY;
         double _cibleZ;
+
     private:
 };
 

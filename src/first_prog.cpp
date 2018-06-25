@@ -10,11 +10,13 @@
 #include "main.h"
 #include "antIHM.h"
 #include <TrackBall.h>
+#include "sdlglutils.h"
 
 // Module for space geometry
 #include "geometry.h"
 // Module for generating and rendering forms
 #include "forms.h"
+
 
 
 /***************************************************************************/
@@ -28,6 +30,9 @@ double default_val_speed = 20;
 double default_val_densite = 20;
 double default_val_rayon = 20;
 
+
+GLuint textureHerbe = loadTexture("img/herbe.jpg");
+GLuint textureTerre = loadTexture("img/terre.jpg");
 
 // Max number of forms : static allocation
 const int MAX_FORMS_NUMBER = 100;
@@ -65,6 +70,9 @@ TrackBall * camera;
 /***************************************************************************/
 bool init(SDL_Window** window, SDL_GLContext* context)
 {
+    cout << textureHerbe << endl;
+    cout << "test" << endl;
+
     // Initialization flag
     bool success = true;
 
@@ -123,6 +131,8 @@ bool initGL()
     bool success = true;
     GLenum error = GL_NO_ERROR;
 
+
+
     // Initialize Projection Matrix
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -144,6 +154,10 @@ bool initGL()
     // Activate Z-Buffer
 
 
+
+
+
+
     // Check for error
     error = glGetError();
     if( error != GL_NO_ERROR )
@@ -153,6 +167,7 @@ bool initGL()
     }
 
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_TEXTURE_2D);
 
     //glEnable(GL_LIGHTING);	// Active l'éclairage
  	//glEnable(GL_LIGHT0);
@@ -180,21 +195,11 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, const 
     glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
 
-
-
     // Set the camera position and parameters
     camera->look();
-    //gluLookAt(cam_pos.x,cam_pos.y,cam_pos.z, cible_pos.x , cible_pos.y  , cible_pos.z , 0.0,1.0,0.0);
-    // Isometric view
-    //glRotated(0, 0, 1, 0);
-    //glRotated(30, 1, 0, -1);
 
-   // glScaled(0.5,0.5,0.5);
-
-    glScaled(0.5,0.5,0.5);
-
-    // X, Y and Z axis
     glPushMatrix(); // Preserve the camera viewing point for further forms
+
     // Render the coordinates system
 
 
@@ -204,12 +209,6 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, const 
         glColor3f(1.0f, 0.0f, 0.0f);
         glVertex3i(0, 0, 0);
         glVertex3i(1, 0, 0);
-        /*glColor3f(0.0f, 1.0f, 0.0f);
-        glVertex3i(0, 0, 0);
-        glVertex3i(0, 1, 0);
-        glColor3f(0.0f, 0.0f, 1.0f);
-        glVertex3i(0, 0, 0);
-        glVertex3i(0, 0, 1);*/
     }
     glEnd();
     glPopMatrix(); // Restore the camera viewing point for next object
@@ -220,10 +219,19 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, const 
     {
 
         glPushMatrix(); // Preserve the camera viewing point for further forms
+
         formlist[i]->render();
         glPopMatrix(); // Restore the camera viewing point for next object
         i++;
     }
+
+    glBindTexture(GL_TEXTURE_2D, textureHerbe);
+    glBegin(GL_QUADS);
+    glTexCoord2d(0,1);  glVertex3d(1,1,1);
+    glTexCoord2d(0,0);  glVertex3d(1,1,-1);
+    glTexCoord2d(1,0);  glVertex3d(-1,1,-1);
+    glTexCoord2d(1,1);  glVertex3d(-1,1,1);
+    glEnd();
 }
 
 void close(SDL_Window** window)
@@ -246,13 +254,10 @@ int main(int argc, char* args[])
     // The window we'll be rendering to
     SDL_Window* gWindow = NULL;
 
+
+
     // OpenGL context
     SDL_GLContext gContext;
-
-
-
-
-
 
     // Start up SDL and create window
     if( !init(&gWindow, &gContext))
@@ -318,24 +323,24 @@ int main(int argc, char* args[])
         Cube_face *fond_one = NULL;
 
         //Surface
-        ground_zero = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0,0,0),0.5,3,GREEN);
-        ground_two = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(3.5,0,0),0.5,3,GREEN);
-        ground_three = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0.5,2,0),3,1,GREEN);
+        ground_zero = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0,0,0),0.5,3,GREEN,textureHerbe);
+        ground_two = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(3.5,0,0),0.5,3,GREEN,textureHerbe);
+        ground_three = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0.5,2,0),3,1,GREEN,textureHerbe);
 
         // Profondeur
-        prof_zero = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(0,0,0),3,3,Color(0.6,0.4,0));
-        prof_one = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(4,0,0),3,3,Color(0.6,0.4,0));
-        prof_two = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0,3,0),4,3,Color(0.6,0.4,0));
-        prof_three = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0.5,2,0),3,2.5,BLUE);
-        prof_four = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(0.5,0,0),2,2.5,BLUE);
-        prof_five = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(3.5,0,0),2,2.5,BLUE);
-        prof_six = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0,0,0),0.5,3,Color(0.6,0.4,0));
-        prof_seven = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(3.5,0,0),0.5,3,Color(0.6,0.4,0));
-        prof_eight = new Cube_face(Vector(1,0,0), Vector(0,0,1), Point(0.5,0,-3),3,0.5,Color(0.6,0.4,0));
+        prof_zero = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(0,0,0),3,3,Color(0.6,0.4,0),textureTerre);
+        prof_one = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(4,0,0),3,3,Color(0.6,0.4,0),textureTerre);
+        prof_two = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0,3,0),4,3,Color(0.6,0.4,0),textureTerre);
+        prof_three = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0.5,2,0),3,2.5,BLUE,textureTerre);
+        prof_four = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(0.5,0,0),2,2.5,BLUE,textureTerre);
+        prof_five = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(3.5,0,0),2,2.5,BLUE,textureTerre);
+        prof_six = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0,0,0),0.5,3,Color(0.6,0.4,0),textureTerre);
+        prof_seven = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(3.5,0,0),0.5,3,Color(0.6,0.4,0),textureTerre);
+        prof_eight = new Cube_face(Vector(1,0,0), Vector(0,0,1), Point(0.5,0,-3),3,0.5,Color(0.6,0.4,0),textureTerre);
 
         //fond
-        fond_zero = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0,0,-3),4,3,Color(0,0.4,0.4));
-        fond_one = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0.5,0,-2.5),3,3,Color(0,0.4,0.4));
+        fond_zero = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0,0,-3),4,3,Color(0,0.4,0.4),textureTerre);
+        fond_one = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0.5,0,-2.5),3,3,Color(0,0.4,0.4),textureTerre);
 
         forms_list[number_of_forms] = ground_zero;
         number_of_forms++;
