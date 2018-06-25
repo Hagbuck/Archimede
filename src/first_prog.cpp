@@ -142,6 +142,8 @@ bool initGL()
 
     glEnable(GL_DEPTH_TEST);
 
+    //glEnable(GL_LIGHTING);	// Active l'éclairage
+ 	//glEnable(GL_LIGHT0);
 
     return success;
 }
@@ -166,6 +168,8 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, const 
     glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
 
+
+
     // Set the camera position and parameters
     camera->look();
     //gluLookAt(cam_pos.x,cam_pos.y,cam_pos.z, cible_pos.x , cible_pos.y  , cible_pos.z , 0.0,1.0,0.0);
@@ -178,17 +182,20 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, const 
     // X, Y and Z axis
     glPushMatrix(); // Preserve the camera viewing point for further forms
     // Render the coordinates system
+
+
+
     glBegin(GL_LINES);
     {
         glColor3f(1.0f, 0.0f, 0.0f);
         glVertex3i(0, 0, 0);
         glVertex3i(1, 0, 0);
-        glColor3f(0.0f, 1.0f, 0.0f);
+        /*glColor3f(0.0f, 1.0f, 0.0f);
         glVertex3i(0, 0, 0);
         glVertex3i(0, 1, 0);
         glColor3f(0.0f, 0.0f, 1.0f);
         glVertex3i(0, 0, 0);
-        glVertex3i(0, 0, 1);
+        glVertex3i(0, 0, 1);*/
     }
     glEnd();
     glPopMatrix(); // Restore the camera viewing point for next object
@@ -211,7 +218,7 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, const 
         i++;
     }
 
-    camera->look();
+    //camera->look();
 
 }
 
@@ -275,35 +282,78 @@ int main(int argc, char* args[])
             forms_list[i] = NULL;
         }
 
+        //surface
+        Cube_face *ground_zero = NULL;
+        Cube_face *ground_two = NULL;
+        Cube_face *ground_three = NULL;
 
-        Cube_face *pfirst_face = NULL;
-        Cube_face *psecond_face = NULL;
-        Cube_face *pthird_face = NULL;
-        Cube_face *pfourth_face = NULL;
-        Cube_face *pfifth_face = NULL;
-        Cube_face *psixth_face = NULL;
+        //profondeur
+        Cube_face *prof_zero = NULL;
+        Cube_face *prof_one = NULL;
+        Cube_face *prof_two = NULL;
+        Cube_face *prof_three = NULL;
+        Cube_face *prof_four = NULL;
+        Cube_face *prof_five = NULL;
+        Cube_face *prof_six = NULL;
+        Cube_face *prof_seven = NULL;
+        Cube_face *prof_eight = NULL;
 
+        //fond
+        Cube_face *fond_zero = NULL;
+        Cube_face *fond_one = NULL;
 
+        //Surface
+        ground_zero = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0,0,0),0.5,3,GREEN);
+        ground_two = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(3.5,0,0),0.5,3,GREEN);
+        ground_three = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0.5,2,0),3,1,GREEN);
 
-        pfirst_face = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(-0.5,-0.5,-0.5));
-        psecond_face = new Cube_face(Vector(1,0,0), Vector(0,0,1), Point(-0.5,-0.5,-0.5));
-        pthird_face = new Cube_face(Vector(0,1,0), Vector(0,0,1), Point(-0.5,-0.5,-0.5));
-        pfourth_face = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(-0.5,-0.5,0.5));
-        pfifth_face = new Cube_face(Vector(1,0,0), Vector(0,0,1), Point(-0.5,0.5,-0.5));
-        psixth_face = new Cube_face(Vector(0,1,0), Vector(0,0,1), Point(0.5,-0.5,-0.5));
+        // Profondeur
+        prof_zero = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(0,0,0),3,3,Color(0.6,0.4,0));
+        prof_one = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(4,0,0),3,3,Color(0.6,0.4,0));
+        prof_two = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0,3,0),4,3,Color(0.6,0.4,0));
+        prof_three = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0.5,2,0),3,2.5,BLUE);
+        prof_four = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(0.5,0,0),2,2.5,BLUE);
+        prof_five = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(3.5,0,0),2,2.5,BLUE);
+        prof_six = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0,0,0),0.5,3,Color(0.6,0.4,0));
+        prof_seven = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(3.5,0,0),0.5,3,Color(0.6,0.4,0));
+        prof_eight = new Cube_face(Vector(1,0,0), Vector(0,0,1), Point(0.5,0,-3),3,0.5,Color(0.6,0.4,0));
 
-        forms_list[number_of_forms] = pfirst_face;
+        //fond
+        fond_zero = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0,0,-3),4,3,Color(0,0.4,0.4));
+        fond_one = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0.5,0,-2.5),3,3,Color(0,0.4,0.4));
+
+        forms_list[number_of_forms] = ground_zero;
         number_of_forms++;
-        forms_list[number_of_forms] = psecond_face;
+        forms_list[number_of_forms] = ground_two;
+        number_of_forms++;
+        forms_list[number_of_forms] = ground_three;
         number_of_forms++;
 
-        forms_list[number_of_forms] = pthird_face;
+        forms_list[number_of_forms] = prof_zero;
         number_of_forms++;
-        forms_list[number_of_forms] = pfourth_face;
+        forms_list[number_of_forms] = prof_one;
         number_of_forms++;
-        forms_list[number_of_forms] = pfifth_face;
+        forms_list[number_of_forms] = prof_two;
         number_of_forms++;
-        forms_list[number_of_forms] = psixth_face;
+
+        forms_list[number_of_forms] = prof_three;
+        number_of_forms++;
+        forms_list[number_of_forms] = prof_four;
+        number_of_forms++;
+        forms_list[number_of_forms] = prof_five;
+        number_of_forms++;
+
+        forms_list[number_of_forms] = prof_six;
+        number_of_forms++;
+
+        forms_list[number_of_forms] = prof_seven;
+        number_of_forms++;
+        forms_list[number_of_forms] = prof_eight;
+        number_of_forms++;
+
+        forms_list[number_of_forms] = fond_zero;
+        number_of_forms++;
+        forms_list[number_of_forms] = fond_one;
         number_of_forms++;
 
         // Get first "current time"

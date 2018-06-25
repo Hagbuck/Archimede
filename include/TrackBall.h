@@ -20,13 +20,14 @@ class TrackBall
     protected:
         double _motionSensivity;
         double _scrollSensivity;
-        bool _hold;
+        bool _holdRight;
+        bool _holdLeft;
         double _distance;
         double _angleY;
         double _angleZ;
 
-
-
+        double _cibleY;
+        double _cibleZ;
     private:
 };
 

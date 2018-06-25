@@ -2,7 +2,7 @@
 #include <SDL2/SDL_opengl.h>
 #include <GL/GLU.h>
 #include "forms.h"
-
+#include <cstdlib>
 
 using namespace std;
 
@@ -87,7 +87,9 @@ void Cube_face::render()
     Form::render();
     glBegin(GL_QUADS);
     {
-        glColor3ub(255,0,0);
+
+        //glColor3ub (rand()%255, rand()%255, rand()%255);
+        glColor3f(col.r,col.g,col.b);
         glVertex3d(p1.x, p1.y, p1.z);
         glVertex3d(p2.x, p2.y, p2.z);
         glVertex3d(p3.x, p3.y, p3.z);
