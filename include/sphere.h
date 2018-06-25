@@ -12,6 +12,7 @@
 
 #define SPHERE_SLICES 10
 #define SPHERE_STACKS 10
+#define STEP_ANIM       0.05
 
 class Sphere : public Form
 {
@@ -21,7 +22,9 @@ private:
     double poid;
     Vector v_archimede;
     Vector v_masse;
+    Vector v_vitesse;
     Point origin;
+    double delta;
 public:
     Sphere(Water* water_ptr, double r = 1.0, double p = 1.0, Point ori = Point(0,1.5,0), Color cl = Color());
     const double getRadius(void) {return radius;}

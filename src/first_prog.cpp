@@ -243,7 +243,7 @@ int main(int argc, char* args[])
         SDL_Event event;
 
         // Camera position
-        Point camera_position(0, 0, 3.5);
+        Point camera_position(0, 0, 9.0);
 
         // The forms to render
         Form* forms_list[MAX_FORMS_NUMBER];
@@ -258,7 +258,7 @@ int main(int argc, char* args[])
         number_of_forms++;
 
         Sphere* sp = NULL;
-        sp = new Sphere(water, 0.2, 0.035, Point(0,2,0));
+        sp = new Sphere(water, 0.25, 0.01, Point(0,3,0));
         forms_list[number_of_forms] = sp;
         number_of_forms++;
 
