@@ -24,7 +24,7 @@
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
-//IHM VARS
+//IHM VARS (IHM CONSERVE)
 double default_val_masse = 20;
 double default_val_speed = 20;
 double default_val_densite = 20;
