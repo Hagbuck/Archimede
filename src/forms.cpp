@@ -50,16 +50,9 @@ void Sphere::render()
 
     quad = gluNewQuadric();
 
-<<<<<<< HEAD
     gluQuadricDrawStyle(quad,GLU_LINE);
 
-    gluSphere(quad,radius,20,20);
-=======
-    gluQuadricDrawStyle(quad,GLU_FILL);
-
-
     gluSphere(quad,radius,40,40);
->>>>>>> camera
 
     gluDeleteQuadric(quad);
 }

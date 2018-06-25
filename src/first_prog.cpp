@@ -4,15 +4,12 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
 #include <GL/GLU.h>
-<<<<<<< HEAD
 #include <AntTweakBar.h>
 #include <stdio.h>
 #include <string>
 #include "main.h"
 #include "antIHM.h"
-=======
 #include <TrackBall.h>
->>>>>>> camera
 
 // Module for space geometry
 #include "geometry.h"
@@ -24,14 +21,6 @@
 /* Constants and functions declarations                                    */
 /***************************************************************************/
 // Screen dimension constants
-<<<<<<< HEAD
-
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
-=======
-const int SCREEN_WIDTH = 1280;//1920;
-const int SCREEN_HEIGHT = 720;//1080;
->>>>>>> camera
 
 //IHM VARS (IHM CONSERVE)
 double default_val_masse = 20;
@@ -41,13 +30,8 @@ double default_val_rayon = 20;
 
 
 // Max number of forms : static allocation
-<<<<<<< HEAD
-const int MAX_FORMS_NUMBER = 10;
-int max_forms_number = MAX_FORMS_NUMBER;
-=======
 const int MAX_FORMS_NUMBER = 100;
 
->>>>>>> camera
 // Animation actualization delay (in ms) => 100 updates per second
 const Uint32 ANIM_DELAY = 10;
 
@@ -234,33 +218,12 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, const 
     unsigned short i = 0;
     while(formlist[i] != NULL)
     {
-<<<<<<< HEAD
-        if(i>5)
-=======
-        /*if(i>5)
->>>>>>> camera
-        {
-            glTranslated(2,0,0);
-        }
-        if(i>6)
-        {
-            glTranslated(0,2,0);
-<<<<<<< HEAD
-        }
-=======
-        }*/
->>>>>>> camera
+
         glPushMatrix(); // Preserve the camera viewing point for further forms
         formlist[i]->render();
         glPopMatrix(); // Restore the camera viewing point for next object
         i++;
     }
-
-<<<<<<< HEAD
-=======
-    //camera->look();
-
->>>>>>> camera
 }
 
 void close(SDL_Window** window)
@@ -305,7 +268,7 @@ int main(int argc, char* args[])
             return false;
         }
         //DISPLAY IHMS
-        TwWindowSize(SCREEN_WIDTH_MAIN,SCREEN_HEIGHT_MAIN);
+        TwWindowSize(SCREEN_WIDTH,SCREEN_HEIGHT);
         antIHM::buildAntIHM();
         antIHM::buildAntMaterial();
 
@@ -333,13 +296,6 @@ int main(int argc, char* args[])
         {
             forms_list[i] = NULL;
         }
-<<<<<<< HEAD
-        // Create here specific forms and add them to the list...
-        // Don't forget to update the actual number_of_forms !
-        Cube_face *pfirst_face = NULL;
-        pfirst_face = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0, 2, 4));
-        forms_list[number_of_forms] = pfirst_face;
-=======
 
         //surface
         Cube_face *ground_zero = NULL;
@@ -413,20 +369,8 @@ int main(int argc, char* args[])
         forms_list[number_of_forms] = fond_zero;
         number_of_forms++;
         forms_list[number_of_forms] = fond_one;
->>>>>>> camera
         number_of_forms++;
 
-        Sphere *pSphere1 = NULL;
-        Point * psph1 = new Point(1,1,1);
-        pSphere1 = new Sphere(1,Color(204, 0, 0),psph1);
-        forms_list[number_of_forms] = pSphere1;
-        number_of_forms++;
-
-        Sphere *pSphere2 = NULL;
-        Point * psph2 = new Point(20,20,2);
-        pSphere1 = new Sphere(2,Color(179,12,3),psph2);
-        forms_list[number_of_forms] = pSphere2;
-        number_of_forms++;
 
         // Get first "current time"
         previous_time = SDL_GetTicks();
@@ -445,67 +389,50 @@ int main(int argc, char* args[])
 
                 if( ! handledAnt ) // !handledAnt // if event has not been handled by AntTweakBar, process it
                 {
-<<<<<<< HEAD
+
                     switch(event.type)
                     {
                     // User requests quit
                     case SDL_QUIT:
                         quit = true;
                         break;
-                    case SDL_KEYDOWN:
-                        // Handle key pressed with current mouse position
-                        SDL_GetMouseState( &x, &y );
-
-                        switch(key_pressed)
-                        {
-                        // Quit the program when 'q' or Escape keys are pressed
-                            case SDLK_q:
-                            case SDLK_ESCAPE:
-                                quit = true;
-                                break;
-
-                            default:
-                                break;
-                        }
-=======
-                // User requests quit
-                case SDL_QUIT:
-                    quit = true;
-                    break;
-
-                case SDL_MOUSEMOTION:
-                        camera->OnMouseMotion(event.motion);
+                    case SDLK_ESCAPE:
+                        quit = true;
                         break;
-                case SDL_MOUSEBUTTONUP:
-                case SDL_MOUSEBUTTONDOWN:
 
-                    camera->OnMouseButton(event.button);
-                    break;
+                    case SDL_MOUSEMOTION:
+                            camera->OnMouseMotion(event.motion);
+                            break;
 
-                case SDL_MOUSEWHEEL:
-                    camera->OnMouseScroll(event.wheel);
-                break;
+                    case SDL_MOUSEBUTTONUP:
+                    case SDL_MOUSEBUTTONDOWN:
+                        camera->OnMouseButton(event.button);
+                        break;
 
-                case SDL_KEYDOWN:
+                    case SDL_MOUSEWHEEL:
+                        camera->OnMouseScroll(event.wheel);
+                        break;
+
+                    case SDL_KEYDOWN:
                     // Handle key pressed with current mouse position
-                    SDL_GetMouseState( &x, &y );
+                        SDL_GetMouseState( &x, &y );
 
                     switch(key_pressed)
                     {
 
-                    case SDLK_q:
-                    case SDLK_ESCAPE:
-                        quit = true;
-                        break;
-                    case SDLK_x:
-                        camera->OnKeyboard(event.key);
->>>>>>> camera
-                        break;
-                    default:
-                        break;
+                        case SDLK_q:
+                        case SDLK_ESCAPE:
+                            quit = true;
+                            break;
+                        case SDLK_x:
+                            camera->OnKeyboard(event.key);
+                            break;
+                        default:
+                            break;
                     }
                 }
 
+                }
             }
             //END EVENTS
 
@@ -523,13 +450,10 @@ int main(int argc, char* args[])
             render(forms_list, camera_position,cible_position);
 
 
-<<<<<<< HEAD
             // /!\ DON'T MOVE IT
             TwDraw();
 
             // Update window screen
-=======
->>>>>>> camera
             SDL_GL_SwapWindow(gWindow);
 
         }

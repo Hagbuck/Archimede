@@ -1,6 +1,8 @@
 // Screen dimension constants
-#define SCREEN_WIDTH_MAIN 640
-#define SCREEN_HEIGHT_MAIN 480
+#define SCREEN_WIDTH 1280
+#define SCREEN_HEIGHT 720
+
+
 #include <sstream>
 #include <string>
 #include <iostream>
