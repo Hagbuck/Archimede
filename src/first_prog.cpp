@@ -28,6 +28,10 @@ double default_val_speed = 20;
 double default_val_densite = 20;
 double default_val_rayon = 20;
 
+double default_scroll_sensivity = 2.5;
+double default_mouse_sensitivity = 2.5;
+double default_translation_sensitivity = 1.5;
+
 
 // Max number of forms : static allocation
 const int MAX_FORMS_NUMBER = 100;
@@ -270,7 +274,7 @@ int main(int argc, char* args[])
         //DISPLAY IHMS
         TwWindowSize(SCREEN_WIDTH,SCREEN_HEIGHT);
         antIHM::buildAntIHM();
-        antIHM::buildAntMaterial();
+        antIHM::buildAntSensitive();
 
         // Main loop flag
         bool quit = false;

@@ -51,11 +51,8 @@
 		<Unit filename="include/antIHM.h" />
 		<Unit filename="include/forms.h" />
 		<Unit filename="include/geometry.h" />
-<<<<<<< HEAD
 		<Unit filename="include/main.h" />
-=======
 		<Unit filename="src/TrackBall.cpp" />
->>>>>>> camera
 		<Unit filename="src/animation.cpp" />
 		<Unit filename="src/antIHM.cpp" />
 		<Unit filename="src/first_prog.cpp" />
