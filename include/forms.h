@@ -3,6 +3,7 @@
 
 #include "geometry.h"
 #include "animation.h"
+#include "sdlglutils.h"
 
 
 class Color
@@ -26,7 +27,9 @@ class Form
 protected:
     Color col;
     Animation anim;
+    GLuint texture;
 public:
+
     Animation& getAnim() {return anim;}
     void setAnim(Animation ani) {anim = ani;}
     // This method should update the anim object with the corresponding physical model
@@ -65,7 +68,7 @@ private:
 public:
     Cube_face(Vector v1 = Vector(1,0,0), Vector v2 = Vector(0,0,1),
           Point org = Point(), double l = 1.0, double w = 1.0,
-          Color cl = Color());
+          Color cl = Color(),GLuint texture = loadTexture("img/herbe.jpg"));
     void update(double delta_t);
     void render();
 };
