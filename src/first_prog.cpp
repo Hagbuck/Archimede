@@ -321,6 +321,11 @@ int main(int argc, char* args[])
         ground_two = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(3.5,0,0),0.5,3,GREEN);
         ground_three = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0.5,2,0),3,1,GREEN);
 
+        char * pathToTexture = "img/herbe.jpg";
+
+        ground_zero->setTexture(pathToTexture);
+        ground_two->setTexture(pathToTexture);
+        ground_three->setTexture(pathToTexture);
         // Profondeur
         prof_zero = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(0,0,0),3,3,Color(0.6,0.4,0));
         prof_one = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(4,0,0),3,3,Color(0.6,0.4,0));

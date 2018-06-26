@@ -80,6 +80,11 @@ void Cube_face::update(double delta_t)
     // Do nothing, no physics associated to a Cube_face
 }
 
+void Cube_face::setTexture(char * path)
+{
+    texture = loadTexture(path);
+}
+
 
 void Cube_face::render()
 {
@@ -95,13 +100,13 @@ void Cube_face::render()
     glBegin(GL_QUADS);
     {
         //glColor3f(col.r,col.g,col.b);
-        glTexCoord2d(0,1);
+        glTexCoord2d(0,length);
         glVertex3d(p1.x, p1.y, p1.z);
         glTexCoord2d(0,0);
         glVertex3d(p2.x, p2.y, p2.z);
-        glTexCoord2d(1,0);
+        glTexCoord2d(width,0);
         glVertex3d(p3.x, p3.y, p3.z);
-        glTexCoord2d(1,1);
+        glTexCoord2d(width,length);
         glVertex3d(p4.x, p4.y, p4.z);
     }
     glEnd();
