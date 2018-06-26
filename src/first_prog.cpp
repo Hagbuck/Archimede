@@ -10,11 +10,13 @@
 #include "main.h"
 #include "antIHM.h"
 #include <TrackBall.h>
+#include "sdlglutils.h"
 
 // Module for space geometry
 #include "geometry.h"
 // Module for generating and rendering forms
 #include "forms.h"
+
 
 
 /***************************************************************************/
@@ -28,10 +30,10 @@ double default_val_speed = 20;
 double default_val_densite = 20;
 double default_val_rayon = 20;
 
+
 double default_scroll_sensivity = 2.5;
 double default_mouse_sensitivity = 2.5;
 double default_translation_sensitivity = 1.5;
-
 
 // Max number of forms : static allocation
 const int MAX_FORMS_NUMBER = 100;
@@ -69,6 +71,8 @@ TrackBall * camera;
 /***************************************************************************/
 bool init(SDL_Window** window, SDL_GLContext* context)
 {
+
+
     // Initialization flag
     bool success = true;
 
@@ -127,6 +131,8 @@ bool initGL()
     bool success = true;
     GLenum error = GL_NO_ERROR;
 
+
+
     // Initialize Projection Matrix
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -148,6 +154,10 @@ bool initGL()
     // Activate Z-Buffer
 
 
+
+
+
+
     // Check for error
     error = glGetError();
     if( error != GL_NO_ERROR )
@@ -157,6 +167,7 @@ bool initGL()
     }
 
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_TEXTURE_2D);
 
     //glEnable(GL_LIGHTING);	// Active l'éclairage
  	//glEnable(GL_LIGHT0);
@@ -184,21 +195,11 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, const 
     glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
 
-
-
     // Set the camera position and parameters
     camera->look();
-    //gluLookAt(cam_pos.x,cam_pos.y,cam_pos.z, cible_pos.x , cible_pos.y  , cible_pos.z , 0.0,1.0,0.0);
-    // Isometric view
-    //glRotated(0, 0, 1, 0);
-    //glRotated(30, 1, 0, -1);
 
-   // glScaled(0.5,0.5,0.5);
-
-    glScaled(0.5,0.5,0.5);
-
-    // X, Y and Z axis
     glPushMatrix(); // Preserve the camera viewing point for further forms
+
     // Render the coordinates system
 
 
@@ -208,12 +209,6 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, const 
         glColor3f(1.0f, 0.0f, 0.0f);
         glVertex3i(0, 0, 0);
         glVertex3i(1, 0, 0);
-        /*glColor3f(0.0f, 1.0f, 0.0f);
-        glVertex3i(0, 0, 0);
-        glVertex3i(0, 1, 0);
-        glColor3f(0.0f, 0.0f, 1.0f);
-        glVertex3i(0, 0, 0);
-        glVertex3i(0, 0, 1);*/
     }
     glEnd();
     glPopMatrix(); // Restore the camera viewing point for next object
@@ -224,10 +219,12 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, const 
     {
 
         glPushMatrix(); // Preserve the camera viewing point for further forms
+
         formlist[i]->render();
         glPopMatrix(); // Restore the camera viewing point for next object
         i++;
     }
+
 }
 
 void close(SDL_Window** window)
@@ -250,13 +247,10 @@ int main(int argc, char* args[])
     // The window we'll be rendering to
     SDL_Window* gWindow = NULL;
 
+
+
     // OpenGL context
     SDL_GLContext gContext;
-
-
-
-
-
 
     // Start up SDL and create window
     if( !init(&gWindow, &gContext))
@@ -275,6 +269,7 @@ int main(int argc, char* args[])
         TwWindowSize(SCREEN_WIDTH,SCREEN_HEIGHT);
         antIHM::buildAntIHM();
         antIHM::buildAntSensitive();
+
 
         // Main loop flag
         bool quit = false;
@@ -420,21 +415,19 @@ int main(int argc, char* args[])
                     case SDL_KEYDOWN:
                     // Handle key pressed with current mouse position
                         SDL_GetMouseState( &x, &y );
-
-                    switch(key_pressed)
-                    {
-
-                        case SDLK_q:
-                        case SDLK_ESCAPE:
-                            quit = true;
-                            break;
-                        case SDLK_x:
-                            camera->OnKeyboard(event.key);
-                            break;
-                        default:
-                            break;
+                        switch(key_pressed)
+                        {
+                            case SDLK_q:
+                            case SDLK_ESCAPE:
+                                quit = true;
+                                break;
+                            case SDLK_x:
+                                camera->OnKeyboard(event.key);
+                                break;
+                            default:
+                                break;
+                        }
                     }
-                }
 
                 }
             }

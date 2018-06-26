@@ -3,6 +3,7 @@
 
 #include "geometry.h"
 #include "animation.h"
+#include "sdlglutils.h"
 
 
 class Color
@@ -26,7 +27,9 @@ class Form
 protected:
     Color col;
     Animation anim;
+    GLuint texture;
 public:
+
     Animation& getAnim() {return anim;}
     void setAnim(Animation ani) {anim = ani;}
     // This method should update the anim object with the corresponding physical model

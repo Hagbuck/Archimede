@@ -106,6 +106,11 @@ void TrackBall::setScrollSensivity(double sensivity)
     _scrollSensivity = sensivity;
 }
 
+void TrackBall::setTranslationSensivity(double sensivity)
+{
+    _translationSensitivity = sensivity;
+}
+
 void TrackBall::look()
 {
     gluLookAt(_distance,_cibleY,_cibleZ,
