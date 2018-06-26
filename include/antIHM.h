@@ -35,25 +35,10 @@
 #define DENSITE_MIN 10
 #define DENSITE_STEP 0.5
 
-//CONFIG SCROLL CONFIG
-#define SCROLL_MAX 5
-#define SCROLL_MIN 1
-#define SCROLL_STEP 0.5
-
-//CONFIG MOUSE CONFIG
-#define MOUSE_MAX 5
-#define MOUSE_MIN 1
-#define MOUSE_STEP 0.5
-
-//CONFIG TRANSLATION CONFIG
-#define TRANS_MAX 5
-#define TRANS_MIN 1
-#define TRANS_STEP 0.5
-
 //CONFIG DEFAULT VALUES BY MAT
-#define WOOD_DEFAULT_MASSE 30
-#define METAL_DEFAULT_MASSE 75
-#define PLASTIC_DEFAULT_MASSE 15
+#define WOOD_DEFAULT_MASSE 15
+#define METAL_DEFAULT_MASSE 50
+#define CUIVRE_DEFAULT_MASSE 43
 
 void initSS(void);
 
@@ -62,7 +47,7 @@ class antIHM
     public:
         antIHM();
         static void buildAntIHM();
-        static void buildAntSensitive();
+        static void buildAntMaterial();
         //static void initSS(void);
         //VARS STRINGS
         //static stringstream  str_wood;
@@ -72,7 +57,7 @@ class antIHM
     private:
         static void TW_CALL makeBois(void * client);
         static void TW_CALL makeMetal(void * client);
-        static void TW_CALL makePlastic(void * client);
+        static void TW_CALL makeCuivre(void * client);
         static void buildLabel();
         //VARS
 

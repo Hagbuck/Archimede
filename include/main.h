@@ -19,8 +19,4 @@ extern  double default_val_rayon ;
 extern TwBar * mainBar;
 extern TwBar * materialBar;
 
-extern double default_scroll_sensivity;
-extern double default_mouse_sensitivity;
-extern double default_translation_sensitivity;
-
 using namespace std;

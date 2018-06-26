@@ -3,6 +3,7 @@
 #include <GL/GLU.h>
 #include "forms.h"
 #include <cstdlib>
+#include "sdlglutils.h"
 
 using namespace std;
 
@@ -18,6 +19,10 @@ void Form::render()
 
     Point org = anim.getPos();
     glTranslated(org.x, org.y, org.z);
+    glColor3f(1, 1, 1);
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D,  texture);
     //glColor3f(col.r, col.g, col.b);
 
 }
@@ -58,7 +63,7 @@ void Sphere::render()
 }
 
 
-Cube_face::Cube_face(Vector v1, Vector v2, Point org, double l, double w, Color cl,GLuint textureToApply)
+Cube_face::Cube_face(Vector v1, Vector v2, Point org, double l, double w, Color cl)
 {
     vdir1 = 1.0 / v1.norm() * v1;
     vdir2 = 1.0 / v2.norm() * v2;
@@ -66,7 +71,7 @@ Cube_face::Cube_face(Vector v1, Vector v2, Point org, double l, double w, Color 
     length = l;
     width = w;
     col = cl;
-    texture = textureToApply;
+    texture = loadTexture("img/terre.jpg");
 }
 
 
@@ -87,10 +92,9 @@ void Cube_face::render()
 
     Form::render();
 
-    glBindTexture(GL_TEXTURE_2D, this->texture);
     glBegin(GL_QUADS);
     {
-        glColor3f(col.r,col.g,col.b);
+        //glColor3f(col.r,col.g,col.b);
         glTexCoord2d(0,1);
         glVertex3d(p1.x, p1.y, p1.z);
         glTexCoord2d(0,0);

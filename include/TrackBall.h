@@ -15,11 +15,14 @@ class TrackBall
         virtual void look();
         virtual void setMotionSensivity(double sensivity);
         virtual void setScrollSensivity(double sensivity);
+        virtual void setTranslationSensivity(double sensivity);
         virtual ~TrackBall();
 
     protected:
         double _motionSensivity;
         double _scrollSensivity;
+        double _translationSensitivity;
+
         bool _holdRight;
         bool _holdLeft;
         double _distance;

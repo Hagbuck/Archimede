@@ -30,13 +30,6 @@ double default_val_speed = 20;
 double default_val_densite = 20;
 double default_val_rayon = 20;
 
-double default_scroll_sensivity = 2.5;
-double default_mouse_sensitivity = 2.5;
-double default_translation_sensitivity = 1.5;
-
-
-GLuint textureHerbe = loadTexture("img/herbe.jpg");
-GLuint textureTerre = loadTexture("img/terre.jpg");
 
 // Max number of forms : static allocation
 const int MAX_FORMS_NUMBER = 100;
@@ -74,8 +67,7 @@ TrackBall * camera;
 /***************************************************************************/
 bool init(SDL_Window** window, SDL_GLContext* context)
 {
-    cout << textureHerbe << endl;
-    cout << "test" << endl;
+
 
     // Initialization flag
     bool success = true;
@@ -229,13 +221,6 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, const 
         i++;
     }
 
-    glBindTexture(GL_TEXTURE_2D, textureHerbe);
-    glBegin(GL_QUADS);
-    glTexCoord2d(0,1);  glVertex3d(1,1,1);
-    glTexCoord2d(0,0);  glVertex3d(1,1,-1);
-    glTexCoord2d(1,0);  glVertex3d(-1,1,-1);
-    glTexCoord2d(1,1);  glVertex3d(-1,1,1);
-    glEnd();
 }
 
 void close(SDL_Window** window)
@@ -279,7 +264,7 @@ int main(int argc, char* args[])
         //DISPLAY IHMS
         TwWindowSize(SCREEN_WIDTH,SCREEN_HEIGHT);
         antIHM::buildAntIHM();
-        antIHM::buildAntSensitive();
+        antIHM::buildAntMaterial();
 
         // Main loop flag
         bool quit = false;
@@ -327,24 +312,24 @@ int main(int argc, char* args[])
         Cube_face *fond_one = NULL;
 
         //Surface
-        ground_zero = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0,0,0),0.5,3,GREEN,textureHerbe);
-        ground_two = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(3.5,0,0),0.5,3,GREEN,textureHerbe);
-        ground_three = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0.5,2,0),3,1,GREEN,textureHerbe);
+        ground_zero = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0,0,0),0.5,3,GREEN);
+        ground_two = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(3.5,0,0),0.5,3,GREEN);
+        ground_three = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0.5,2,0),3,1,GREEN);
 
         // Profondeur
-        prof_zero = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(0,0,0),3,3,Color(0.6,0.4,0),textureTerre);
-        prof_one = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(4,0,0),3,3,Color(0.6,0.4,0),textureTerre);
-        prof_two = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0,3,0),4,3,Color(0.6,0.4,0),textureTerre);
-        prof_three = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0.5,2,0),3,2.5,BLUE,textureTerre);
-        prof_four = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(0.5,0,0),2,2.5,BLUE,textureTerre);
-        prof_five = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(3.5,0,0),2,2.5,BLUE,textureTerre);
-        prof_six = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0,0,0),0.5,3,Color(0.6,0.4,0),textureTerre);
-        prof_seven = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(3.5,0,0),0.5,3,Color(0.6,0.4,0),textureTerre);
-        prof_eight = new Cube_face(Vector(1,0,0), Vector(0,0,1), Point(0.5,0,-3),3,0.5,Color(0.6,0.4,0),textureTerre);
+        prof_zero = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(0,0,0),3,3,Color(0.6,0.4,0));
+        prof_one = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(4,0,0),3,3,Color(0.6,0.4,0));
+        prof_two = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0,3,0),4,3,Color(0.6,0.4,0));
+        prof_three = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0.5,2,0),3,2.5,BLUE);
+        prof_four = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(0.5,0,0),2,2.5,BLUE);
+        prof_five = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(3.5,0,0),2,2.5,BLUE);
+        prof_six = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0,0,0),0.5,3,Color(0.6,0.4,0));
+        prof_seven = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(3.5,0,0),0.5,3,Color(0.6,0.4,0));
+        prof_eight = new Cube_face(Vector(1,0,0), Vector(0,0,1), Point(0.5,0,-3),3,0.5,Color(0.6,0.4,0));
 
         //fond
-        fond_zero = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0,0,-3),4,3,Color(0,0.4,0.4),textureTerre);
-        fond_one = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0.5,0,-2.5),3,3,Color(0,0.4,0.4),textureTerre);
+        fond_zero = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0,0,-3),4,3,Color(0,0.4,0.4));
+        fond_one = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0.5,0,-2.5),3,3,Color(0,0.4,0.4));
 
         forms_list[number_of_forms] = ground_zero;
         number_of_forms++;
@@ -425,21 +410,19 @@ int main(int argc, char* args[])
                     case SDL_KEYDOWN:
                     // Handle key pressed with current mouse position
                         SDL_GetMouseState( &x, &y );
-
-                    switch(key_pressed)
-                    {
-
-                        case SDLK_q:
-                        case SDLK_ESCAPE:
-                            quit = true;
-                            break;
-                        case SDLK_x:
-                            camera->OnKeyboard(event.key);
-                            break;
-                        default:
-                            break;
+                        switch(key_pressed)
+                        {
+                            case SDLK_q:
+                            case SDLK_ESCAPE:
+                                quit = true;
+                                break;
+                            case SDLK_x:
+                                camera->OnKeyboard(event.key);
+                                break;
+                            default:
+                                break;
+                        }
                     }
-                }
 
                 }
             }
