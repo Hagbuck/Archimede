@@ -167,12 +167,12 @@ bool initGL()
     glEnable ( GL_COLOR_MATERIAL ) ;
 
     //TEST  LUMIERE INTERFACE
-    glEnable(GL_LIGHTING);    // Active l'�clairage
+    glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
 
     double a=0;
-    //Position de la lumi�re
-    int LightPos[4] = {2,10,-5,1};
+    //Position de la lumiere
+    int LightPos[4] = {2,-20,-10,0};
     // ????
     int MatSpec [4] = {1,1,1,1};
     glMaterialiv(GL_FRONT_AND_BACK,GL_SPECULAR,MatSpec);
