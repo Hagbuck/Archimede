@@ -480,6 +480,7 @@ int main(int argc, char* args[])
             }
 
             // Render the scene
+            Point camera_position(0,0,4);
             render(forms_list, camera_position, false);
 
             // /!\ DON'T MOVE IT
