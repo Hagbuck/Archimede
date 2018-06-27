@@ -71,8 +71,6 @@ TrackBall * camera;
 /***************************************************************************/
 bool init(SDL_Window** window, SDL_GLContext* context)
 {
-
-
     // Initialization flag
     bool success = true;
 
@@ -169,8 +167,23 @@ bool initGL()
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_TEXTURE_2D);
 
-    //glEnable(GL_LIGHTING);	// Active l'éclairage
- 	//glEnable(GL_LIGHT0);
+    //TEST  LUMIERE INTERFACE
+    glEnable(GL_LIGHTING);    // Active l'éclairage
+     glEnable(GL_LIGHT0);
+
+    double a=0;
+    //Position de la lumière
+    int LightPos[4] = {2,10,-5,1};
+    // ????
+    int MatSpec [4] = {1,1,1,1};
+    glMaterialiv(GL_FRONT_AND_BACK,GL_SPECULAR,MatSpec);
+    glMateriali(GL_FRONT_AND_BACK,GL_SHININESS,10);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    gluLookAt(0,6,6,0,0,0,0,1,0);
+    glRotated(a,0,1,0);
+    glLightiv(GL_LIGHT0,GL_POSITION,LightPos);
 
     return success;
 }
@@ -296,6 +309,10 @@ int main(int argc, char* args[])
             forms_list[i] = NULL;
         }
 
+
+        char * pathToTextureHerbe = "img/herbe.jpg";
+        char * pathToTextureTerre = "img/terre.jpg";
+
         //surface
         Cube_face *ground_zero = NULL;
         Cube_face *ground_two = NULL;
@@ -316,16 +333,16 @@ int main(int argc, char* args[])
         Cube_face *fond_zero = NULL;
         Cube_face *fond_one = NULL;
 
+        //Test
+        Cube_face *water_surface = NULL;
+        Cube_face *water_coupe = NULL;
+
         //Surface
         ground_zero = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0,0,0),0.5,3,GREEN);
         ground_two = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(3.5,0,0),0.5,3,GREEN);
         ground_three = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0.5,2,0),3,1,GREEN);
 
-        char * pathToTexture = "img/herbe.jpg";
 
-        ground_zero->setTexture(pathToTexture);
-        ground_two->setTexture(pathToTexture);
-        ground_three->setTexture(pathToTexture);
         // Profondeur
         prof_zero = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(0,0,0),3,3,Color(0.6,0.4,0));
         prof_one = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(4,0,0),3,3,Color(0.6,0.4,0));
@@ -341,40 +358,66 @@ int main(int argc, char* args[])
         fond_zero = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0,0,-3),4,3,Color(0,0.4,0.4));
         fond_one = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0.5,0,-2.5),3,3,Color(0,0.4,0.4));
 
+
+
+        water_surface = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0.5,0,0),3,2,BLUE);
+        water_surface->setTextureBoolean(false);
+
+        water_coupe = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0.5,0,0),3,2.5,BLUE);
+        water_coupe->setTextureBoolean(false);
+
+
+        ground_zero->setTexture(pathToTextureHerbe);
+        ground_two->setTexture(pathToTextureHerbe);
+        ground_three->setTexture(pathToTextureHerbe);
+
+
+        prof_zero->setTexture(pathToTextureTerre);
+        prof_one->setTexture(pathToTextureTerre);
+        prof_two->setTexture(pathToTextureTerre);
+        prof_three->setTexture(pathToTextureTerre);
+        prof_four->setTexture(pathToTextureTerre);
+        prof_five->setTexture(pathToTextureTerre);
+        prof_six->setTexture(pathToTextureTerre);
+        prof_seven->setTexture(pathToTextureTerre);
+        prof_eight->setTexture(pathToTextureTerre);
+
+        fond_zero->setTexture(pathToTextureTerre);
+        fond_one->setTexture(pathToTextureTerre);
+
+
         forms_list[number_of_forms] = ground_zero;
         number_of_forms++;
         forms_list[number_of_forms] = ground_two;
         number_of_forms++;
         forms_list[number_of_forms] = ground_three;
         number_of_forms++;
-
         forms_list[number_of_forms] = prof_zero;
         number_of_forms++;
         forms_list[number_of_forms] = prof_one;
         number_of_forms++;
         forms_list[number_of_forms] = prof_two;
         number_of_forms++;
-
         forms_list[number_of_forms] = prof_three;
         number_of_forms++;
         forms_list[number_of_forms] = prof_four;
         number_of_forms++;
         forms_list[number_of_forms] = prof_five;
         number_of_forms++;
-
         forms_list[number_of_forms] = prof_six;
         number_of_forms++;
-
         forms_list[number_of_forms] = prof_seven;
         number_of_forms++;
         forms_list[number_of_forms] = prof_eight;
         number_of_forms++;
-
         forms_list[number_of_forms] = fond_zero;
         number_of_forms++;
         forms_list[number_of_forms] = fond_one;
         number_of_forms++;
-
+        forms_list[number_of_forms] = water_surface;
+        number_of_forms++;
+        forms_list[number_of_forms] = water_coupe;
+        number_of_forms++;
 
         // Get first "current time"
         previous_time = SDL_GetTicks();

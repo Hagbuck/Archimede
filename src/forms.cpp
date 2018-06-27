@@ -13,6 +13,16 @@ void Form::update(double delta_t)
     // Nothing to do here, animation update is done in child class method
 }
 
+void Form::setTextureBoolean(bool textureOn)
+{
+    textureToApply = textureOn;
+
+}
+
+void Form::setOpacity(double opacityToApply)
+{
+    opacity = opacityToApply;
+}
 
 void Form::render()
 {
@@ -23,6 +33,9 @@ void Form::render()
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D,  texture);
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     //glColor3f(col.r, col.g, col.b);
 
 }
@@ -71,7 +84,8 @@ Cube_face::Cube_face(Vector v1, Vector v2, Point org, double l, double w, Color 
     length = l;
     width = w;
     col = cl;
-    texture = loadTexture("img/terre.jpg");
+    textureToApply = true;
+    //texture = loadTexture("img/terre.jpg");
 }
 
 
@@ -97,17 +111,33 @@ void Cube_face::render()
 
     Form::render();
 
-    glBegin(GL_QUADS);
+    if(textureToApply)
     {
-        //glColor3f(col.r,col.g,col.b);
-        glTexCoord2d(0,length);
-        glVertex3d(p1.x, p1.y, p1.z);
-        glTexCoord2d(0,0);
-        glVertex3d(p2.x, p2.y, p2.z);
-        glTexCoord2d(width,0);
-        glVertex3d(p3.x, p3.y, p3.z);
-        glTexCoord2d(width,length);
-        glVertex3d(p4.x, p4.y, p4.z);
+        glBegin(GL_QUADS);
+        {
+            //glColor3f(col.r,col.g,col.b);
+            glTexCoord2d(0,length);
+            glVertex3d(p1.x, p1.y, p1.z);
+            glTexCoord2d(0,0);
+            glVertex3d(p2.x, p2.y, p2.z);
+            glTexCoord2d(width,0);
+            glVertex3d(p3.x, p3.y, p3.z);
+            glTexCoord2d(width,length);
+            glVertex3d(p4.x, p4.y, p4.z);
+        }
+        glEnd();
     }
-    glEnd();
+    else
+    {
+        glBegin(GL_QUADS);
+        {
+            glColor4f(col.r,col.g,col.b,0.5);
+            glVertex3d(p1.x, p1.y, p1.z);
+            glVertex3d(p2.x, p2.y, p2.z);
+            glVertex3d(p3.x, p3.y, p3.z);
+            glVertex3d(p4.x, p4.y, p4.z);
+        }
+        glEnd();
+    }
+
 }

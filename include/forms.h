@@ -28,6 +28,8 @@ protected:
     Color col;
     Animation anim;
     GLuint texture;
+    bool textureToApply;
+    double opacity;
 public:
 
     Animation& getAnim() {return anim;}
@@ -39,6 +41,8 @@ public:
     virtual void update(double delta_t) = 0;
     // Virtual method : Form is a generic type, only setting color and reference position
     virtual void render();
+    virtual void setTextureBoolean(bool textureOn);
+    virtual void setOpacity(double opacityToApply);
 };
 
 
