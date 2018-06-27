@@ -166,10 +166,11 @@ bool initGL()
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_TEXTURE_2D);
+    glEnable ( GL_COLOR_MATERIAL ) ;
 
     //TEST  LUMIERE INTERFACE
     glEnable(GL_LIGHTING);    // Active l'éclairage
-     glEnable(GL_LIGHT0);
+    glEnable(GL_LIGHT0);
 
     double a=0;
     //Position de la lumière
@@ -177,7 +178,7 @@ bool initGL()
     // ????
     int MatSpec [4] = {1,1,1,1};
     glMaterialiv(GL_FRONT_AND_BACK,GL_SPECULAR,MatSpec);
-    glMateriali(GL_FRONT_AND_BACK,GL_SHININESS,10);
+    glMateriali(GL_FRONT_AND_BACK,GL_SHININESS,75);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
