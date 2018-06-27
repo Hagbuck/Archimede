@@ -1,10 +1,13 @@
 #ifndef FORMS_H_INCLUDED
 #define FORMS_H_INCLUDED
 
+#include <cmath>
+#include <SDL2/SDL_opengl.h>
+#include <GL/GLU.h>
+
 #include "geometry.h"
 #include "animation.h"
 #include "sdlglutils.h"
-
 
 class Color
 {
@@ -31,7 +34,6 @@ protected:
     bool textureToApply;
     double opacity;
 public:
-
     Animation& getAnim() {return anim;}
     void setAnim(Animation ani) {anim = ani;}
     // This method should update the anim object with the corresponding physical model
@@ -45,31 +47,12 @@ public:
     virtual void setOpacity(double opacityToApply);
 };
 
-
-// A particular Form
-class Sphere : public Form
-{
-private:
-    // The sphere center is aligned with the coordinate system origin
-    // => no center required here, information is stored in the anim object
-    double radius;
-public:
-    Sphere(double r = 1.0, Color cl = Color(), Point * p = new Point(0,0,0));
-    Point * origin;
-    const double getRadius() {return radius;}
-    void setRadius(double r) {radius = r;}
-    void update(double delta_t);
-    void render();
-};
-
-
 // A face of a cube
 class Cube_face : public Form
 {
 private:
     Vector vdir1, vdir2;
     double length, width;
-
 public:
     Cube_face(Vector v1 = Vector(1,0,0), Vector v2 = Vector(0,0,1),
           Point org = Point(), double l = 1.0, double w = 1.0,
@@ -77,6 +60,8 @@ public:
     void update(double delta_t);
     void render();
     void setTexture(char * path);
+    Vector getVdir1(void);
+    Vector getVdir2(void);
 };
 
 #endif // FORMS_H_INCLUDED

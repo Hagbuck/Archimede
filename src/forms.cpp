@@ -7,12 +7,6 @@
 
 using namespace std;
 
-
-void Form::update(double delta_t)
-{
-    // Nothing to do here, animation update is done in child class method
-}
-
 void Form::setTextureBoolean(bool textureOn)
 {
     textureToApply = textureOn;
@@ -23,6 +17,12 @@ void Form::setOpacity(double opacityToApply)
 {
     opacity = opacityToApply;
 }
+
+void Form::update(double delta_t)
+{
+    // Nothing to do here, animation update is done in child class method
+}
+
 
 void Form::render()
 {
@@ -40,42 +40,6 @@ void Form::render()
 
 }
 
-
-Sphere::Sphere(double r, Color cl, Point * p)
-{
-    radius = r;
-    col = cl;
-    origin = p;
-}
-
-
-void Sphere::update(double delta_t)
-{
-    // Complete this part
-    /*Vector* test = new Vector(Point(1,1,1),Point(0,0,0));
-    anim.setTheta(anim.getTheta()+1);
-    anim.setPhi(anim.getPhi()+1);
-    anim.setSpeed(anim.getSpeed()+*test);
-    anim.setAccel(anim.getAccel()+*test);*/
-
-
-}
-
-
-void Sphere::render()
-{
-    GLUquadric *quad;
-
-    quad = gluNewQuadric();
-
-    gluQuadricDrawStyle(quad,GLU_LINE);
-
-    gluSphere(quad,radius,40,40);
-
-    gluDeleteQuadric(quad);
-}
-
-
 Cube_face::Cube_face(Vector v1, Vector v2, Point org, double l, double w, Color cl)
 {
     vdir1 = 1.0 / v1.norm() * v1;
@@ -85,7 +49,6 @@ Cube_face::Cube_face(Vector v1, Vector v2, Point org, double l, double w, Color 
     width = w;
     col = cl;
     textureToApply = true;
-    //texture = loadTexture("img/terre.jpg");
 }
 
 
@@ -140,4 +103,14 @@ void Cube_face::render()
         glEnd();
     }
 
+}
+
+Vector Cube_face::getVdir1(void)
+{
+    return vdir1;
+}
+
+Vector Cube_face::getVdir2(void)
+{
+    return vdir2;
 }

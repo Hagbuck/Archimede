@@ -11,18 +11,24 @@
 #include "antIHM.h"
 #include <TrackBall.h>
 #include "sdlglutils.h"
-
 // Module for space geometry
 #include "geometry.h"
 // Module for generating and rendering forms
 #include "forms.h"
 
+#include "physic.h"
+
+#include "sphere.h"
+
+#include "water.h"
+
+
+using namespace std;
 
 
 /***************************************************************************/
 /* Constants and functions declarations                                    */
 /***************************************************************************/
-// Screen dimension constants
 
 //IHM VARS (IHM CONSERVE)
 double default_val_masse = 20;
@@ -34,6 +40,7 @@ double default_val_rayon = 20;
 double default_scroll_sensivity = 2.5;
 double default_mouse_sensitivity = 2.5;
 double default_translation_sensitivity = 1.5;
+
 
 // Max number of forms : static allocation
 const int MAX_FORMS_NUMBER = 100;
@@ -54,7 +61,7 @@ bool initGL();
 void update(Form* formlist[MAX_FORMS_NUMBER], double delta_t);
 
 // Renders scene to the screen
-const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos);
+const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, bool show_axes = true);
 
 // Frees media and shuts down SDL
 void close(SDL_Window** window);
@@ -62,9 +69,7 @@ void close(SDL_Window** window);
 // Init AntTweakBar
 void init_AntTweakBar();
 
-
 TrackBall * camera;
-
 
 /***************************************************************************/
 /* Functions implementations                                               */
@@ -87,7 +92,7 @@ bool init(SDL_Window** window, SDL_GLContext* context)
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
         // Create window
-        *window = SDL_CreateWindow( "TEST IHM", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN );
+        *window = SDL_CreateWindow( "Archim√®de Project", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN );
         if( *window == NULL )
         {
             cout << "Window could not be created! SDL Error: " << SDL_GetError() << endl;
@@ -129,8 +134,6 @@ bool initGL()
     bool success = true;
     GLenum error = GL_NO_ERROR;
 
-
-
     // Initialize Projection Matrix
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -152,10 +155,6 @@ bool initGL()
     // Activate Z-Buffer
 
 
-
-
-
-
     // Check for error
     error = glGetError();
     if( error != GL_NO_ERROR )
@@ -165,15 +164,14 @@ bool initGL()
     }
 
     glEnable(GL_DEPTH_TEST);
-    glEnable(GL_TEXTURE_2D);
     glEnable ( GL_COLOR_MATERIAL ) ;
 
     //TEST  LUMIERE INTERFACE
-    glEnable(GL_LIGHTING);    // Active l'Èclairage
+    glEnable(GL_LIGHTING);    // Active l'ÔøΩclairage
     glEnable(GL_LIGHT0);
 
     double a=0;
-    //Position de la lumiËre
+    //Position de la lumiÔøΩre
     int LightPos[4] = {2,10,-5,1};
     // ????
     int MatSpec [4] = {1,1,1,1};
@@ -200,7 +198,7 @@ void update(Form* formlist[MAX_FORMS_NUMBER], double delta_t)
     }
 }
 
-const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, const Point &cible_pos)
+const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, bool show_axes)
 {
     // Clear color buffer and Z-Buffer
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -209,36 +207,40 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, const 
     glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
 
-    // Set the camera position and parameters
     camera->look();
 
     glPushMatrix(); // Preserve the camera viewing point for further forms
 
-    // Render the coordinates system
-
-
-
-    glBegin(GL_LINES);
+    if(show_axes)
     {
-        glColor3f(1.0f, 0.0f, 0.0f);
-        glVertex3i(0, 0, 0);
-        glVertex3i(1, 0, 0);
+         // X, Y and Z axis
+        glPushMatrix(); // Preserve the camera viewing point for further forms
+        // Render the coordinates system
+        glBegin(GL_LINES);
+        {
+            glColor3f(1.0f, 0.0f, 0.0f);
+            glVertex3i(0, 0, 0);
+            glVertex3i(1, 0, 0);
+            glColor3f(0.0f, 1.0f, 0.0f);
+            glVertex3i(0, 0, 0);
+            glVertex3i(0, 1, 0);
+            glColor3f(0.0f, 0.0f, 1.0f);
+            glVertex3i(0, 0, 0);
+            glVertex3i(0, 0, 1);
+        }
+        glEnd();
+        glPopMatrix(); // Restore the camera viewing point for next object
     }
-    glEnd();
-    glPopMatrix(); // Restore the camera viewing point for next object
 
     // Render the list of forms
     unsigned short i = 0;
     while(formlist[i] != NULL)
     {
-
         glPushMatrix(); // Preserve the camera viewing point for further forms
-
         formlist[i]->render();
         glPopMatrix(); // Restore the camera viewing point for next object
         i++;
     }
-
 }
 
 void close(SDL_Window** window)
@@ -246,8 +248,7 @@ void close(SDL_Window** window)
     //Destroy window
     SDL_DestroyWindow(*window);
     *window = NULL;
-
-    delete camera;
+     delete camera;
     //Quit SDL subsystems
     SDL_Quit();
 }
@@ -261,10 +262,9 @@ int main(int argc, char* args[])
     // The window we'll be rendering to
     SDL_Window* gWindow = NULL;
 
-
-
     // OpenGL context
     SDL_GLContext gContext;
+
 
     // Start up SDL and create window
     if( !init(&gWindow, &gContext))
@@ -283,8 +283,6 @@ int main(int argc, char* args[])
         TwWindowSize(SCREEN_WIDTH,SCREEN_HEIGHT);
         antIHM::buildAntIHM();
         antIHM::buildAntSensitive();
-
-
         // Main loop flag
         bool quit = false;
         Uint32 current_time, previous_time, elapsed_time;
@@ -293,14 +291,9 @@ int main(int argc, char* args[])
         SDL_Event event;
 
         // Camera position
-        Point camera_position(0, 0.0, 4);
-        Point cible_position(0, 0, 0);
-
-
         camera = new TrackBall();
         camera->setScrollSensivity(0.2);
         camera->setMotionSensivity(0.5);
-
 
         // The forms to render
         Form* forms_list[MAX_FORMS_NUMBER];
@@ -309,7 +302,6 @@ int main(int argc, char* args[])
         {
             forms_list[i] = NULL;
         }
-
 
         char * pathToTextureHerbe = "img/herbe.jpg";
         char * pathToTextureTerre = "img/terre.jpg";
@@ -420,68 +412,63 @@ int main(int argc, char* args[])
         forms_list[number_of_forms] = water_coupe;
         number_of_forms++;
 
+        Water* water = new Water();
+        forms_list[number_of_forms] = water;
+        number_of_forms++;
+
+        Sphere* sp = NULL;
+        sp = new Sphere(water, 0.3, 110, Point(0,3,0));
+        forms_list[number_of_forms] = sp;
+        number_of_forms++;
+
         // Get first "current time"
         previous_time = SDL_GetTicks();
         // While application is running
         while(!quit)
         {
-
             // Handle events on queue
-            while(SDL_PollEvent(&event) ) //!=0
+            while(SDL_PollEvent(&event) )
             {
                 int x = 0, y = 0;
                 SDL_Keycode key_pressed = event.key.keysym.sym;
 
-                // send event to AntTweakBar
                 handledAnt = TwEventSDL(&event ,SDL_MAJOR_VERSION, SDL_MINOR_VERSION);
-
-                if( ! handledAnt ) // !handledAnt // if event has not been handled by AntTweakBar, process it
+                if( ! handledAnt )
                 {
-
                     switch(event.type)
                     {
-                    // User requests quit
+                    // User requests quitje connais pas du tout comment √ßa fonctionne les pages en jsp du coup on va faire comment ? ^^
                     case SDL_QUIT:
                         quit = true;
                         break;
-                    case SDLK_ESCAPE:
-                        quit = true;
-                        break;
-
-                    case SDL_MOUSEMOTION:
-                            camera->OnMouseMotion(event.motion);
-                            break;
-
-                    case SDL_MOUSEBUTTONUP:
-                    case SDL_MOUSEBUTTONDOWN:
-                        camera->OnMouseButton(event.button);
-                        break;
-
-                    case SDL_MOUSEWHEEL:
-                        camera->OnMouseScroll(event.wheel);
-                        break;
-
                     case SDL_KEYDOWN:
-                    // Handle key pressed with current mouse position
+                        // Handle key pressed with current mouse position
                         SDL_GetMouseState( &x, &y );
+
                         switch(key_pressed)
                         {
-                            case SDLK_q:
-                            case SDLK_ESCAPE:
-                                quit = true;
-                                break;
-                            case SDLK_x:
-                                camera->OnKeyboard(event.key);
-                                break;
-                            default:
-                                break;
+                        // Quit the program when 'q' or Escape keys are pressed
+                        case SDLK_q:
+                        case SDLK_ESCAPE:
+                            quit = true;
+                            break;
+
+                        case SDLK_SPACE:
+                            // On reset la position de la sph√®re
+                            sp->resetPosition();
+                            break;
+
+                        default:
+                            break;
                         }
+                        break;
+                    default:
+                        break;
                     }
-
                 }
-            }
-            //END EVENTS
 
+
+            }
 
             // Update the scene
             current_time = SDL_GetTicks(); // get the elapsed time from SDL initialization (ms)
@@ -493,22 +480,20 @@ int main(int argc, char* args[])
             }
 
             // Render the scene
-            render(forms_list, camera_position,cible_position);
-
+            render(forms_list, camera_position, false);
 
             // /!\ DON'T MOVE IT
             TwDraw();
 
             // Update window screen
             SDL_GL_SwapWindow(gWindow);
-
         }
-
+        //delete sp;
     }
 
     // Free resources and close SDL
-    close(&gWindow);
     TwTerminate();
+    close(&gWindow);
 
     return 0;
 }
