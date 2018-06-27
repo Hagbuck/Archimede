@@ -39,9 +39,9 @@ Point Water::getLvlPoint(void)
     return lvl->getAnim().getPos();
 }
 
-double Water::getLvlY(void)
+double Water::getLvlz(void)
 {
-    return lvl->getAnim().getPos().y;
+    return lvl->getAnim().getPos().z;
 }
 
 Point Water::getDeepPoint(void)
@@ -49,7 +49,7 @@ Point Water::getDeepPoint(void)
     return deep->getAnim().getPos();
 }
 
-double Water::getDeepY(void)
+double Water::getDeepz(void)
 {
-    return deep->getAnim().getPos().y;
+    return deep->getAnim().getPos().z;
 }

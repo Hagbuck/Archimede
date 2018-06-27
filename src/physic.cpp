@@ -2,14 +2,14 @@
 
 double sphere_submerged_volume(Point sphere_center, double sphere_radius, Vector v1, Vector v2, Point eau)
 {
-    double ball_y = sphere_center.y;
+    double ball_z = sphere_center.z;
 
-    double hbas = ball_y - sphere_radius;
-    double hc = eau.y - hbas;
+    double hbas = ball_z - sphere_radius;
+    double hc = eau.z - hbas;
 
-    if(ball_y + sphere_radius <= eau.y)
+    if(ball_z + sphere_radius <= eau.z)
         hc = 2 * sphere_radius;
-    else if(ball_y - sphere_radius > eau.y)
+    else if(ball_z - sphere_radius > eau.z)
         hc = 0;
 
     double vc = (PI * hc * hc * (3 * sphere_radius - hc)) / 3;

@@ -9,8 +9,8 @@ TrackBall::TrackBall()
 {
     _holdRight = false;
     _holdLeft = false;
-    _angleY = 45;
-    _angleZ = 90;
+    _angleY = 0;
+    _angleZ = 0;
     _distance = 6;
     _motionSensivity = 0.3;
     _scrollSensivity = 1;
@@ -88,10 +88,10 @@ void TrackBall::OnKeyboard(const SDL_KeyboardEvent & event)
 {
     if ((event.type == SDL_KEYDOWN)&&(event.keysym.sym == SDLK_x))
     {
-        _angleY = 45;
-        _angleZ = 90;
-        _distance = 6;
-        _cibleY = 2;
+        _angleY = 0;
+        _angleZ = 0;
+        _distance = 10;
+        _cibleY = 0;
         _cibleZ = 0;
     }
 }

@@ -166,7 +166,7 @@ bool initGL()
     glEnable(GL_DEPTH_TEST);
     glEnable ( GL_COLOR_MATERIAL ) ;
 
-    //TEST  LUMIERE INTERFACE
+   //TEST  LUMIERE INTERFACE
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
 
@@ -306,6 +306,18 @@ int main(int argc, char* args[])
         char * pathToTextureHerbe = "img/herbe.jpg";
         char * pathToTextureTerre = "img/terre.jpg";
 
+
+
+        Water* water = new Water();
+
+        Sphere* sp = NULL;
+        sp = new Sphere(water, 0.1, 3, Point(2,1.5,2));
+        forms_list[number_of_forms] = sp;
+        number_of_forms++;
+
+
+
+
         //surface
         Cube_face *ground_zero = NULL;
         Cube_face *ground_two = NULL;
@@ -329,6 +341,20 @@ int main(int argc, char* args[])
         //Test
         Cube_face *water_surface = NULL;
         Cube_face *water_coupe = NULL;
+
+
+        const double LARGEUR_SCENE = 4.0;
+        const double LONGUEUR_SCENE = 3;
+        const double PROFONDEUR_SCENE = 3;
+
+        const double LARGEUR_BORD_SURFACE = 0.5;
+        const double LONGUEUR_BORD_SURFACE = 1;
+
+        const double PROFONDEUR_BASSIN = 2.5;
+
+
+
+
 
         //Surface
         ground_zero = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0,0,0),0.5,3,GREEN);
@@ -368,6 +394,7 @@ int main(int argc, char* args[])
         prof_zero->setTexture(pathToTextureTerre);
         prof_one->setTexture(pathToTextureTerre);
         prof_two->setTexture(pathToTextureTerre);
+
         prof_three->setTexture(pathToTextureTerre);
         prof_four->setTexture(pathToTextureTerre);
         prof_five->setTexture(pathToTextureTerre);
@@ -385,6 +412,8 @@ int main(int argc, char* args[])
         number_of_forms++;
         forms_list[number_of_forms] = ground_three;
         number_of_forms++;
+
+
         forms_list[number_of_forms] = prof_zero;
         number_of_forms++;
         forms_list[number_of_forms] = prof_one;
@@ -410,15 +439,6 @@ int main(int argc, char* args[])
         forms_list[number_of_forms] = water_surface;
         number_of_forms++;
         forms_list[number_of_forms] = water_coupe;
-        number_of_forms++;
-
-        Water* water = new Water();
-        forms_list[number_of_forms] = water;
-        number_of_forms++;
-
-        Sphere* sp = NULL;
-        sp = new Sphere(water, 0.3, 110, Point(0,3,0));
-        forms_list[number_of_forms] = sp;
         number_of_forms++;
 
         // Get first "current time"

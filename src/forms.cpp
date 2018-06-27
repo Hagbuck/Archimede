@@ -26,14 +26,14 @@ void Form::update(double delta_t)
 
 void Form::render()
 {
-
     Point org = anim.getPos();
     glTranslated(org.x, org.y, org.z);
     glColor3f(1, 1, 1);
+
+    glEnable(GL_ALPHA_TEST);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D,  texture);
-
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     //glColor3f(col.r, col.g, col.b);
@@ -65,6 +65,7 @@ void Cube_face::setTexture(char * path)
 
 void Cube_face::render()
 {
+    glPushMatrix();
     Point p1 = Point();
     Point p2 = p1, p3, p4 = p1;
     p2.translate(length*vdir1);
@@ -102,6 +103,7 @@ void Cube_face::render()
         }
         glEnd();
     }
+    glPopMatrix();
 
 }
 

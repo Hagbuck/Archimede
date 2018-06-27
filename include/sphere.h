@@ -31,7 +31,7 @@ private:
     double delta;
     int count_water_jump;
 public:
-    Sphere(Water* water_ptr, double r = 1.0, double p = 1.0, Point ori = Point(0,1.5,0), Color cl = Color());
+    Sphere(Water* water_ptr, double r = 1.0, double p = 1.0, Point ori = Point(2,1.5,0), Color cl = Color());
     const double getRadius(void) {return radius;}
     void setRadius(double r) {radius = r;}
     void update(double delta_t);
