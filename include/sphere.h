@@ -10,9 +10,11 @@
 #include "water.h"
 #include "physic.h"
 
-#define SPHERE_SLICES 10
-#define SPHERE_STACKS 10
-#define STEP_ANIM       0.05
+#define SPHERE_SLICES   10
+#define SPHERE_STACKS   10
+#define STEP_ANIM       0.01
+#define SPEED_INIT      0.01
+#define DELTA_ERR       5
 
 class Sphere : public Form
 {
@@ -23,6 +25,8 @@ private:
     Vector v_archimede;
     Vector v_masse;
     Vector v_vitesse;
+    Vector v_frottement;
+    Vector v_somme;
     Point origin;
     double delta;
 public:

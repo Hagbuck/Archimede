@@ -33,3 +33,23 @@ Cube_face* Water::getLvl(void)
 {
     return lvl;
 }
+
+Point Water::getLvlPoint(void)
+{
+    return lvl->getAnim().getPos();
+}
+
+double Water::getLvlY(void)
+{
+    return lvl->getAnim().getPos().y;
+}
+
+Point Water::getDeepPoint(void)
+{
+    return deep->getAnim().getPos();
+}
+
+double Water::getDeepY(void)
+{
+    return deep->getAnim().getPos().y;
+}

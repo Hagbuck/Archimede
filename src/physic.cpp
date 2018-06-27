@@ -12,8 +12,6 @@ double sphere_submerged_volume(Point sphere_center, double sphere_radius, Vector
     else if(ball_y - sphere_radius > eau.y)
         hc = 0;
 
-    //std::cout << "Y : " << ball_y << " - HC : " << hc << std::endl;
-
     double vc = (PI * hc * hc * (3 * sphere_radius - hc)) / 3;
     return vc;
 }

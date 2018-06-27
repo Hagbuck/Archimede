@@ -1,11 +1,10 @@
 #ifndef PHYSIC_H_INCLUDED
 #define PHYSIC_H_INCLUDED
 
-#define PI  3.14159265358979323846264338327950288419716939937510582
-#define G   9.80665
-#define WATER_DENSITY 0.1
-
-#include <iostream>
+#define PI              3.14159265358979323846264338327950288419716939937510582
+#define G               9.80665
+#define NU              0.001
+#define WATER_DENSITY   1000
 
 #include "forms.h"
 

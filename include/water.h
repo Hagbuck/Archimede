@@ -15,13 +15,17 @@ private:
     Cube_face *lvl;
 public:
     Water(Point deep_pt = Point(-.5,0,-.5), Vector deep_v1 = Vector(1,0,0), Vector deep_v2 = Vector(0,0,1),
-          Point lvl_pt = Point(-.5,0.7,-.5), Vector lvl_v1 = Vector(1,0,0), Vector lvl_v2 = Vector(0,0,1));
+          Point lvl_pt = Point(-.5,2,-.5), Vector lvl_v1 = Vector(1,0,0), Vector lvl_v2 = Vector(0,0,1));
     ~Water(void);
     void update(double delta_t);
     void render(void);
 
     Cube_face* getDeep(void);
     Cube_face* getLvl(void);
+    Point getLvlPoint(void);
+    double getLvlY(void);
+    Point getDeepPoint(void);
+    double getDeepY(void);
 };
 
 #endif // WATER_H_INCLUDED

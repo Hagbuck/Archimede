@@ -168,7 +168,7 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, bool s
     glLoadIdentity();
 
     // Set the camera position and parameters
-    gluLookAt(cam_pos.x,cam_pos.y,cam_pos.z, 0.0,0.0,0.0, 0.0,1.0,0.0);
+    gluLookAt(cam_pos.x,cam_pos.y-2,cam_pos.z, 0.0,0.0,0.0, 0.0,1.0,0.0);
     // Isometric view
     glRotated(-45, 0, 1, 0);
     glRotated(30, 1, 0, -1);
@@ -243,7 +243,7 @@ int main(int argc, char* args[])
         SDL_Event event;
 
         // Camera position
-        Point camera_position(0, 0, 9.0);
+        Point camera_position(0, 0, 10.0);
 
         // The forms to render
         Form* forms_list[MAX_FORMS_NUMBER];
@@ -258,7 +258,7 @@ int main(int argc, char* args[])
         number_of_forms++;
 
         Sphere* sp = NULL;
-        sp = new Sphere(water, 0.25, 0.01, Point(0,3,0));
+        sp = new Sphere(water, 0.1, 3, Point(0,3,0));
         forms_list[number_of_forms] = sp;
         number_of_forms++;
 
@@ -275,7 +275,7 @@ int main(int argc, char* args[])
 
                 switch(event.type)
                 {
-                // User requests quit
+                // User requests quitje connais pas du tout comment ça fonctionne les pages en jsp du coup on va faire comment ? ^^
                 case SDL_QUIT:
                     quit = true;
                     break;
