@@ -426,48 +426,62 @@ int main(int argc, char* args[])
         // While application is running
         while(!quit)
         {
-            // Handle events on queue
-            while(SDL_PollEvent(&event) )
+            while(SDL_PollEvent(&event) ) //!=0
             {
                 int x = 0, y = 0;
                 SDL_Keycode key_pressed = event.key.keysym.sym;
 
+                // send event to AntTweakBar
                 handledAnt = TwEventSDL(&event ,SDL_MAJOR_VERSION, SDL_MINOR_VERSION);
-                if( ! handledAnt )
+
+                if( ! handledAnt ) // !handledAnt // if event has not been handled by AntTweakBar, process it
                 {
+
                     switch(event.type)
                     {
-                    // User requests quitje connais pas du tout comment ça fonctionne les pages en jsp du coup on va faire comment ? ^^
+                    // User requests quit
                     case SDL_QUIT:
                         quit = true;
                         break;
-                    case SDL_KEYDOWN:
-                        // Handle key pressed with current mouse position
-                        SDL_GetMouseState( &x, &y );
+                    case SDLK_ESCAPE:
+                        quit = true;
+                        break;
 
-                        switch(key_pressed)
-                        {
-                        // Quit the program when 'q' or Escape keys are pressed
-                        case SDLK_q:
-                        case SDLK_ESCAPE:
-                            quit = true;
+                    case SDL_MOUSEMOTION:
+                            camera->OnMouseMotion(event.motion);
                             break;
 
-                        case SDLK_SPACE:
+                    case SDL_MOUSEBUTTONUP:
+                    case SDL_MOUSEBUTTONDOWN:
+                        camera->OnMouseButton(event.button);
+                        break;
+
+                    case SDL_MOUSEWHEEL:
+                        camera->OnMouseScroll(event.wheel);
+                        break;
+
+                    case SDL_KEYDOWN:
+                    // Handle key pressed with current mouse position
+                        SDL_GetMouseState( &x, &y );
+                        switch(key_pressed)
+                        {
+                            case SDLK_q:
+                            case SDLK_ESCAPE:
+                                quit = true;
+                                break;
+                            case SDLK_SPACE:
                             // On reset la position de la sphère
                             sp->resetPosition();
                             break;
-
-                        default:
-                            break;
+                            case SDLK_x:
+                                camera->OnKeyboard(event.key);
+                                break;
+                            default:
+                                break;
                         }
-                        break;
-                    default:
-                        break;
                     }
+
                 }
-
-
             }
 
             // Update the scene
