@@ -28,6 +28,7 @@ void Sphere::update(double delta_t)
         // 50ms depuis la dernière itération
 
         double y = anim.getPos().y;
+        double vc = ( 4 / 3 ) * PI * radius * radius * radius;
         bool came_from_water = false;
 
         double submerged_volume = sphere_submerged_volume(anim.getPos(), radius, water->getLvl()->getVdir1(), water->getLvl()->getVdir2(), water->getLvl()->getAnim().getPos());
@@ -45,20 +46,43 @@ void Sphere::update(double delta_t)
         {
             v_frottement.y = 6 * PI * radius * NU * (-v_vitesse.y);
 
-            came_from_water = true;
+            if(v_vitesse.y > 0)
+                came_from_water = true;
+        }
+
+        if(vc >= v_masse.y)
+        {
+
+        }
+        else if(came_from_water == true)
+        {
+            if(v_archimede.y + DELTA_ERR < v_masse.y)
+            {
+                ++count_water_jump;
+                std::cout << "HERE ! " << std::endl<< std::endl<< std::endl<< std::endl<< std::endl;
+                v_vitesse.y = 0;
+                v_somme.y = 0;
+            }
+        }
+
+        if(count_water_jump >= 3)
+        {
+            v_vitesse.y = 0;
         }
 
         double futur_pos = y + (v_vitesse.y * delta);
+
+
         if (came_from_water == true && futur_pos - radius > water->getLvlY())
         {
-            futur_pos = water->getLvlY() + radius;
+            //futur_pos = water->getLvlY() + radius;
             v_vitesse.y = 0;
-        }
+        }/*
 
         if(v_archimede.y >= v_masse.y - DELTA_ERR && v_archimede.y <= v_masse.y + DELTA_ERR)
         {
             v_vitesse = 0;
-        }
+        }*/
 
         anim.setPos(Point(0, futur_pos, 0));
         std::cout << "POS: " << y << "\tSUM: " << v_somme.y << "\tVIT: " << v_vitesse.y << "\tFROTT: " << v_frottement.y << "\tARCHI: " << v_archimede.y << "\tMASSE: " << v_masse.y << std::endl;
@@ -162,4 +186,5 @@ void Sphere::resetPosition(void)
     v_archimede = Vector(0, 0, 0);
     v_somme = Vector(0, 0, 0);
     v_frottement = Vector(0,0,0);
+    count_water_jump = 0;
 }

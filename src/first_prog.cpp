@@ -258,7 +258,7 @@ int main(int argc, char* args[])
         number_of_forms++;
 
         Sphere* sp = NULL;
-        sp = new Sphere(water, 0.1, 3, Point(0,3,0));
+        sp = new Sphere(water, 0.3, 110, Point(0,3,0));
         forms_list[number_of_forms] = sp;
         number_of_forms++;
 
