@@ -15,6 +15,7 @@ Sphere::Sphere(Water* water_ptr, double r, double p, Point ori, Color cl)
     radius = r;
     col = cl;
     origin = ori;
+    textureToApply = true;
 
     resetPosition();
 }
@@ -156,9 +157,27 @@ void Sphere::render(void)
 {
     GLUquadric *quad = NULL;
 
+    glEnable(GL_ALPHA_TEST);
+    glEnable(GL_DEPTH_TEST);
+
+    glEnable ( GL_TEXTURE_2D );
+    glBindTexture ( GL_TEXTURE_2D, this->texture);
+
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     quad = gluNewQuadric();
 
-    gluQuadricDrawStyle(quad, GLU_FILL);
+    gluQuadricDrawStyle(quad,GLU_FILL);
+
+    if(textureToApply)
+    {
+
+        gluQuadricTexture( quad, GL_TRUE);
+    }
+
+
 
     glMatrixMode(GL_MODELVIEW);
     glPushMatrix();
@@ -166,9 +185,12 @@ void Sphere::render(void)
     Point pos = anim.getPos();
     glTranslated(pos.x, pos.y, pos.z);
 
+
+    glColor3f(1, 1, 1);
     gluSphere(quad, radius, SPHERE_SLICES, SPHERE_STACKS);
 
-    gluDeleteQuadric(quad);
+
+    //gluDeleteQuadric(quad);
 
 
     glBegin(GL_LINE_LOOP);
@@ -196,6 +218,7 @@ void Sphere::setMasse(Vector masse_vec)
 {
     v_masse = masse_vec;
 }
+
 
 void Sphere::resetPosition(void)
 {

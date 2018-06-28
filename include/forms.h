@@ -43,6 +43,7 @@ public:
     virtual void update(double delta_t) = 0;
     // Virtual method : Form is a generic type, only setting color and reference position
     virtual void render();
+    void setTexture(SDL_Surface* surface_texture);
     virtual void setTextureBoolean(bool textureOn);
     virtual void setOpacity(double opacityToApply);
 };
@@ -59,7 +60,6 @@ public:
           Color cl = Color());
     void update(double delta_t);
     void render();
-    void setTexture(SDL_Surface* surface_texture);
     Vector getVdir1(void);
     Vector getVdir2(void);
 };

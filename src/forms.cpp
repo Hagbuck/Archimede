@@ -18,6 +18,11 @@ void Form::setOpacity(double opacityToApply)
     opacity = opacityToApply;
 }
 
+void Form::setTexture(SDL_Surface* surface_texture)
+{
+    texture = prepareTexture(surface_texture);
+}
+
 void Form::update(double delta_t)
 {
     // Nothing to do here, animation update is done in child class method
@@ -58,10 +63,7 @@ void Cube_face::update(double delta_t)
 }
 
 
-void Cube_face::setTexture(SDL_Surface* surface_texture)
-{
-    texture = prepareTexture(surface_texture);
-}
+
 
 
 void Cube_face::render()

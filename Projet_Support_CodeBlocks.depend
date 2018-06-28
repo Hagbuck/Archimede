@@ -4188,36 +4188,37 @@
 	"begin_code.h"
 	"close_code.h"
 
-1529328631 source:c:\users\thibaud\documents\github\archimede\src\animation.cpp
+1530213611 source:c:\users\thibaud\documents\github\archimede\src\animation.cpp
 	"animation.h"
 
-1529328627 c:\users\thibaud\documents\github\archimede\include\animation.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\animation.h
 	"geometry.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\geometry.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\geometry.h
 	<iostream>
 
-1530020684 source:c:\users\thibaud\documents\github\archimede\src\antihm.cpp
+1530213611 source:c:\users\thibaud\documents\github\archimede\src\antihm.cpp
 	"antIHM.h"
 	"main.h"
 
-1530020684 c:\users\thibaud\documents\github\archimede\include\antihm.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\antihm.h
 	<AntTweakBar.h>
 	<stdio.h>
 	"main.h"
+	"physic.h"
 
-1529941374 c:\users\thibaud\documents\github\archimede\include\anttweakbar.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\anttweakbar.h
 	<stddef.h>
 	<string>
 	<string>
 
-1530020684 c:\users\thibaud\documents\github\archimede\include\main.h
+1530216865 c:\users\thibaud\documents\github\archimede\include\main.h
 	<sstream>
 	<string>
 	<iostream>
 	<string.h>
 
-1530021903 source:c:\users\thibaud\documents\github\archimede\src\first_prog.cpp
+1530219340 source:c:\users\thibaud\documents\github\archimede\src\first_prog.cpp
 	<iostream>
 	<cmath>
 	<SDL2/SDL.h>
@@ -4232,8 +4233,11 @@
 	"sdlglutils.h"
 	"geometry.h"
 	"forms.h"
+	"physic.h"
+	"sphere.h"
+	"water.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_assert.h"
@@ -4264,12 +4268,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_main.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328629 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_stdinc.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -4298,34 +4302,34 @@
 	<stdlib.h>
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_config.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_config.h
 	"SDL_platform.h"
 
-1529328629 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_platform.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_platform.h
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	<winapifamily.h>
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\begin_code.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\begin_code.h
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\close_code.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\close_code.h
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_assert.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_assert.h
 	"SDL_config.h"
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_atomic.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_atomic.h
 	"SDL_stdinc.h"
 	"SDL_platform.h"
 	"begin_code.h"
 	<mbarrier.h>
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_audio.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -4335,24 +4339,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_error.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_endian.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_mutex.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328629 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_thread.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_atomic.h"
@@ -4361,18 +4365,18 @@
 	<process.h>
 	"close_code.h"
 
-1529328629 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_rwops.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_clipboard.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_clipboard.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_cpuinfo.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	<intrin.h>
 	<intrin.h>
@@ -4384,7 +4388,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_events.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -4398,7 +4402,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1529328629 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_video.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -4406,12 +4410,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1529328629 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_pixels.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_pixels.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328629 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_rect.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_rect.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_pixels.h"
@@ -4419,7 +4423,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1529328629 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_surface.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_surface.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -4428,11 +4432,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_blendmode.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_blendmode.h
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_keyboard.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keycode.h"
@@ -4440,27 +4444,27 @@
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_keycode.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
 
-1529328629 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_scancode.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_scancode.h
 	"SDL_stdinc.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_mouse.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_joystick.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_gamecontroller.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_gamecontroller.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
@@ -4468,11 +4472,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1529328629 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_quit.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_gesture.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_gesture.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -4480,60 +4484,60 @@
 	"begin_code.h"
 	"close_code.h"
 
-1529328629 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_touch.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_touch.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_filesystem.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_filesystem.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_haptic.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_haptic.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_hints.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_hints.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_loadso.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_log.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_log.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_messagebox.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_messagebox.h
 	"SDL_stdinc.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328629 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_power.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_power.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328629 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_render.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_render.h
 	"SDL_stdinc.h"
 	"SDL_rect.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328629 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_system.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_system.h
 	"SDL_stdinc.h"
 	"SDL_keyboard.h"
 	"SDL_render.h"
@@ -4541,24 +4545,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1529328629 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_timer.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_timer.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328629 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_version.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_opengl.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_opengl.h
 	"SDL_config.h"
 	"gl_mangle.h"
 	<windows.h>
 	"SDL_opengl_glext.h"
 
-1529328629 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_opengl_glext.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_opengl_glext.h
 	<windows.h>
 	<stddef.h>
 	<inttypes.h>
@@ -4568,15 +4572,18 @@
 	<stdint.h>
 	<inttypes.h>
 
-1530019949 c:\users\thibaud\documents\github\archimede\include\trackball.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\trackball.h
 	<SDL2/SDL.h>
 
-1530018262 c:\users\thibaud\documents\github\archimede\include\forms.h
+1530214767 c:\users\thibaud\documents\github\archimede\include\forms.h
+	<cmath>
+	<SDL2/SDL_opengl.h>
+	<GL/GLU.h>
 	"geometry.h"
 	"animation.h"
 	"sdlglutils.h"
 
-1530019325 source:c:\users\thibaud\documents\github\archimede\src\forms.cpp
+1530214735 source:c:\users\thibaud\documents\github\archimede\src\forms.cpp
 	<cmath>
 	<SDL2/SDL_opengl.h>
 	<GL/GLU.h>
@@ -4584,22 +4591,23 @@
 	<cstdlib>
 	"sdlglutils.h"
 
-1529328632 source:c:\users\thibaud\documents\github\archimede\src\geometry.cpp
+1530213611 source:c:\users\thibaud\documents\github\archimede\src\geometry.cpp
 	<cmath>
 	"geometry.h"
 
-1530019957 source:c:\users\thibaud\documents\github\archimede\src\trackball.cpp
+1530213611 source:c:\users\thibaud\documents\github\archimede\src\trackball.cpp
 	"TrackBall.h"
 	<SDL2/SDL.h>
 	<GL/GLU.h>
 	<SDL2/SDL_opengl.h>
 	<iostream>
 
-1529944250 c:\users\thibaud\documents\github\archimede\include\sdlglutils.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdlglutils.h
 	<GL/gl.h>
 	<SDL2/SDL.h>
+	<iostream>
 
-1529944245 source:c:\users\thibaud\documents\github\archimede\src\sdlglutils.cpp
+1530213611 source:c:\users\thibaud\documents\github\archimede\src\sdlglutils.cpp
 	"sdlglutils.h"
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
@@ -4607,7 +4615,7 @@
 	<cstring>
 	<cstdlib>
 
-1529328628 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_image.h
+1530213611 c:\users\thibaud\documents\github\archimede\include\sdl2\sdl_image.h
 	"SDL.h"
 	"SDL_version.h"
 	"begin_code.h"
@@ -5168,5 +5176,36 @@
 	<iostream>
 
 1530173256 source:c:\users\anthony.vuillemin\git\archimede\src\water.cpp
+	"water.h"
+
+1530213611 c:\users\thibaud\documents\github\archimede\include\physic.h
+	"forms.h"
+	<math.h>
+
+1530213611 c:\users\thibaud\documents\github\archimede\include\sphere.h
+	<cmath>
+	<SDL2/SDL_opengl.h>
+	<GL/GLU.h>
+	<iostream>
+	"forms.h"
+	"water.h"
+	"physic.h"
+	"antIHM.h"
+
+1530213611 c:\users\thibaud\documents\github\archimede\include\water.h
+	<cmath>
+	<SDL2/SDL_opengl.h>
+	<GL/GLU.h>
+	<iostream>
+	"forms.h"
+
+1530213611 source:c:\users\thibaud\documents\github\archimede\src\physic.cpp
+	"physic.h"
+	"antIHM.h"
+
+1530217168 source:c:\users\thibaud\documents\github\archimede\src\sphere.cpp
+	"sphere.h"
+
+1530213611 source:c:\users\thibaud\documents\github\archimede\src\water.cpp
 	"water.h"
 

@@ -171,6 +171,7 @@ bool initGL()
     glEnable(GL_DEPTH_TEST);
     glEnable ( GL_COLOR_MATERIAL ) ;
 
+
    //TEST  LUMIERE INTERFACE
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
@@ -181,7 +182,7 @@ bool initGL()
     // ????
     int MatSpec [4] = {1,1,1,1};
     glMaterialiv(GL_FRONT_AND_BACK,GL_SPECULAR,MatSpec);
-    glMateriali(GL_FRONT_AND_BACK,GL_SHININESS,75);
+    glMateriali(GL_FRONT_AND_BACK,GL_SHININESS,100);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -311,17 +312,21 @@ int main(int argc, char* args[])
 
         char * pathToTextureHerbe = "img/herbe.jpg";
         char * pathToTextureTerre = "img/terre.jpg";
+        char * pathToTextureWood = "img/wood.jpg";
 
+        SDL_Surface* terre_text = loadTexture(pathToTextureTerre);
+        SDL_Surface* herbe_text = loadTexture(pathToTextureHerbe);
+        SDL_Surface* wood_text = loadTexture(pathToTextureWood);
 
 
         Water* water = new Water();
 
         Sphere* sp = NULL;
         sp = new Sphere(water, RAYON_DEFAULT / 100.0, MASSE_DEFAULT, Point(2,1.5,2));
+        sp->setTextureBoolean(true);
+        sp->setTexture(wood_text);
         forms_list[number_of_forms] = sp;
         number_of_forms++;
-
-
 
 
         //surface
@@ -390,9 +395,6 @@ int main(int argc, char* args[])
 
         water_coupe = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0.5,0,0),3,2.5,BLUE);
         water_coupe->setTextureBoolean(false);
-
-        SDL_Surface* terre_text = loadTexture(pathToTextureTerre);
-        SDL_Surface* herbe_text = loadTexture(pathToTextureHerbe);
 
         ground_zero->setTexture(herbe_text);
         ground_two->setTexture(herbe_text);
