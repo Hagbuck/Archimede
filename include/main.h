@@ -20,6 +20,8 @@ extern double old_val_masse;
 extern double old_val_densite;
 extern double old_val_rayon;
 
+extern double ralenti;
+
 extern TwBar * mainBar;
 extern TwBar * materialBar;
 

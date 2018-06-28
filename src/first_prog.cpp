@@ -39,18 +39,19 @@ double default_val_rayon = RAYON_DEFAULT;
 double old_val_masse = MASSE_DEFAULT;
 double old_val_densite = DEFAULT_WATER_DENSITY;
 double old_val_rayon = RAYON_DEFAULT;
-
-
+//SCROLL FUNCTIONS
 double default_scroll_sensivity = 2.5;
 double default_mouse_sensitivity = 2.5;
 double default_translation_sensitivity = 1.5;
+//RALENTIT
+double ralenti = 1;
 
 
 // Max number of forms : static allocation
 const int MAX_FORMS_NUMBER = 100;
 
-// Animation actualization delay (in ms) => 100 updates per second
-const Uint32 ANIM_DELAY = 10;
+//calcul en ms
+const Uint32 ANIM_DELAY = 5;
 
 //Handle for the AntBar
 int handledAnt;
@@ -510,11 +511,12 @@ int main(int argc, char* args[])
 
             // Update the scene
             current_time = SDL_GetTicks(); // get the elapsed time from SDL initialization (ms)
+
             elapsed_time = current_time - previous_time;
             if (elapsed_time > ANIM_DELAY)
             {
                 previous_time = current_time;
-                update(forms_list, 1e-3 * elapsed_time); // International system units : seconds
+                update(forms_list, 1e-3 * ralenti * elapsed_time); //RA
             }
 
             // Render the scene

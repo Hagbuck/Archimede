@@ -141,6 +141,11 @@ void antIHM::buildAntIHM()
     TwAddButton(mainBar, "Metal", makeMetal, NULL, string_metal);
     TwAddButton(mainBar, "Plastique", makePlastic, NULL, string_plastique);
 
+    //RALENTI
+    TwAddButton(mainBar, "blank4", NULL, NULL, " label=' ' ");
+    TwAddButton(mainBar, "Régler le ralenti", NULL, NULL, "label='Régler le ralenti' ");
+    TwAddVarRW(mainBar, "Ralenti : ", TW_TYPE_DOUBLE, &ralenti,"label='Ralenti' min=0.1 max=1 step=0.1 keyIncr=r keyDecr=f help='Modifier la vitesse d'affichage.");
+
 }
 
 void antIHM::buildAntSensitive()
