@@ -36,6 +36,7 @@ double default_val_speed = 20;
 double default_val_densite = 20;
 double default_val_rayon = 20;
 
+double timeFromInit= 0;
 
 double default_scroll_sensivity = 2.5;
 double default_mouse_sensitivity = 2.5;
@@ -303,15 +304,13 @@ int main(int argc, char* args[])
             forms_list[i] = NULL;
         }
 
-        char * pathToTextureHerbe = "img/herbe.jpg";
-        char * pathToTextureTerre = "img/terre.jpg";
 
 
 
         Water* water = new Water();
 
         Sphere* sp = NULL;
-        sp = new Sphere(water, 0.1, 3, Point(2,1.5,2));
+        sp = new Sphere(water, 0.1, 1, Point(2,1.5,2));
         forms_list[number_of_forms] = sp;
         number_of_forms++;
 
@@ -385,6 +384,9 @@ int main(int argc, char* args[])
         water_coupe = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0.5,0,0),3,2.5,BLUE);
         water_coupe->setTextureBoolean(false);
 
+        char * pathToTextureTerre = "img/terre.jpg";
+        char * pathToTextureHerbe = "img/herbe.jpg";
+
         SDL_Surface* terre_text = loadTexture(pathToTextureTerre);
         SDL_Surface* herbe_text = loadTexture(pathToTextureHerbe);
 
@@ -405,6 +407,7 @@ int main(int argc, char* args[])
 
         fond_zero->setTexture(terre_text);
         fond_one->setTexture(terre_text);
+
 
         forms_list[number_of_forms] = ground_zero;
         number_of_forms++;

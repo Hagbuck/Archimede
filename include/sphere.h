@@ -13,7 +13,8 @@
 #define SPHERE_SLICES   10
 #define SPHERE_STACKS   10
 #define STEP_ANIM       0.01
-#define SPEED_INIT      0.01
+#define SPEED_INIT      0
+#define SPEED_INIT_Y    1
 #define DELTA_ERR       1
 
 class Sphere : public Form
@@ -30,6 +31,8 @@ private:
     Point origin;
     double delta;
     int count_water_jump;
+
+    double timeFromInit;
 public:
     Sphere(Water* water_ptr, double r = 1.0, double p = 1.0, Point ori = Point(2,1.5,0), Color cl = Color());
     const double getRadius(void) {return radius;}

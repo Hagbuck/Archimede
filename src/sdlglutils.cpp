@@ -12,11 +12,12 @@ GLuint prepareTexture(SDL_Surface* surface_texture, bool useMipMap)
 {
     if(surface_texture == NULL)
         return 0;
-
+    
     GLuint glID;
     SDL_Surface * gl_surface = NULL;
     SDL_Surface * gl_fliped_surface = NULL;
     Uint32 rmask, gmask, bmask, amask;
+
 
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
 
