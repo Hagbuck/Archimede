@@ -9,8 +9,8 @@ TrackBall::TrackBall()
 {
     _holdRight = false;
     _holdLeft = false;
-    _angleY = 0;
-    _angleZ = 0;
+    _angleY = 45;
+    _angleZ = 90;
     _distance = 6;
     _motionSensivity = 0.3;
     _scrollSensivity = 1;
@@ -36,8 +36,8 @@ void TrackBall::OnMouseMotion(const SDL_MouseMotionEvent & event)
     }
     if (_holdRight)
     {
-        _cibleY -= event.xrel * 0.01;
-        _cibleZ += event.yrel * 0.01;
+        _cibleY -= event.xrel * _translationSensitivity;
+        _cibleZ += event.yrel * _translationSensitivity;
 
     }
 }
@@ -88,10 +88,10 @@ void TrackBall::OnKeyboard(const SDL_KeyboardEvent & event)
 {
     if ((event.type == SDL_KEYDOWN)&&(event.keysym.sym == SDLK_x))
     {
-        _angleY = 0;
-        _angleZ = 0;
+        _angleY = 45;
+        _angleZ = 90;
         _distance = 10;
-        _cibleY = 0;
+        _cibleY = 2;
         _cibleZ = 0;
     }
 }

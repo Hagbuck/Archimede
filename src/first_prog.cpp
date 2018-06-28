@@ -299,6 +299,7 @@ int main(int argc, char* args[])
         camera = new TrackBall();
         camera->setScrollSensivity(0.2);
         camera->setMotionSensivity(0.5);
+        camera->setTranslationSensivity(0.001);
 
         // The forms to render
         Form* forms_list[MAX_FORMS_NUMBER];
@@ -518,7 +519,9 @@ int main(int argc, char* args[])
                 previous_time = current_time;
                 update(forms_list, 1e-3 * ralenti * elapsed_time); //RA
             }
-
+            camera->setScrollSensivity(default_scroll_sensivity / 10 );
+            camera->setMotionSensivity(default_mouse_sensitivity / 10);
+            camera->setTranslationSensivity(default_translation_sensitivity / 100);
             // Render the scene
             Point camera_position(0,0,4);
             render(forms_list, camera_position, false);
