@@ -47,6 +47,13 @@ double default_translation_sensitivity = 1.5;
 double ralenti = 1;
 
 
+SDL_Surface* terre_text = loadTexture("img/herbe.jpg");
+SDL_Surface* herbe_text = loadTexture("img/terre.jpg");
+SDL_Surface* wood_text = loadTexture("img/wood.jpg");
+
+Sphere* sp = NULL;
+
+
 // Max number of forms : static allocation
 const int MAX_FORMS_NUMBER = 100;
 
@@ -310,18 +317,12 @@ int main(int argc, char* args[])
             forms_list[i] = NULL;
         }
 
-        char * pathToTextureHerbe = "img/herbe.jpg";
-        char * pathToTextureTerre = "img/terre.jpg";
-        char * pathToTextureWood = "img/wood.jpg";
 
-        SDL_Surface* terre_text = loadTexture(pathToTextureTerre);
-        SDL_Surface* herbe_text = loadTexture(pathToTextureHerbe);
-        SDL_Surface* wood_text = loadTexture(pathToTextureWood);
 
 
         Water* water = new Water();
 
-        Sphere* sp = NULL;
+
         sp = new Sphere(water, RAYON_DEFAULT / 100.0, MASSE_DEFAULT, Point(2,1.5,2));
         sp->setTextureBoolean(true);
         sp->setTexture(wood_text);
