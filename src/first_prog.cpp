@@ -178,7 +178,7 @@ bool initGL()
 
     double a=0;
     //Position de la lumiere
-    int LightPos[4] = {2,-20,-10,0};
+    int LightPos[4] = {2,-20,-10,1};
     // ????
     int MatSpec [4] = {1,1,1,1};
     glMaterialiv(GL_FRONT_AND_BACK,GL_SPECULAR,MatSpec);

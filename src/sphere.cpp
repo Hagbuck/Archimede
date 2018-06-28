@@ -155,6 +155,7 @@ void Sphere::update(double delta_t)
 
 void Sphere::render(void)
 {
+    Form::render();
     GLUquadric *quad = NULL;
 
     glEnable(GL_ALPHA_TEST);
@@ -166,6 +167,7 @@ void Sphere::render(void)
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 
     quad = gluNewQuadric();
 
@@ -186,13 +188,13 @@ void Sphere::render(void)
     glTranslated(pos.x, pos.y, pos.z);
 
 
-    glColor3f(1, 1, 1);
+    glColor3f(255,255, 255);
     gluSphere(quad, radius, SPHERE_SLICES, SPHERE_STACKS);
 
 
-    //gluDeleteQuadric(quad);
+    gluDeleteQuadric(quad);
 
-
+/*
     glBegin(GL_LINE_LOOP);
     {
         glColor3f(255,0,0);
@@ -204,7 +206,7 @@ void Sphere::render(void)
         glVertex3d(v_vitesse.x, v_vitesse.y, v_vitesse.z);
         //glVertex3d(0, - (v_vitesse.z + v_masse.z)*20, 0);
     }
-    glEnd();
+    glEnd();*/
 
     glPopMatrix();
 }

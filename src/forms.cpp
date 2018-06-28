@@ -31,8 +31,6 @@ void Form::update(double delta_t)
 
 void Form::render()
 {
-    Point org = anim.getPos();
-    glTranslated(org.x, org.y, org.z);
     glColor3f(1, 1, 1);
 
     glEnable(GL_ALPHA_TEST);
@@ -68,6 +66,8 @@ void Cube_face::update(double delta_t)
 
 void Cube_face::render()
 {
+    Point org = anim.getPos();
+    glTranslated(org.x, org.y, org.z);
     glPushMatrix();
     Point p1 = Point();
     Point p2 = p1, p3, p4 = p1;
