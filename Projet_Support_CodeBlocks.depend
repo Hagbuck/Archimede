@@ -3267,6 +3267,7 @@
 	"geometry.h"
 	"forms.h"
 
+<<<<<<< HEAD
 1530183011 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\animation.cpp
 	"animation.h"
 
@@ -3277,6 +3278,18 @@
 	<iostream>
 
 1530183129 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\forms.cpp
+=======
+1466443941 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\animation.cpp
+	"animation.h"
+
+1466443941 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\animation.h
+	"geometry.h"
+
+1466429544 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\geometry.h
+	<iostream>
+
+1530102574 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\forms.cpp
+>>>>>>> origin/dev
 	<cmath>
 	<SDL2/SDL_opengl.h>
 	<GL/GLU.h>
@@ -3284,27 +3297,46 @@
 	<cstdlib>
 	"sdlglutils.h"
 
+<<<<<<< HEAD
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_opengl.h
+=======
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_opengl.h
+>>>>>>> origin/dev
 	"SDL_config.h"
 	"gl_mangle.h"
 	<windows.h>
 	"SDL_opengl_glext.h"
 
+<<<<<<< HEAD
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_config.h
 	"SDL_platform.h"
 
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_platform.h
+=======
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_platform.h
+>>>>>>> origin/dev
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	<winapifamily.h>
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\begin_code.h
 
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\close_code.h
 
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_opengl_glext.h
+=======
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\begin_code.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\close_code.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_opengl_glext.h
+>>>>>>> origin/dev
 	<windows.h>
 	<stddef.h>
 	<inttypes.h>
@@ -3314,7 +3346,11 @@
 	<stdint.h>
 	<inttypes.h>
 
+<<<<<<< HEAD
 1530183129 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\forms.h
+=======
+1530102701 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\forms.h
+>>>>>>> origin/dev
 	<cmath>
 	<SDL2/SDL_opengl.h>
 	<GL/GLU.h>
@@ -3322,11 +3358,19 @@
 	"animation.h"
 	"sdlglutils.h"
 
+<<<<<<< HEAD
 1530183011 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\geometry.cpp
 	<cmath>
 	"geometry.h"
 
 1530187483 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\first_prog.cpp
+=======
+1466445814 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\geometry.cpp
+	<cmath>
+	"geometry.h"
+
+1530102951 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\first_prog.cpp
+>>>>>>> origin/dev
 	<iostream>
 	<cmath>
 	<SDL2/SDL.h>
@@ -3600,6 +3644,7 @@
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
@@ -3676,6 +3721,24 @@
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
+=======
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl.h
+	<TrackBall.h>
+	"geometry.h"
+	"forms.h"
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_main.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_main.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_stdinc.h
+
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_stdinc.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_assert.h
+>>>>>>> origin/dev
 
 1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_config.h
 	"SDL_platform.h"
@@ -3693,6 +3756,7 @@
 
 1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_assert.h
 
+<<<<<<< HEAD
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_atomic.h
 	"SDL_stdinc.h"
 	"SDL_platform.h"
@@ -3842,6 +3906,69 @@
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
+=======
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_atomic.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_atomic.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_audio.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_audio.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_error.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_error.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_endian.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_endian.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_mutex.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_mutex.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_thread.h
+
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_thread.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_rwops.h
+
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_rwops.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_clipboard.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_clipboard.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_cpuinfo.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_cpuinfo.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_events.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_events.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_video.h
+
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_video.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_pixels.h
+
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_pixels.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_rect.h
+
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_rect.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_surface.h
+
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_surface.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_keyboard.h
+>>>>>>> origin/dev
 
 1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_blendmode.h
 	"begin_code.h"
@@ -3849,6 +3976,7 @@
 
 1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_keyboard.h
 
+<<<<<<< HEAD
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
@@ -3862,6 +3990,16 @@
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
+=======
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_mouse.h
+>>>>>>> origin/dev
 
 1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_keycode.h
 	"SDL_stdinc.h"
@@ -3872,6 +4010,7 @@
 
 1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_mouse.h
 
+<<<<<<< HEAD
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
@@ -3901,6 +4040,21 @@
 	"SDL_touch.h"
 	"begin_code.h"
 	"close_code.h"
+=======
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_joystick.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_joystick.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_gamecontroller.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_gamecontroller.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_gesture.h
+>>>>>>> origin/dev
 
 1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_quit.h
 	"SDL_stdinc.h"
@@ -3908,6 +4062,7 @@
 
 1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_gesture.h
 
+<<<<<<< HEAD
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_touch.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
@@ -4005,10 +4160,62 @@
 1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_version.h
 
 1530183129 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\anttweakbar.h
+=======
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_touch.h
+
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_touch.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_filesystem.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_filesystem.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_haptic.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_haptic.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_hints.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_hints.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_loadso.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_loadso.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_log.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_log.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_messagebox.h
+
+1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_messagebox.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_power.h
+
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_power.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_render.h
+
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_render.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_system.h
+
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_system.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_timer.h
+
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_timer.h
+
+1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_version.h
+
+1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_version.h
+
+1530101024 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\anttweakbar.h
+>>>>>>> origin/dev
 	<stddef.h>
 	<string>
 	<string>
 
+<<<<<<< HEAD
 1530191328 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\antihm.cpp
 	"antIHM.h"
 	"main.h"
@@ -4020,6 +4227,18 @@
 	"physic.h"
 
 1530187557 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\main.h
+=======
+1530101024 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\antihm.cpp
+	"antIHM.h"
+	"main.h"
+
+1530101024 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\antihm.h
+	<AntTweakBar.h>
+	<stdio.h>
+	"main.h"
+
+1530101024 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\main.h
+>>>>>>> origin/dev
 	<sstream>
 	<string>
 	<iostream>
@@ -4073,17 +4292,28 @@
 1530019949 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\trackball.h
 	<SDL2/SDL.h>
 
+<<<<<<< HEAD
 1530183129 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\trackball.h
 	<SDL2/SDL.h>
 
 1530183129 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\trackball.cpp
+=======
+1530101024 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\trackball.h
+	<SDL2/SDL.h>
+
+1530101024 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\trackball.cpp
+>>>>>>> origin/dev
 	"TrackBall.h"
 	<SDL2/SDL.h>
 	<GL/GLU.h>
 	<SDL2/SDL_opengl.h>
 	<iostream>
 
+<<<<<<< HEAD
 1530183129 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\sdlglutils.cpp
+=======
+1530101024 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\sdlglutils.cpp
+>>>>>>> origin/dev
 	"sdlglutils.h"
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
@@ -4091,11 +4321,19 @@
 	<cstring>
 	<cstdlib>
 
+<<<<<<< HEAD
 1530183129 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdlglutils.h
 	<GL/gl.h>
 	<SDL2/SDL.h>
 
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_image.h
+=======
+1530101024 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdlglutils.h
+	<GL/gl.h>
+	<SDL2/SDL.h>
+
+1451803974 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_image.h
+>>>>>>> origin/dev
 	"SDL.h"
 	"SDL_version.h"
 	"begin_code.h"
@@ -4564,11 +4802,18 @@
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1530190735 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\physic.h
 	"forms.h"
 	<math.h>
 
 1530185994 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sphere.h
+=======
+1530100903 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\physic.h
+	"forms.h"
+
+1530100903 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sphere.h
+>>>>>>> origin/dev
 	<cmath>
 	<SDL2/SDL_opengl.h>
 	<GL/GLU.h>
@@ -4576,15 +4821,21 @@
 	"forms.h"
 	"water.h"
 	"physic.h"
+<<<<<<< HEAD
 	"antIHM.h"
 
 1530183129 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\water.h
+=======
+
+1530100903 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\water.h
+>>>>>>> origin/dev
 	<cmath>
 	<SDL2/SDL_opengl.h>
 	<GL/GLU.h>
 	<iostream>
 	"forms.h"
 
+<<<<<<< HEAD
 1530191175 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\physic.cpp
 	"physic.h"
 	"antIHM.h"
@@ -4593,6 +4844,15 @@
 	"sphere.h"
 
 1530183129 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\water.cpp
+=======
+1530100903 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\physic.cpp
+	"physic.h"
+
+1530100903 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\sphere.cpp
+	"sphere.h"
+
+1530100903 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\water.cpp
+>>>>>>> origin/dev
 	"water.h"
 
 1530110725 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\physic.h
@@ -4623,3 +4883,466 @@
 1530113006 source:c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\src\water.cpp
 	"water.h"
 
+<<<<<<< HEAD
+=======
+1530172984 source:c:\users\anthony.vuillemin\git\archimede\src\animation.cpp
+	"animation.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\animation.h
+	"geometry.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\geometry.h
+	<iostream>
+
+1530173256 source:c:\users\anthony.vuillemin\git\archimede\src\antihm.cpp
+	"antIHM.h"
+	"main.h"
+
+1530173256 c:\users\anthony.vuillemin\git\archimede\include\antihm.h
+	<AntTweakBar.h>
+	<stdio.h>
+	"main.h"
+
+1530173256 c:\users\anthony.vuillemin\git\archimede\include\anttweakbar.h
+	<stddef.h>
+	<string>
+	<string>
+
+1530173256 c:\users\anthony.vuillemin\git\archimede\include\main.h
+	<sstream>
+	<string>
+	<iostream>
+	<string.h>
+
+1530191605 source:c:\users\anthony.vuillemin\git\archimede\src\first_prog.cpp
+	<iostream>
+	<cmath>
+	<SDL2/SDL.h>
+	<SDL2/SDL_opengl.h>
+	<GL/GLU.h>
+	<AntTweakBar.h>
+	<stdio.h>
+	<string>
+	"main.h"
+	"antIHM.h"
+	<TrackBall.h>
+	"sdlglutils.h"
+	"geometry.h"
+	"forms.h"
+	"physic.h"
+	"sphere.h"
+	"water.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<iconv.h>
+	<sal.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\begin_code.h
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\close_code.h
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<mbarrier.h>
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_opengl.h
+	"SDL_config.h"
+	"gl_mangle.h"
+	<windows.h>
+	"SDL_opengl_glext.h"
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_opengl_glext.h
+	<windows.h>
+	<stddef.h>
+	<inttypes.h>
+	<inttypes.h>
+	<inttypes.h>
+	<stdint.h>
+	<stdint.h>
+	<inttypes.h>
+
+1530173256 c:\users\anthony.vuillemin\git\archimede\include\trackball.h
+	<SDL2/SDL.h>
+
+1530191391 c:\users\anthony.vuillemin\git\archimede\include\sdlglutils.h
+	<GL/gl.h>
+	<SDL2/SDL.h>
+	<iostream>
+
+1530191771 c:\users\anthony.vuillemin\git\archimede\include\forms.h
+	<cmath>
+	<SDL2/SDL_opengl.h>
+	<GL/GLU.h>
+	"geometry.h"
+	"animation.h"
+	"sdlglutils.h"
+
+1530173256 c:\users\anthony.vuillemin\git\archimede\include\physic.h
+	"forms.h"
+
+1530173256 c:\users\anthony.vuillemin\git\archimede\include\sphere.h
+	<cmath>
+	<SDL2/SDL_opengl.h>
+	<GL/GLU.h>
+	<iostream>
+	"forms.h"
+	"water.h"
+	"physic.h"
+
+1530173256 c:\users\anthony.vuillemin\git\archimede\include\water.h
+	<cmath>
+	<SDL2/SDL_opengl.h>
+	<GL/GLU.h>
+	<iostream>
+	"forms.h"
+
+1530191768 source:c:\users\anthony.vuillemin\git\archimede\src\forms.cpp
+	<cmath>
+	<SDL2/SDL_opengl.h>
+	<GL/GLU.h>
+	"forms.h"
+	<cstdlib>
+	"sdlglutils.h"
+
+1530172984 source:c:\users\anthony.vuillemin\git\archimede\src\geometry.cpp
+	<cmath>
+	"geometry.h"
+
+1530173256 source:c:\users\anthony.vuillemin\git\archimede\src\physic.cpp
+	"physic.h"
+
+1530191972 source:c:\users\anthony.vuillemin\git\archimede\src\sdlglutils.cpp
+	"sdlglutils.h"
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+	<GL/glu.h>
+	<cstring>
+	<cstdlib>
+
+1530172984 c:\users\anthony.vuillemin\git\archimede\include\sdl2\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1530173256 source:c:\users\anthony.vuillemin\git\archimede\src\sphere.cpp
+	"sphere.h"
+
+1530173256 source:c:\users\anthony.vuillemin\git\archimede\src\trackball.cpp
+	"TrackBall.h"
+	<SDL2/SDL.h>
+	<GL/GLU.h>
+	<SDL2/SDL_opengl.h>
+	<iostream>
+
+1530173256 source:c:\users\anthony.vuillemin\git\archimede\src\water.cpp
+	"water.h"
+
+>>>>>>> origin/dev

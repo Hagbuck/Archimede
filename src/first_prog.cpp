@@ -31,6 +31,7 @@ using namespace std;
 /***************************************************************************/
 
 //IHM VARS (IHM CONSERVE)
+<<<<<<< HEAD
 double default_val_masse = MASSE_DEFAULT;
 double default_val_speed = SPEED_DEFAULT;
 double default_val_densite = DEFAULT_WATER_DENSITY;
@@ -39,6 +40,13 @@ double default_val_rayon = RAYON_DEFAULT;
 double old_val_masse = MASSE_DEFAULT;
 double old_val_densite = DEFAULT_WATER_DENSITY;
 double old_val_rayon = RAYON_DEFAULT;
+=======
+double default_val_masse = 20;
+double default_val_speed = 20;
+double default_val_densite = 20;
+double default_val_rayon = 20;
+
+>>>>>>> origin/dev
 
 double default_scroll_sensivity = 2.5;
 double default_mouse_sensitivity = 2.5;
@@ -314,7 +322,11 @@ int main(int argc, char* args[])
         Water* water = new Water();
 
         Sphere* sp = NULL;
+<<<<<<< HEAD
         sp = new Sphere(water, RAYON_DEFAULT / 100.0, MASSE_DEFAULT, Point(2,1.5,2));
+=======
+        sp = new Sphere(water, 0.1, 3, Point(2,1.5,2));
+>>>>>>> origin/dev
         forms_list[number_of_forms] = sp;
         number_of_forms++;
 
@@ -388,6 +400,7 @@ int main(int argc, char* args[])
         water_coupe = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0.5,0,0),3,2.5,BLUE);
         water_coupe->setTextureBoolean(false);
 
+<<<<<<< HEAD
 
         ground_zero->setTexture(pathToTextureHerbe);
         ground_two->setTexture(pathToTextureHerbe);
@@ -408,6 +421,28 @@ int main(int argc, char* args[])
         fond_zero->setTexture(pathToTextureTerre);
         fond_one->setTexture(pathToTextureTerre);
 
+=======
+        SDL_Surface* terre_text = loadTexture(pathToTextureTerre);
+        SDL_Surface* herbe_text = loadTexture(pathToTextureHerbe);
+
+        ground_zero->setTexture(herbe_text);
+        ground_two->setTexture(herbe_text);
+        ground_three->setTexture(herbe_text);
+
+        prof_zero->setTexture(terre_text);
+        prof_one->setTexture(terre_text);
+        prof_two->setTexture(terre_text);
+
+        prof_three->setTexture(terre_text);
+        prof_four->setTexture(terre_text);
+        prof_five->setTexture(terre_text);
+        prof_six->setTexture(terre_text);
+        prof_seven->setTexture(terre_text);
+        prof_eight->setTexture(terre_text);
+
+        fond_zero->setTexture(terre_text);
+        fond_one->setTexture(terre_text);
+>>>>>>> origin/dev
 
         forms_list[number_of_forms] = ground_zero;
         number_of_forms++;
@@ -527,6 +562,11 @@ int main(int argc, char* args[])
             SDL_GL_SwapWindow(gWindow);
         }
         //delete sp;
+<<<<<<< HEAD
+=======
+        SDL_FreeSurface(terre_text);
+        SDL_FreeSurface(herbe_text);
+>>>>>>> origin/dev
     }
 
     // Free resources and close SDL

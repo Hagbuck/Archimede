@@ -26,10 +26,13 @@ void Sphere::update(double delta_t)
     if(delta >= STEP_ANIM)
     {
         // 50ms depuis la dernière itération
+<<<<<<< HEAD
         //ADD LINKAGE
         v_masse.z = default_val_masse * G;
         poid = default_val_masse * G;
         radius = default_val_rayon / 100.0;
+=======
+>>>>>>> origin/dev
 
         double z = anim.getPos().z;
         double vc = ( 4 / 3 ) * PI * radius * radius * radius;
@@ -69,6 +72,7 @@ void Sphere::update(double delta_t)
             }
         }
 
+<<<<<<< HEAD
         //MAJ DES VALS EN INTERFACES
         if(count_water_jump >= 5)
         {
@@ -81,6 +85,11 @@ void Sphere::update(double delta_t)
                 old_val_rayon = default_val_rayon;
                 count_water_jump = 0;
             }
+=======
+        if(count_water_jump >= 3)
+        {
+            v_vitesse.z = 0;
+>>>>>>> origin/dev
         }
 
         double futur_pos = z + (v_vitesse.z * delta);
@@ -103,7 +112,11 @@ void Sphere::update(double delta_t)
         if(futur_pos - radius < water->getDeepz())
         {
             anim.setPos(Point(anim.getPos().x, anim.getPos().y, radius + water->getDeepz())); // On met la sphère sur le sol.
+<<<<<<< HEAD
             v_vitesse.z = default_val_speed;
+=======
+            v_vitesse.z = SPEED_INIT;
+>>>>>>> origin/dev
         }
 
         delta = 0;
@@ -196,9 +209,13 @@ void Sphere::resetPosition(void)
 {
     anim.setPos(origin);
     v_masse.z = poid;
+<<<<<<< HEAD
     //v_vitesse = Vector(0,0,-SPEED_INIT);
     v_vitesse = Vector(0,0,-default_val_speed / 1000);
     radius = default_val_rayon / 100.0;
+=======
+    v_vitesse = Vector(0,0,-SPEED_INIT);
+>>>>>>> origin/dev
     v_archimede = Vector(0, 0, 0);
     v_somme = Vector(0, 0, 0);
     v_frottement = Vector(0,0,0);

@@ -59,7 +59,11 @@ public:
           Color cl = Color());
     void update(double delta_t);
     void render();
+<<<<<<< HEAD
     void setTexture(char * path);
+=======
+    void setTexture(SDL_Surface* surface_texture);
+>>>>>>> origin/dev
     Vector getVdir1(void);
     Vector getVdir2(void);
 };

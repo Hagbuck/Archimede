@@ -8,6 +8,7 @@
 
 SDL_Surface * flipSurface(SDL_Surface * surface);
 
+<<<<<<< HEAD
 GLuint loadTexture(const char * filename,bool useMipMap)
 {
     GLuint glID;
@@ -20,6 +21,18 @@ GLuint loadTexture(const char * filename,bool useMipMap)
     if (picture_surface == NULL)
         return 0;
 
+=======
+GLuint prepareTexture(SDL_Surface* surface_texture, bool useMipMap)
+{
+    if(surface_texture == NULL)
+        return 0;
+
+    GLuint glID;
+    SDL_Surface * gl_surface = NULL;
+    SDL_Surface * gl_fliped_surface = NULL;
+    Uint32 rmask, gmask, bmask, amask;
+
+>>>>>>> origin/dev
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
 
     rmask = 0xff000000;
@@ -34,7 +47,11 @@ GLuint loadTexture(const char * filename,bool useMipMap)
     amask = 0xff000000;
 #endif
 
+<<<<<<< HEAD
     SDL_PixelFormat format = *(picture_surface->format);
+=======
+    SDL_PixelFormat format = *(surface_texture->format);
+>>>>>>> origin/dev
     format.BitsPerPixel = 32;
     format.BytesPerPixel = 4;
     format.Rmask = rmask;
@@ -42,7 +59,11 @@ GLuint loadTexture(const char * filename,bool useMipMap)
     format.Bmask = bmask;
     format.Amask = amask;
 
+<<<<<<< HEAD
     gl_surface = SDL_ConvertSurface(picture_surface,&format,SDL_SWSURFACE);
+=======
+    gl_surface = SDL_ConvertSurface(surface_texture,&format,SDL_SWSURFACE);
+>>>>>>> origin/dev
 
     gl_fliped_surface = flipSurface(gl_surface);
 
@@ -74,7 +95,10 @@ GLuint loadTexture(const char * filename,bool useMipMap)
 
     SDL_FreeSurface(gl_fliped_surface);
     SDL_FreeSurface(gl_surface);
+<<<<<<< HEAD
     SDL_FreeSurface(picture_surface);
+=======
+>>>>>>> origin/dev
 
     return glID;
 }
@@ -109,6 +133,17 @@ SDL_Surface * flipSurface(SDL_Surface * surface)
     return fliped_surface;
 }
 
+<<<<<<< HEAD
+=======
+SDL_Surface* loadTexture(const char * filename)
+{
+    SDL_Surface* picture_surface = IMG_Load(filename);
+    if (picture_surface == NULL)
+        std::cerr << "[ERR] > Can't load : " << filename << std::endl;
+    return picture_surface;
+}
+
+>>>>>>> origin/dev
 void drawAxis(double scale)
 {
     glPushAttrib(GL_ALL_ATTRIB_BITS);
