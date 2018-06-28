@@ -8,17 +8,15 @@
 
 SDL_Surface * flipSurface(SDL_Surface * surface);
 
-GLuint loadTexture(const char * filename,bool useMipMap)
+GLuint prepareTexture(SDL_Surface* surface_texture, bool useMipMap)
 {
+    if(surface_texture == NULL)
+        return 0;
+
     GLuint glID;
-    SDL_Surface * picture_surface = NULL;
-    SDL_Surface *gl_surface = NULL;
+    SDL_Surface * gl_surface = NULL;
     SDL_Surface * gl_fliped_surface = NULL;
     Uint32 rmask, gmask, bmask, amask;
-
-    picture_surface = IMG_Load(filename);
-    if (picture_surface == NULL)
-        return 0;
 
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
 
@@ -34,7 +32,7 @@ GLuint loadTexture(const char * filename,bool useMipMap)
     amask = 0xff000000;
 #endif
 
-    SDL_PixelFormat format = *(picture_surface->format);
+    SDL_PixelFormat format = *(surface_texture->format);
     format.BitsPerPixel = 32;
     format.BytesPerPixel = 4;
     format.Rmask = rmask;
@@ -42,7 +40,7 @@ GLuint loadTexture(const char * filename,bool useMipMap)
     format.Bmask = bmask;
     format.Amask = amask;
 
-    gl_surface = SDL_ConvertSurface(picture_surface,&format,SDL_SWSURFACE);
+    gl_surface = SDL_ConvertSurface(surface_texture,&format,SDL_SWSURFACE);
 
     gl_fliped_surface = flipSurface(gl_surface);
 
@@ -74,7 +72,6 @@ GLuint loadTexture(const char * filename,bool useMipMap)
 
     SDL_FreeSurface(gl_fliped_surface);
     SDL_FreeSurface(gl_surface);
-    SDL_FreeSurface(picture_surface);
 
     return glID;
 }
@@ -107,6 +104,14 @@ SDL_Surface * flipSurface(SDL_Surface * surface)
     SDL_UnlockSurface(fliped_surface);
     SDL_UnlockSurface(surface);
     return fliped_surface;
+}
+
+SDL_Surface* loadTexture(const char * filename)
+{
+    SDL_Surface* picture_surface = IMG_Load(filename);
+    if (picture_surface == NULL)
+        std::cerr << "[ERR] > Can't load : " << filename << std::endl;
+    return picture_surface;
 }
 
 void drawAxis(double scale)

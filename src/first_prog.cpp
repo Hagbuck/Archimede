@@ -385,26 +385,26 @@ int main(int argc, char* args[])
         water_coupe = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0.5,0,0),3,2.5,BLUE);
         water_coupe->setTextureBoolean(false);
 
+        SDL_Surface* terre_text = loadTexture(pathToTextureTerre);
+        SDL_Surface* herbe_text = loadTexture(pathToTextureHerbe);
 
-        ground_zero->setTexture(pathToTextureHerbe);
-        ground_two->setTexture(pathToTextureHerbe);
-        ground_three->setTexture(pathToTextureHerbe);
+        ground_zero->setTexture(herbe_text);
+        ground_two->setTexture(herbe_text);
+        ground_three->setTexture(herbe_text);
 
+        prof_zero->setTexture(terre_text);
+        prof_one->setTexture(terre_text);
+        prof_two->setTexture(terre_text);
 
-        prof_zero->setTexture(pathToTextureTerre);
-        prof_one->setTexture(pathToTextureTerre);
-        prof_two->setTexture(pathToTextureTerre);
+        prof_three->setTexture(terre_text);
+        prof_four->setTexture(terre_text);
+        prof_five->setTexture(terre_text);
+        prof_six->setTexture(terre_text);
+        prof_seven->setTexture(terre_text);
+        prof_eight->setTexture(terre_text);
 
-        prof_three->setTexture(pathToTextureTerre);
-        prof_four->setTexture(pathToTextureTerre);
-        prof_five->setTexture(pathToTextureTerre);
-        prof_six->setTexture(pathToTextureTerre);
-        prof_seven->setTexture(pathToTextureTerre);
-        prof_eight->setTexture(pathToTextureTerre);
-
-        fond_zero->setTexture(pathToTextureTerre);
-        fond_one->setTexture(pathToTextureTerre);
-
+        fond_zero->setTexture(terre_text);
+        fond_one->setTexture(terre_text);
 
         forms_list[number_of_forms] = ground_zero;
         number_of_forms++;
@@ -524,6 +524,8 @@ int main(int argc, char* args[])
             SDL_GL_SwapWindow(gWindow);
         }
         //delete sp;
+        SDL_FreeSurface(terre_text);
+        SDL_FreeSurface(herbe_text);
     }
 
     // Free resources and close SDL

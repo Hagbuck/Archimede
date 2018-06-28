@@ -57,9 +57,9 @@ void Cube_face::update(double delta_t)
     // Do nothing, no physics associated to a Cube_face
 }
 
-void Cube_face::setTexture(char * path)
+void Cube_face::setTexture(SDL_Surface* surface_texture)
 {
-    texture = loadTexture(path);
+    texture = prepareTexture(surface_texture);
 }
 
 
