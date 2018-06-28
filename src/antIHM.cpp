@@ -37,15 +37,9 @@ void antIHM::buildLabel()
     stream_densite << "label='Densité' min="<< DENSITE_MIN << " max=" << DENSITE_MAX << " step=" << DENSITE_STEP << " keyIncr=u keyDecr=j help='Redéfinir la densité du liquide.' ";
 
     //BUILDL LABELS MAT
-<<<<<<< HEAD
     stream_wood << "label='Bois' key=1 help='Default Masse Vol. : " << WOOD_MASS_VOL << "' ";
     stream_metal << "label='Fer' key=2 help='Default Masse Vol. : " << FER_MASS_VOL << "' ";
     stream_plastique << "label='PVC' key=3 help='Default Masse Vol. : " << PVC_MASS_VOL << "' ";
-=======
-    stream_wood << "label='Bois' key=1 help='Default Masse : " << WOOD_DEFAULT_MASSE << "' ";
-    stream_metal << "label='Metal' key=2 help='Default Masse : " << METAL_DEFAULT_MASSE << "' ";
-    stream_plastique << "label='Plastique' key=3 help='Default Masse : " << PLASTIC_DEFAULT_MASSE << "' ";
->>>>>>> origin/dev
 
     //BUILD SOURIS
     stream_scroll << "label='Scroll' min=" << SCROLL_MIN << " max=" << SCROLL_MAX << " step=" << SCROLL_STEP << " keyIncr=y keyDecr=h help='Modifier la sensibilité du scroll.' ";
@@ -174,8 +168,6 @@ void initSS(void) {
     stream_translation.clear(); stream_translation.str("");
 }
 
-
-<<<<<<< HEAD
 void TW_CALL antIHM::makeBois(void * client)
 {
     default_val_rayon = calcul_new_rayon(default_val_masse,WOOD_MASS_VOL);
@@ -190,8 +182,4 @@ void TW_CALL antIHM::makePlastic(void * client)
 {
     default_val_rayon = calcul_new_rayon(default_val_masse,PVC_MASS_VOL);
 }
-=======
-void TW_CALL antIHM::makeBois(void * client){default_val_masse = WOOD_DEFAULT_MASSE;}
-void TW_CALL antIHM::makeMetal(void * client){default_val_masse = METAL_DEFAULT_MASSE;}
-void TW_CALL antIHM::makePlastic(void * client){default_val_masse = PLASTIC_DEFAULT_MASSE;}
->>>>>>> origin/dev
+

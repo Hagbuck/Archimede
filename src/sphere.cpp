@@ -9,7 +9,7 @@ Sphere::Sphere(Water* water_ptr, double r, double p, Point ori, Color cl)
 
     v_archimede = Vector(0,0,0);
     v_masse = Vector(0,0,poid);
-    v_vitesse = Vector(0,0,0);
+    v_vitesse = Vector(0,-SPEED_INIT_Y,-default_val_speed / 1000);
     v_frottement = Vector(0,0,0);
 
     radius = r;
@@ -26,15 +26,14 @@ void Sphere::update(double delta_t)
     if(delta >= STEP_ANIM)
     {
         // 50ms depuis la dernière itération
-<<<<<<< HEAD
         //ADD LINKAGE
         v_masse.z = default_val_masse * G;
         poid = default_val_masse * G;
         radius = default_val_rayon / 100.0;
-=======
->>>>>>> origin/dev
 
         double z = anim.getPos().z;
+        double y = anim.getPos().y;
+
         double vc = ( 4 / 3 ) * PI * radius * radius * radius;
         bool came_from_water = false;
 
@@ -42,16 +41,20 @@ void Sphere::update(double delta_t)
         v_archimede.z = archimede(submerged_volume);
 
         v_somme.z = -v_masse.z + v_archimede.z + v_frottement.z;
+        v_somme.y =  v_frottement.y;
 
         v_vitesse.z = v_vitesse.z + v_somme.z * delta;
+        v_vitesse.y = v_vitesse.y + v_somme.y * delta;
 
         if(z - radius > water->getLvlz()) // Dessus de l'eau
         {
+            v_frottement.y = 0;
             v_frottement.z = 0;
         }
         else // Dans l'eau
         {
             v_frottement.z = 6 * PI * radius * NU * (-v_vitesse.z);
+            v_frottement.y = 6 * PI * radius * 1 * (-v_vitesse.y);
 
             if(v_vitesse.z > 0)
                 came_from_water = true;
@@ -72,7 +75,6 @@ void Sphere::update(double delta_t)
             }
         }
 
-<<<<<<< HEAD
         //MAJ DES VALS EN INTERFACES
         if(count_water_jump >= 5)
         {
@@ -85,15 +87,9 @@ void Sphere::update(double delta_t)
                 old_val_rayon = default_val_rayon;
                 count_water_jump = 0;
             }
-=======
-        if(count_water_jump >= 3)
-        {
-            v_vitesse.z = 0;
->>>>>>> origin/dev
         }
-
         double futur_pos = z + (v_vitesse.z * delta);
-
+        double futur_pos_y = y + (v_vitesse.y * delta_t);
 
         if (came_from_water == true && futur_pos - radius > water->getLvlz())
         {
@@ -106,17 +102,14 @@ void Sphere::update(double delta_t)
             v_vitesse = 0;
         }*/
 
-        anim.setPos(Point(anim.getPos().x, anim.getPos().y, futur_pos));
+        anim.setPos(Point(anim.getPos().x, futur_pos_y, futur_pos));
         std::cout << "POS: " << z << "\tSUM: " << v_somme.z << "\tVIT: " << v_vitesse.z << "\tFROTT: " << v_frottement.z << "\tARCHI: " << v_archimede.z << "\tMASSE: " << v_masse.z << std::endl;
 
         if(futur_pos - radius < water->getDeepz())
         {
             anim.setPos(Point(anim.getPos().x, anim.getPos().y, radius + water->getDeepz())); // On met la sphère sur le sol.
-<<<<<<< HEAD
             v_vitesse.z = default_val_speed;
-=======
-            v_vitesse.z = SPEED_INIT;
->>>>>>> origin/dev
+
         }
 
         delta = 0;
@@ -180,10 +173,9 @@ void Sphere::render(void)
 
     glBegin(GL_LINE_LOOP);
     {
-        /*
         glColor3f(255,0,0);
         glVertex3d(0,0,0);
-        glVertex3d(v_archimede.x, v_archimede.z, v_archimede.z);*/
+        glVertex3d(v_somme.x/50, v_somme.y/50, v_somme.z/50);
 
         glColor3f(0,150,150);
         glVertex3d(0,0,0);
@@ -209,13 +201,9 @@ void Sphere::resetPosition(void)
 {
     anim.setPos(origin);
     v_masse.z = poid;
-<<<<<<< HEAD
     //v_vitesse = Vector(0,0,-SPEED_INIT);
-    v_vitesse = Vector(0,0,-default_val_speed / 1000);
+    v_vitesse = Vector(0,-SPEED_INIT_Y,-default_val_speed / 1000);
     radius = default_val_rayon / 100.0;
-=======
-    v_vitesse = Vector(0,0,-SPEED_INIT);
->>>>>>> origin/dev
     v_archimede = Vector(0, 0, 0);
     v_somme = Vector(0, 0, 0);
     v_frottement = Vector(0,0,0);

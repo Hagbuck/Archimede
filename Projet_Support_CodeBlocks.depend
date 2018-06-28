@@ -3258,7 +3258,7 @@
 	"geometry.h"
 	"animation.h"
 
-1529328629 D
+1530113006 D
 	<AntTweakBar.h>
 	<stdio.h>
 	<string>
@@ -3266,8 +3266,8 @@
 	"antIHM.h"
 	"geometry.h"
 	"forms.h"
+	"antIHM.h"
 
-<<<<<<< HEAD
 1530183011 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\animation.cpp
 	"animation.h"
 
@@ -3277,19 +3277,7 @@
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\geometry.h
 	<iostream>
 
-1530183129 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\forms.cpp
-=======
-1466443941 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\animation.cpp
-	"animation.h"
-
-1466443941 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\animation.h
-	"geometry.h"
-
-1466429544 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\geometry.h
-	<iostream>
-
-1530102574 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\forms.cpp
->>>>>>> origin/dev
+1530194808 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\forms.cpp
 	<cmath>
 	<SDL2/SDL_opengl.h>
 	<GL/GLU.h>
@@ -3297,46 +3285,110 @@
 	<cstdlib>
 	"sdlglutils.h"
 
-<<<<<<< HEAD
+1530173256 gin/dev
+	<cmath>
+	<SDL2/SDL_opengl.h>
+	<GL/GLU.h>
+	"forms.h"
+	<cstdlib>
+	"sdlglutils.h"
+	"SDL_config.h"
+	"gl_mangle.h"
+	<windows.h>
+	"SDL_opengl_glext.h"
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+	<windows.h>
+	<stddef.h>
+	<inttypes.h>
+	<inttypes.h>
+	<inttypes.h>
+	<stdint.h>
+	<stdint.h>
+	<inttypes.h>
+	<cmath>
+	<SDL2/SDL_opengl.h>
+	<GL/GLU.h>
+	"geometry.h"
+	"animation.h"
+	"sdlglutils.h"
+	<iostream>
+	<cmath>
+	<SDL2/SDL.h>
+	<SDL2/SDL_opengl.h>
+	<GL/GLU.h>
+	<AntTweakBar.h>
+	<stdio.h>
+	<string>
+	"main.h"
+	"antIHM.h"
+	<TrackBall.h>
+	"sdlglutils.h"
+	"geometry.h"
+	"forms.h"
+	"physic.h"
+	"sphere.h"
+	"water.h"
+	<stddef.h>
+	<string>
+	<string>
+	<sstream>
+	<string>
+	<iostream>
+	<string.h>
+	"TrackBall.h"
+	<SDL2/SDL.h>
+	<GL/GLU.h>
+	<SDL2/SDL_opengl.h>
+	<iostream>
+	"sdlglutils.h"
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+	<GL/glu.h>
+	<cstring>
+	<cstdlib>
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+	<cmath>
+	<SDL2/SDL_opengl.h>
+	<GL/GLU.h>
+	<iostream>
+	"forms.h"
+	"water.h"
+	"physic.h"
+	<cmath>
+	<SDL2/SDL_opengl.h>
+	<GL/GLU.h>
+	<iostream>
+	"forms.h"
+	"water.h"
+
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_opengl.h
-=======
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_opengl.h
->>>>>>> origin/dev
 	"SDL_config.h"
 	"gl_mangle.h"
 	<windows.h>
 	"SDL_opengl_glext.h"
 
-<<<<<<< HEAD
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_config.h
 	"SDL_platform.h"
 
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_platform.h
-=======
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_config.h
-	"SDL_platform.h"
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_platform.h
->>>>>>> origin/dev
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	<winapifamily.h>
 	"begin_code.h"
 	"close_code.h"
 
-<<<<<<< HEAD
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\begin_code.h
 
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\close_code.h
 
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_opengl_glext.h
-=======
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\begin_code.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\close_code.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_opengl_glext.h
->>>>>>> origin/dev
 	<windows.h>
 	<stddef.h>
 	<inttypes.h>
@@ -3346,11 +3398,7 @@
 	<stdint.h>
 	<inttypes.h>
 
-<<<<<<< HEAD
-1530183129 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\forms.h
-=======
-1530102701 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\forms.h
->>>>>>> origin/dev
+1530195115 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\forms.h
 	<cmath>
 	<SDL2/SDL_opengl.h>
 	<GL/GLU.h>
@@ -3358,19 +3406,11 @@
 	"animation.h"
 	"sdlglutils.h"
 
-<<<<<<< HEAD
 1530183011 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\geometry.cpp
 	<cmath>
 	"geometry.h"
 
-1530187483 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\first_prog.cpp
-=======
-1466445814 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\geometry.cpp
-	<cmath>
-	"geometry.h"
-
-1530102951 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\first_prog.cpp
->>>>>>> origin/dev
+1530194790 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\first_prog.cpp
 	<iostream>
 	<cmath>
 	<SDL2/SDL.h>
@@ -3644,7 +3684,6 @@
 	"begin_code.h"
 	"close_code.h"
 
-<<<<<<< HEAD
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
@@ -3721,24 +3760,8 @@
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
-=======
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl.h
-	<TrackBall.h>
-	"geometry.h"
-	"forms.h"
 
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_main.h
-
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_main.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_stdinc.h
-
-1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_stdinc.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_assert.h
->>>>>>> origin/dev
+1530183011 e.h"
 
 1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_config.h
 	"SDL_platform.h"
@@ -3756,7 +3779,6 @@
 
 1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_assert.h
 
-<<<<<<< HEAD
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_atomic.h
 	"SDL_stdinc.h"
 	"SDL_platform.h"
@@ -3906,69 +3928,6 @@
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
-=======
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_atomic.h
-
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_atomic.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_audio.h
-
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_audio.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_error.h
-
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_error.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_endian.h
-
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_endian.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_mutex.h
-
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_mutex.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_thread.h
-
-1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_thread.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_rwops.h
-
-1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_rwops.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_clipboard.h
-
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_clipboard.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_cpuinfo.h
-
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_cpuinfo.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_events.h
-
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_events.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_video.h
-
-1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_video.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_pixels.h
-
-1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_pixels.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_rect.h
-
-1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_rect.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_surface.h
-
-1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_surface.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_blendmode.h
-	"begin_code.h"
-	"close_code.h"
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_keyboard.h
->>>>>>> origin/dev
 
 1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_blendmode.h
 	"begin_code.h"
@@ -3976,7 +3935,6 @@
 
 1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_keyboard.h
 
-<<<<<<< HEAD
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
@@ -3990,16 +3948,6 @@
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
-=======
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_keycode.h
-	"SDL_stdinc.h"
-	"SDL_scancode.h"
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_scancode.h
-	"SDL_stdinc.h"
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_mouse.h
->>>>>>> origin/dev
 
 1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_keycode.h
 	"SDL_stdinc.h"
@@ -4010,7 +3958,6 @@
 
 1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_mouse.h
 
-<<<<<<< HEAD
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
@@ -4040,21 +3987,6 @@
 	"SDL_touch.h"
 	"begin_code.h"
 	"close_code.h"
-=======
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_joystick.h
-
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_joystick.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_gamecontroller.h
-
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_gamecontroller.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_quit.h
-	"SDL_stdinc.h"
-	"SDL_error.h"
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_gesture.h
->>>>>>> origin/dev
 
 1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_quit.h
 	"SDL_stdinc.h"
@@ -4062,7 +3994,6 @@
 
 1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_gesture.h
 
-<<<<<<< HEAD
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_touch.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
@@ -4160,85 +4091,21 @@
 1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_version.h
 
 1530183129 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\anttweakbar.h
-=======
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_touch.h
-
-1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_touch.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_filesystem.h
-
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_filesystem.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_haptic.h
-
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_haptic.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_hints.h
-
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_hints.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_loadso.h
-
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_loadso.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_log.h
-
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_log.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_messagebox.h
-
-1529328628 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_messagebox.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_power.h
-
-1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_power.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_render.h
-
-1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_render.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_system.h
-
-1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_system.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_timer.h
-
-1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_timer.h
-
-1451768294 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_version.h
-
-1529328629 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\sdl2\sdl_version.h
-
-1530101024 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\anttweakbar.h
->>>>>>> origin/dev
 	<stddef.h>
 	<string>
 	<string>
 
-<<<<<<< HEAD
-1530191328 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\antihm.cpp
+1530194696 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\antihm.cpp
 	"antIHM.h"
 	"main.h"
 
-1530191688 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\antihm.h
+1530195098 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\antihm.h
 	<AntTweakBar.h>
 	<stdio.h>
 	"main.h"
 	"physic.h"
 
-1530187557 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\main.h
-=======
-1530101024 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\antihm.cpp
-	"antIHM.h"
-	"main.h"
-
-1530101024 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\antihm.h
-	<AntTweakBar.h>
-	<stdio.h>
-	"main.h"
-
-1530101024 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\main.h
->>>>>>> origin/dev
+1530195131 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\main.h
 	<sstream>
 	<string>
 	<iostream>
@@ -4292,28 +4159,17 @@
 1530019949 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\trackball.h
 	<SDL2/SDL.h>
 
-<<<<<<< HEAD
 1530183129 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\trackball.h
 	<SDL2/SDL.h>
 
 1530183129 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\trackball.cpp
-=======
-1530101024 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\trackball.h
-	<SDL2/SDL.h>
-
-1530101024 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\trackball.cpp
->>>>>>> origin/dev
 	"TrackBall.h"
 	<SDL2/SDL.h>
 	<GL/GLU.h>
 	<SDL2/SDL_opengl.h>
 	<iostream>
 
-<<<<<<< HEAD
-1530183129 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\sdlglutils.cpp
-=======
-1530101024 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\sdlglutils.cpp
->>>>>>> origin/dev
+1530194947 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\sdlglutils.cpp
 	"sdlglutils.h"
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
@@ -4321,19 +4177,12 @@
 	<cstring>
 	<cstdlib>
 
-<<<<<<< HEAD
-1530183129 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdlglutils.h
+1530195189 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdlglutils.h
 	<GL/gl.h>
 	<SDL2/SDL.h>
+	<iostream>
 
 1530183011 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_image.h
-=======
-1530101024 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdlglutils.h
-	<GL/gl.h>
-	<SDL2/SDL.h>
-
-1451803974 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sdl2\sdl_image.h
->>>>>>> origin/dev
 	"SDL.h"
 	"SDL_version.h"
 	"begin_code.h"
@@ -4802,18 +4651,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-<<<<<<< HEAD
-1530190735 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\physic.h
+1530195156 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\physic.h
 	"forms.h"
 	<math.h>
 
-1530185994 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sphere.h
-=======
-1530100903 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\physic.h
-	"forms.h"
-
-1530100903 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sphere.h
->>>>>>> origin/dev
+1530195517 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\sphere.h
 	<cmath>
 	<SDL2/SDL_opengl.h>
 	<GL/GLU.h>
@@ -4821,38 +4663,23 @@
 	"forms.h"
 	"water.h"
 	"physic.h"
-<<<<<<< HEAD
 	"antIHM.h"
 
 1530183129 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\water.h
-=======
-
-1530100903 c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\include\water.h
->>>>>>> origin/dev
 	<cmath>
 	<SDL2/SDL_opengl.h>
 	<GL/GLU.h>
 	<iostream>
 	"forms.h"
 
-<<<<<<< HEAD
-1530191175 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\physic.cpp
+1530194870 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\physic.cpp
 	"physic.h"
 	"antIHM.h"
 
-1530189695 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\sphere.cpp
+1530195705 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\sphere.cpp
 	"sphere.h"
 
 1530183129 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\water.cpp
-=======
-1530100903 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\physic.cpp
-	"physic.h"
-
-1530100903 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\sphere.cpp
-	"sphere.h"
-
-1530100903 source:c:\users\kamiyami\desktop\projetcoo\projet_support_codeblocks\src\water.cpp
->>>>>>> origin/dev
 	"water.h"
 
 1530110725 c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\include\physic.h
@@ -4883,8 +4710,6 @@
 1530113006 source:c:\users\thibaud\documents\mes documents\codeblockprojects\tpintro\src\water.cpp
 	"water.h"
 
-<<<<<<< HEAD
-=======
 1530172984 source:c:\users\anthony.vuillemin\git\archimede\src\animation.cpp
 	"animation.h"
 
@@ -5345,4 +5170,3 @@
 1530173256 source:c:\users\anthony.vuillemin\git\archimede\src\water.cpp
 	"water.h"
 
->>>>>>> origin/dev

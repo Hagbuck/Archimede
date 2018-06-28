@@ -9,16 +9,14 @@
 #include "forms.h"
 #include "water.h"
 #include "physic.h"
-<<<<<<< HEAD
 #include "antIHM.h"
 
-=======
->>>>>>> origin/dev
 
 #define SPHERE_SLICES   10
 #define SPHERE_STACKS   10
 #define STEP_ANIM       0.01
 #define SPEED_INIT      0.01
+#define SPEED_INIT_Y    1
 #define DELTA_ERR       1
 
 class Sphere : public Form
@@ -36,11 +34,7 @@ private:
     double delta;
     int count_water_jump;
 public:
-<<<<<<< HEAD
     Sphere(Water* water_ptr, double r = RAYON_DEFAULT / 100, double p = 1.0, Point ori = Point(2,1.5,0), Color cl = Color());
-=======
-    Sphere(Water* water_ptr, double r = 1.0, double p = 1.0, Point ori = Point(2,1.5,0), Color cl = Color());
->>>>>>> origin/dev
     const double getRadius(void) {return radius;}
     void setRadius(double r) {radius = r;}
     void update(double delta_t);

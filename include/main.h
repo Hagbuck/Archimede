@@ -16,13 +16,10 @@ extern double default_val_speed;
 extern double default_val_densite ;
 extern  double default_val_rayon ;
 
-<<<<<<< HEAD
 extern double old_val_masse;
 extern double old_val_densite;
 extern double old_val_rayon;
 
-=======
->>>>>>> origin/dev
 extern TwBar * mainBar;
 extern TwBar * materialBar;
 
