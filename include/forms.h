@@ -1,9 +1,13 @@
 #ifndef FORMS_H_INCLUDED
 #define FORMS_H_INCLUDED
 
+#include <cmath>
+#include <SDL2/SDL_opengl.h>
+#include <GL/GLU.h>
+
 #include "geometry.h"
 #include "animation.h"
-
+#include "sdlglutils.h"
 
 class Color
 {
@@ -26,6 +30,9 @@ class Form
 protected:
     Color col;
     Animation anim;
+    GLuint texture;
+    bool textureToApply;
+    double opacity;
 public:
     Animation& getAnim() {return anim;}
     void setAnim(Animation ani) {anim = ani;}
@@ -36,24 +43,9 @@ public:
     virtual void update(double delta_t) = 0;
     // Virtual method : Form is a generic type, only setting color and reference position
     virtual void render();
+    virtual void setTextureBoolean(bool textureOn);
+    virtual void setOpacity(double opacityToApply);
 };
-
-
-// A particular Form
-class Sphere : public Form
-{
-private:
-    // The sphere center is aligned with the coordinate system origin
-    // => no center required here, information is stored in the anim object
-    double radius;
-public:
-    Sphere(double r = 1.0, Color cl = Color());
-    const double getRadius() {return radius;}
-    void setRadius(double r) {radius = r;}
-    void update(double delta_t);
-    void render();
-};
-
 
 // A face of a cube
 class Cube_face : public Form
@@ -67,6 +59,9 @@ public:
           Color cl = Color());
     void update(double delta_t);
     void render();
+    void setTexture(char * path);
+    Vector getVdir1(void);
+    Vector getVdir2(void);
 };
 
 #endif // FORMS_H_INCLUDED

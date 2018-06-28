@@ -4,11 +4,23 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
 #include <GL/GLU.h>
-
+#include <AntTweakBar.h>
+#include <stdio.h>
+#include <string>
+#include "main.h"
+#include "antIHM.h"
+#include <TrackBall.h>
+#include "sdlglutils.h"
 // Module for space geometry
 #include "geometry.h"
 // Module for generating and rendering forms
 #include "forms.h"
+
+#include "physic.h"
+
+#include "sphere.h"
+
+#include "water.h"
 
 
 using namespace std;
@@ -17,16 +29,30 @@ using namespace std;
 /***************************************************************************/
 /* Constants and functions declarations                                    */
 /***************************************************************************/
-// Screen dimension constants
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+
+//IHM VARS (IHM CONSERVE)
+double default_val_masse = MASSE_DEFAULT;
+double default_val_speed = SPEED_DEFAULT;
+double default_val_densite = DEFAULT_WATER_DENSITY;
+double default_val_rayon = RAYON_DEFAULT;
+//OLD VALUES (USE FOR MAJ BALL)
+double old_val_masse = MASSE_DEFAULT;
+double old_val_densite = DEFAULT_WATER_DENSITY;
+double old_val_rayon = RAYON_DEFAULT;
+
+double default_scroll_sensivity = 2.5;
+double default_mouse_sensitivity = 2.5;
+double default_translation_sensitivity = 1.5;
+
 
 // Max number of forms : static allocation
-const int MAX_FORMS_NUMBER = 10;
+const int MAX_FORMS_NUMBER = 100;
 
 // Animation actualization delay (in ms) => 100 updates per second
 const Uint32 ANIM_DELAY = 10;
 
+//Handle for the AntBar
+int handledAnt;
 
 // Starts up SDL, creates window, and initializes OpenGL
 bool init(SDL_Window** window, SDL_GLContext* context);
@@ -38,11 +64,15 @@ bool initGL();
 void update(Form* formlist[MAX_FORMS_NUMBER], double delta_t);
 
 // Renders scene to the screen
-const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos);
+const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, bool show_axes = true);
 
 // Frees media and shuts down SDL
 void close(SDL_Window** window);
 
+// Init AntTweakBar
+void init_AntTweakBar();
+
+TrackBall * camera;
 
 /***************************************************************************/
 /* Functions implementations                                               */
@@ -65,7 +95,7 @@ bool init(SDL_Window** window, SDL_GLContext* context)
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
         // Create window
-        *window = SDL_CreateWindow( "TP intro OpenGL / SDL 2", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN );
+        *window = SDL_CreateWindow( "Archimède Project", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN );
         if( *window == NULL )
         {
             cout << "Window could not be created! SDL Error: " << SDL_GetError() << endl;
@@ -137,6 +167,25 @@ bool initGL()
     }
 
     glEnable(GL_DEPTH_TEST);
+    glEnable ( GL_COLOR_MATERIAL ) ;
+
+   //TEST  LUMIERE INTERFACE
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+
+    double a=0;
+    //Position de la lumiere
+    int LightPos[4] = {2,-20,-10,0};
+    // ????
+    int MatSpec [4] = {1,1,1,1};
+    glMaterialiv(GL_FRONT_AND_BACK,GL_SPECULAR,MatSpec);
+    glMateriali(GL_FRONT_AND_BACK,GL_SHININESS,75);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    gluLookAt(0,6,6,0,0,0,0,1,0);
+    glRotated(a,0,1,0);
+    glLightiv(GL_LIGHT0,GL_POSITION,LightPos);
 
     return success;
 }
@@ -152,7 +201,7 @@ void update(Form* formlist[MAX_FORMS_NUMBER], double delta_t)
     }
 }
 
-const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos)
+const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos, bool show_axes)
 {
     // Clear color buffer and Z-Buffer
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -161,29 +210,30 @@ const void render(Form* formlist[MAX_FORMS_NUMBER], const Point &cam_pos)
     glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
 
-    // Set the camera position and parameters
-    gluLookAt(cam_pos.x,cam_pos.y,cam_pos.z, 0.0,0.0,0.0, 0.0,1.0,0.0);
-    // Isometric view
-    glRotated(-45, 0, 1, 0);
-    glRotated(30, 1, 0, -1);
+    camera->look();
 
-    // X, Y and Z axis
     glPushMatrix(); // Preserve the camera viewing point for further forms
-    // Render the coordinates system
-    glBegin(GL_LINES);
+
+    if(show_axes)
     {
-        glColor3f(1.0f, 0.0f, 0.0f);
-        glVertex3i(0, 0, 0);
-        glVertex3i(1, 0, 0);
-        glColor3f(0.0f, 1.0f, 0.0f);
-        glVertex3i(0, 0, 0);
-        glVertex3i(0, 1, 0);
-        glColor3f(0.0f, 0.0f, 1.0f);
-        glVertex3i(0, 0, 0);
-        glVertex3i(0, 0, 1);
+         // X, Y and Z axis
+        glPushMatrix(); // Preserve the camera viewing point for further forms
+        // Render the coordinates system
+        glBegin(GL_LINES);
+        {
+            glColor3f(1.0f, 0.0f, 0.0f);
+            glVertex3i(0, 0, 0);
+            glVertex3i(1, 0, 0);
+            glColor3f(0.0f, 1.0f, 0.0f);
+            glVertex3i(0, 0, 0);
+            glVertex3i(0, 1, 0);
+            glColor3f(0.0f, 0.0f, 1.0f);
+            glVertex3i(0, 0, 0);
+            glVertex3i(0, 0, 1);
+        }
+        glEnd();
+        glPopMatrix(); // Restore the camera viewing point for next object
     }
-    glEnd();
-    glPopMatrix(); // Restore the camera viewing point for next object
 
     // Render the list of forms
     unsigned short i = 0;
@@ -201,7 +251,7 @@ void close(SDL_Window** window)
     //Destroy window
     SDL_DestroyWindow(*window);
     *window = NULL;
-
+     delete camera;
     //Quit SDL subsystems
     SDL_Quit();
 }
@@ -226,6 +276,16 @@ int main(int argc, char* args[])
     }
     else
     {
+        //INIT ANT WINDOWS
+        if(!TwInit(TW_OPENGL, NULL))
+        {
+            printf("[ERROR] - Impossible d'initialiser l'IHM Ant.");
+            return false;
+        }
+        //DISPLAY IHMS
+        TwWindowSize(SCREEN_WIDTH,SCREEN_HEIGHT);
+        antIHM::buildAntIHM();
+        antIHM::buildAntSensitive();
         // Main loop flag
         bool quit = false;
         Uint32 current_time, previous_time, elapsed_time;
@@ -234,7 +294,9 @@ int main(int argc, char* args[])
         SDL_Event event;
 
         // Camera position
-        Point camera_position(0, 0.0, 5.0);
+        camera = new TrackBall();
+        camera->setScrollSensivity(0.2);
+        camera->setMotionSensivity(0.5);
 
         // The forms to render
         Form* forms_list[MAX_FORMS_NUMBER];
@@ -243,11 +305,143 @@ int main(int argc, char* args[])
         {
             forms_list[i] = NULL;
         }
-        // Create here specific forms and add them to the list...
-        // Don't forget to update the actual number_of_forms !
-        Cube_face *pfirst_face = NULL;
-        pfirst_face = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(-0.5, -0.5, -0.5));
-        forms_list[number_of_forms] = pfirst_face;
+
+        char * pathToTextureHerbe = "img/herbe.jpg";
+        char * pathToTextureTerre = "img/terre.jpg";
+
+
+
+        Water* water = new Water();
+
+        Sphere* sp = NULL;
+        sp = new Sphere(water, RAYON_DEFAULT / 100.0, MASSE_DEFAULT, Point(2,1.5,2));
+        forms_list[number_of_forms] = sp;
+        number_of_forms++;
+
+
+
+
+        //surface
+        Cube_face *ground_zero = NULL;
+        Cube_face *ground_two = NULL;
+        Cube_face *ground_three = NULL;
+
+        //profondeur
+        Cube_face *prof_zero = NULL;
+        Cube_face *prof_one = NULL;
+        Cube_face *prof_two = NULL;
+        Cube_face *prof_three = NULL;
+        Cube_face *prof_four = NULL;
+        Cube_face *prof_five = NULL;
+        Cube_face *prof_six = NULL;
+        Cube_face *prof_seven = NULL;
+        Cube_face *prof_eight = NULL;
+
+        //fond
+        Cube_face *fond_zero = NULL;
+        Cube_face *fond_one = NULL;
+
+        //Test
+        Cube_face *water_surface = NULL;
+        Cube_face *water_coupe = NULL;
+
+
+        const double LARGEUR_SCENE = 4.0;
+        const double LONGUEUR_SCENE = 3;
+        const double PROFONDEUR_SCENE = 3;
+
+        const double LARGEUR_BORD_SURFACE = 0.5;
+        const double LONGUEUR_BORD_SURFACE = 1;
+
+        const double PROFONDEUR_BASSIN = 2.5;
+
+
+
+
+
+        //Surface
+        ground_zero = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0,0,0),0.5,3,GREEN);
+        ground_two = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(3.5,0,0),0.5,3,GREEN);
+        ground_three = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0.5,2,0),3,1,GREEN);
+
+
+        // Profondeur
+        prof_zero = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(0,0,0),3,3,Color(0.6,0.4,0));
+        prof_one = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(4,0,0),3,3,Color(0.6,0.4,0));
+        prof_two = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0,3,0),4,3,Color(0.6,0.4,0));
+        prof_three = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0.5,2,0),3,2.5,BLUE);
+        prof_four = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(0.5,0,0),2,2.5,BLUE);
+        prof_five = new Cube_face(Vector(0,1,0), Vector(0,0,-1), Point(3.5,0,0),2,2.5,BLUE);
+        prof_six = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0,0,0),0.5,3,Color(0.6,0.4,0));
+        prof_seven = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(3.5,0,0),0.5,3,Color(0.6,0.4,0));
+        prof_eight = new Cube_face(Vector(1,0,0), Vector(0,0,1), Point(0.5,0,-3),3,0.5,Color(0.6,0.4,0));
+
+        //fond
+        fond_zero = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0,0,-3),4,3,Color(0,0.4,0.4));
+        fond_one = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0.5,0,-2.5),3,3,Color(0,0.4,0.4));
+
+
+
+        water_surface = new Cube_face(Vector(1,0,0), Vector(0,1,0), Point(0.5,0,0),3,2,BLUE);
+        water_surface->setTextureBoolean(false);
+
+        water_coupe = new Cube_face(Vector(1,0,0), Vector(0,0,-1), Point(0.5,0,0),3,2.5,BLUE);
+        water_coupe->setTextureBoolean(false);
+
+
+        ground_zero->setTexture(pathToTextureHerbe);
+        ground_two->setTexture(pathToTextureHerbe);
+        ground_three->setTexture(pathToTextureHerbe);
+
+
+        prof_zero->setTexture(pathToTextureTerre);
+        prof_one->setTexture(pathToTextureTerre);
+        prof_two->setTexture(pathToTextureTerre);
+
+        prof_three->setTexture(pathToTextureTerre);
+        prof_four->setTexture(pathToTextureTerre);
+        prof_five->setTexture(pathToTextureTerre);
+        prof_six->setTexture(pathToTextureTerre);
+        prof_seven->setTexture(pathToTextureTerre);
+        prof_eight->setTexture(pathToTextureTerre);
+
+        fond_zero->setTexture(pathToTextureTerre);
+        fond_one->setTexture(pathToTextureTerre);
+
+
+        forms_list[number_of_forms] = ground_zero;
+        number_of_forms++;
+        forms_list[number_of_forms] = ground_two;
+        number_of_forms++;
+        forms_list[number_of_forms] = ground_three;
+        number_of_forms++;
+
+
+        forms_list[number_of_forms] = prof_zero;
+        number_of_forms++;
+        forms_list[number_of_forms] = prof_one;
+        number_of_forms++;
+        forms_list[number_of_forms] = prof_two;
+        number_of_forms++;
+        forms_list[number_of_forms] = prof_three;
+        number_of_forms++;
+        forms_list[number_of_forms] = prof_four;
+        number_of_forms++;
+        forms_list[number_of_forms] = prof_five;
+        number_of_forms++;
+        forms_list[number_of_forms] = prof_six;
+        number_of_forms++;
+        forms_list[number_of_forms] = prof_seven;
+        number_of_forms++;
+        forms_list[number_of_forms] = prof_eight;
+        number_of_forms++;
+        forms_list[number_of_forms] = fond_zero;
+        number_of_forms++;
+        forms_list[number_of_forms] = fond_one;
+        number_of_forms++;
+        forms_list[number_of_forms] = water_surface;
+        number_of_forms++;
+        forms_list[number_of_forms] = water_coupe;
         number_of_forms++;
 
         // Get first "current time"
@@ -255,36 +449,61 @@ int main(int argc, char* args[])
         // While application is running
         while(!quit)
         {
-            // Handle events on queue
-            while(SDL_PollEvent(&event) != 0)
+            while(SDL_PollEvent(&event) ) //!=0
             {
                 int x = 0, y = 0;
                 SDL_Keycode key_pressed = event.key.keysym.sym;
 
-                switch(event.type)
-                {
-                // User requests quit
-                case SDL_QUIT:
-                    quit = true;
-                    break;
-                case SDL_KEYDOWN:
-                    // Handle key pressed with current mouse position
-                    SDL_GetMouseState( &x, &y );
+                // send event to AntTweakBar
+                handledAnt = TwEventSDL(&event ,SDL_MAJOR_VERSION, SDL_MINOR_VERSION);
 
-                    switch(key_pressed)
+                if( ! handledAnt ) // !handledAnt // if event has not been handled by AntTweakBar, process it
+                {
+
+                    switch(event.type)
                     {
-                    // Quit the program when 'q' or Escape keys are pressed
-                    case SDLK_q:
+                    // User requests quit
+                    case SDL_QUIT:
+                        quit = true;
+                        break;
                     case SDLK_ESCAPE:
                         quit = true;
                         break;
 
-                    default:
+                    case SDL_MOUSEMOTION:
+                            camera->OnMouseMotion(event.motion);
+                            break;
+
+                    case SDL_MOUSEBUTTONUP:
+                    case SDL_MOUSEBUTTONDOWN:
+                        camera->OnMouseButton(event.button);
                         break;
+
+                    case SDL_MOUSEWHEEL:
+                        camera->OnMouseScroll(event.wheel);
+                        break;
+
+                    case SDL_KEYDOWN:
+                    // Handle key pressed with current mouse position
+                        SDL_GetMouseState( &x, &y );
+                        switch(key_pressed)
+                        {
+                            case SDLK_q:
+                            case SDLK_ESCAPE:
+                                quit = true;
+                                break;
+                            case SDLK_SPACE:
+                            // On reset la position de la sphère
+                            sp->resetPosition();
+                            break;
+                            case SDLK_x:
+                                camera->OnKeyboard(event.key);
+                                break;
+                            default:
+                                break;
+                        }
                     }
-                    break;
-                default:
-                    break;
+
                 }
             }
 
@@ -298,14 +517,20 @@ int main(int argc, char* args[])
             }
 
             // Render the scene
-            render(forms_list, camera_position);
+            Point camera_position(0,0,4);
+            render(forms_list, camera_position, false);
+
+            // /!\ DON'T MOVE IT
+            TwDraw();
 
             // Update window screen
             SDL_GL_SwapWindow(gWindow);
         }
+        //delete sp;
     }
 
     // Free resources and close SDL
+    TwTerminate();
     close(&gWindow);
 
     return 0;

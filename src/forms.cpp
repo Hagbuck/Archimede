@@ -2,10 +2,21 @@
 #include <SDL2/SDL_opengl.h>
 #include <GL/GLU.h>
 #include "forms.h"
-
+#include <cstdlib>
+#include "sdlglutils.h"
 
 using namespace std;
 
+void Form::setTextureBoolean(bool textureOn)
+{
+    textureToApply = textureOn;
+
+}
+
+void Form::setOpacity(double opacityToApply)
+{
+    opacity = opacityToApply;
+}
 
 void Form::update(double delta_t)
 {
@@ -15,38 +26,19 @@ void Form::update(double delta_t)
 
 void Form::render()
 {
-    // Point of view for rendering
-    // Common for all Forms
     Point org = anim.getPos();
     glTranslated(org.x, org.y, org.z);
-    glColor3f(col.r, col.g, col.b);
+    glColor3f(1, 1, 1);
+
+    glEnable(GL_ALPHA_TEST);
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D,  texture);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    //glColor3f(col.r, col.g, col.b);
+
 }
-
-
-Sphere::Sphere(double r, Color cl)
-{
-    radius = r;
-    col = cl;
-}
-
-
-void Sphere::update(double delta_t)
-{
-    // Complete this part
-}
-
-
-void Sphere::render()
-{
-    GLUquadric *quad;
-
-    quad = gluNewQuadric();
-
-    // Complete this part
-
-    gluDeleteQuadric(quad);
-}
-
 
 Cube_face::Cube_face(Vector v1, Vector v2, Point org, double l, double w, Color cl)
 {
@@ -56,6 +48,7 @@ Cube_face::Cube_face(Vector v1, Vector v2, Point org, double l, double w, Color 
     length = l;
     width = w;
     col = cl;
+    textureToApply = true;
 }
 
 
@@ -64,9 +57,15 @@ void Cube_face::update(double delta_t)
     // Do nothing, no physics associated to a Cube_face
 }
 
+void Cube_face::setTexture(char * path)
+{
+    texture = loadTexture(path);
+}
+
 
 void Cube_face::render()
 {
+    glPushMatrix();
     Point p1 = Point();
     Point p2 = p1, p3, p4 = p1;
     p2.translate(length*vdir1);
@@ -75,16 +74,45 @@ void Cube_face::render()
     p4.translate(width*vdir2);
 
     Form::render();
-    glBegin(GL_QUADS);
+
+    if(textureToApply)
     {
-        glColor3f(1,1,0);
-        glVertex3d(p1.x, p1.y, p1.z);
-        glColor3f(0,1,1);
-        glVertex3d(p2.x, p2.y, p2.z);
-        glColor3f(1,0,1);
-        glVertex3d(p3.x, p3.y, p3.z);
-        glColor3f(0,1,0);
-        glVertex3d(p4.x, p4.y, p4.z);
+        glBegin(GL_QUADS);
+        {
+            //glColor3f(col.r,col.g,col.b);
+            glTexCoord2d(0,length);
+            glVertex3d(p1.x, p1.y, p1.z);
+            glTexCoord2d(0,0);
+            glVertex3d(p2.x, p2.y, p2.z);
+            glTexCoord2d(width,0);
+            glVertex3d(p3.x, p3.y, p3.z);
+            glTexCoord2d(width,length);
+            glVertex3d(p4.x, p4.y, p4.z);
+        }
+        glEnd();
     }
-    glEnd();
+    else
+    {
+        glBegin(GL_QUADS);
+        {
+            glColor4f(col.r,col.g,col.b,0.5);
+            glVertex3d(p1.x, p1.y, p1.z);
+            glVertex3d(p2.x, p2.y, p2.z);
+            glVertex3d(p3.x, p3.y, p3.z);
+            glVertex3d(p4.x, p4.y, p4.z);
+        }
+        glEnd();
+    }
+    glPopMatrix();
+
+}
+
+Vector Cube_face::getVdir1(void)
+{
+    return vdir1;
+}
+
+Vector Cube_face::getVdir2(void)
+{
+    return vdir2;
 }
