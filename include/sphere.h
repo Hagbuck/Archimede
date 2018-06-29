@@ -6,11 +6,11 @@
 #include <GL/GLU.h>
 #include <iostream>
 
+
 #include "forms.h"
 #include "water.h"
 #include "physic.h"
 #include "antIHM.h"
-
 
 #define SPHERE_SLICES   10
 #define SPHERE_STACKS   10

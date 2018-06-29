@@ -47,9 +47,11 @@ double default_translation_sensitivity = 1.5;
 double ralenti = 1;
 
 
-SDL_Surface* terre_text = loadTexture("img/herbe.jpg");
-SDL_Surface* herbe_text = loadTexture("img/terre.jpg");
+SDL_Surface* herbe_text = loadTexture("img/herbe.jpg");
+SDL_Surface* terre_text = loadTexture("img/terre.jpg");
 SDL_Surface* wood_text = loadTexture("img/wood.jpg");
+SDL_Surface* metal_text = loadTexture("img/metal.jpg");
+SDL_Surface* pvc_text = loadTexture("img/pvc.jpg");
 
 Sphere* sp = NULL;
 

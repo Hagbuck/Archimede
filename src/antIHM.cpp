@@ -1,8 +1,10 @@
-#include "antIHM.h"
+
 #include "main.h"
+#include "sphere.h"
 
 TwBar *  mainBar =  TwNewBar("~ Archimède - Menu ~");
 TwBar *  sensitiveBar =  TwNewBar("~ Archimède - Sensibilité ~");
+extern Sphere * sp;
 
 //LABEL PERS
 stringstream stream_vitesse; char * string_vitesse;
@@ -176,15 +178,18 @@ void initSS(void) {
 void TW_CALL antIHM::makeBois(void * client)
 {
     default_val_rayon = calcul_new_rayon(default_val_masse,WOOD_MASS_VOL);
+    sp->setTexture(wood_text);
 }
 
 void TW_CALL antIHM::makeMetal(void * client)
 {
     default_val_rayon = calcul_new_rayon(default_val_masse,FER_MASS_VOL);
+    sp->setTexture(metal_text);
 }
 
 void TW_CALL antIHM::makePlastic(void * client)
 {
     default_val_rayon = calcul_new_rayon(default_val_masse,PVC_MASS_VOL);
+    sp->setTexture(pvc_text);
 }
 
