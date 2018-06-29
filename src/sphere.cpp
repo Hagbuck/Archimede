@@ -194,19 +194,23 @@ void Sphere::render(void)
 
     gluDeleteQuadric(quad);
 
-/*
-    glBegin(GL_LINE_LOOP);
+    if(displayVect == true)
     {
-        glColor3f(255,0,0);
-        glVertex3d(0,0,0);
-        glVertex3d(v_somme.x/50, v_somme.y/50, v_somme.z/50);
+        glBegin(GL_LINE_LOOP);
+        {
+            glColor3f(255,0,0);
+            glVertex3d(0,0,0);
+            glVertex3d(v_somme.x/50, v_somme.y/50, v_somme.z/50);
 
-        glColor3f(0,150,150);
-        glVertex3d(0,0,0);
-        glVertex3d(v_vitesse.x, v_vitesse.y, v_vitesse.z);
-        //glVertex3d(0, - (v_vitesse.z + v_masse.z)*20, 0);
+            glColor3f(0,150,150);
+            glVertex3d(0,0,0);
+            glVertex3d(v_vitesse.x, v_vitesse.y, v_vitesse.z);
+            //glVertex3d(0, - (v_vitesse.z + v_masse.z)*20, 0);
+        }
+        glEnd();
     }
-    glEnd();*/
+
+
 
     glPopMatrix();
 }

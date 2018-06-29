@@ -75,6 +75,7 @@ class antIHM
         static void TW_CALL makeBois(void * client);
         static void TW_CALL makeMetal(void * client);
         static void TW_CALL makePlastic(void * client);
+        static void TW_CALL changeVectDisplay(void * client);
         static void buildLabel();
         //VARS
 

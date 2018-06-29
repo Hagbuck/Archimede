@@ -1,6 +1,6 @@
 // Screen dimension constants
-#define SCREEN_WIDTH 1280
-#define SCREEN_HEIGHT 720
+#define SCREEN_WIDTH 1440
+#define SCREEN_HEIGHT 820
 
 #include <sstream>
 #include <string>
@@ -36,5 +36,7 @@ extern SDL_Surface* terre_text ;
 extern SDL_Surface* wood_text ;
 extern SDL_Surface* metal_text;
 extern SDL_Surface* pvc_text;
+
+extern bool displayVect;
 
 using namespace std;

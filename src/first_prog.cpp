@@ -45,6 +45,8 @@ double default_mouse_sensitivity = 2.5;
 double default_translation_sensitivity = 1.5;
 //RALENTIT
 double ralenti = 1;
+//VECTEUR AFFICHAGE
+bool displayVect = false;
 
 
 SDL_Surface* herbe_text = loadTexture("img/herbe.jpg");

@@ -114,7 +114,9 @@ void antIHM::buildAntIHM()
 {
     buildLabel();
 
-    mainBar =  TwNewBar("~ Archimède - Menu ~");
+    mainBar =  TwNewBar("mainBar");
+    TwDefine("mainBar label='~ Archimède - Menu ~' position='50 40' size='200 250'");
+
     //DESIGN
     TwDefine(" GLOBAL help='Ce projet est une simulation 3D simplifié de la poussée d'Archimède. \n ");
 
@@ -142,24 +144,26 @@ void antIHM::buildAntIHM()
     TwAddButton(mainBar, "Bois", makeBois, NULL, string_wood);
     TwAddButton(mainBar, "Metal", makeMetal, NULL, string_metal);
     TwAddButton(mainBar, "Plastique", makePlastic, NULL, string_plastique);
-
-    //RALENTI
-    TwAddButton(mainBar, "blank4", NULL, NULL, " label=' ' ");
-    TwAddButton(mainBar, "Régler le ralenti", NULL, NULL, "label='Régler le ralenti' ");
-    TwAddVarRW(mainBar, "Ralenti : ", TW_TYPE_DOUBLE, &ralenti,"label='Ralenti' min=0.1 max=1 step=0.1 keyIncr=r keyDecr=f help='Modifier la vitesse d'affichage.");
-
 }
 
 void antIHM::buildAntSensitive()
 {
     //CREATION DES STRINGS
     sensitiveBar = TwNewBar("sensibi");
-    TwDefine("sensibi label='~ Sensibilité ~' position='1000 40' size='200 150'");
+    TwDefine("sensibi label='~ Paramètrage ~' position='1000 40' size='200 180'");
 
     TwAddVarRW(sensitiveBar, "Scroll : ", TW_TYPE_DOUBLE, &default_scroll_sensivity,string_scroll);
     TwAddVarRW(sensitiveBar, "Mouse : ", TW_TYPE_DOUBLE, &default_mouse_sensitivity,string_mouse);
     TwAddVarRW(sensitiveBar, "Translation : ", TW_TYPE_DOUBLE, &default_translation_sensitivity,string_translation);
 
+    //RALENTI
+    TwAddButton(sensitiveBar, "blank4", NULL, NULL, " label=' ' ");
+    TwAddButton(sensitiveBar, "Régler le ralenti", NULL, NULL, "label='Régler le ralenti' ");
+    TwAddVarRW(sensitiveBar, "Vitesse : ", TW_TYPE_DOUBLE, &ralenti,"label='Vitesse' min=0.1 max=1 step=0.1 keyIncr=e keyDecr=d help='Modifier la vitesse d'affichage.");
+
+    TwAddButton(sensitiveBar, "blank5", NULL, NULL, " label=' ' ");
+    TwAddButton(sensitiveBar, "Affichage Vecteurs", NULL, NULL, "label='Affichage Vecteurs' ");
+    TwAddButton(sensitiveBar, "Activer/Desactiver", changeVectDisplay, NULL, "label='Activer/Desactiver' key=w help='Active/Désactive l affichage des vecteurs.' ");
 }
 
 
@@ -191,5 +195,13 @@ void TW_CALL antIHM::makePlastic(void * client)
 {
     default_val_rayon = calcul_new_rayon(default_val_masse,PVC_MASS_VOL);
     sp->setTexture(pvc_text);
+}
+
+void TW_CALL antIHM::changeVectDisplay(void * client)
+{
+    if(displayVect == true)
+        displayVect = false;
+    else
+        displayVect = true;
 }
 
